@@ -1,0 +1,10 @@
+﻿@model IEnumerable<ACKCMS.Models.CMS_ARTICULO>
+
+@{
+    ViewBag.Title = "Categoria";
+}
+
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("Art", "Home", new { id = item.ID_ARTICULO })" class="btn btn-success">@item.TITULO</a>
+}

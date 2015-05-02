@@ -1,0 +1,365 @@
+﻿@{
+    ViewBag.Title = "XV Jornadas Fitosanitarias Argentinas";
+}
+
+<style type="text/css">
+    * {margin:0;padding:0}
+
+body {
+  background-color:#111;
+  /*padding:50px;*/
+}
+
+/* Slider */
+#slider {
+  display:block;
+  border:4px solid #000;
+  width:448px; /* slider width */
+  height:286px;; /* slider height */
+  margin:0 auto;
+  background:white url('http://reader-download.googlecode.com/svn/trunk/images/nivo-loading.gif') no-repeat 50% 50%;
+  overflow:hidden;
+  position:relative;
+}
+
+/* For caption */
+#slider figcaption {
+  display:block;
+  background-color:black;
+  font:normal normal 11px Arial,Sans-Serif;
+  color:white;
+  opacity:.8;
+  padding:10px 15px;
+  position:absolute;
+  right:0;
+  bottom:-100px; /* hide the caption with this way :) */
+  left:0;
+  z-index:44;
+}
+
+#slider img {
+  display:block;
+  margin:0 0;
+  width:448px; /* slide width */
+  height:286px; /* slide height */
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+/* Navigation */
+#slider-nav {
+  display:block;
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:99;
+}
+
+#slider-nav a {
+  display:block;
+  float:left;
+  width:10px;
+  height:10px;
+  background-color:#111;
+  font-size:0;
+  color:transparent;
+  overflow:hidden;
+  text-indent:-99px;
+  margin:0 2px 0 0;
+  border:2px solid white;
+  border-radius:100%;
+  box-shadow:0 1px 2px rgba(0,0,0,.4);
+}
+
+#slider-nav .active {
+  background-color:#2589B4;
+}
+
+/* Hide all element inside the '#slider' until the page has been loaded! */
+#slider .container, #slider figcaption {display:none}
+#slider-nav {opacity:0}
+</style>
+
+
+
+<!-- Section Two -->
+@*<div class="wrapper style3">
+    <section class="container">
+        <img src="images/banner3.PNG" style="width: 100%;">
+    </section>
+</div>*@
+
+<div class="wrapper style2">
+    <section class="container">
+        <div class="row double">
+            <div class="6u">
+                <figure id="slider">
+                    <div class="container">
+                        <img src="@Url.Content("~/Content/Imagenes/Slider/A.jpg")" alt="UNL - Facultad de Ciencias Agrarias">
+                        <img src="@Url.Content("~/Content/Imagenes/Slider/B.jpg")" alt="UNL - Rectorado">
+                        <img src="@Url.Content("~/Content/Imagenes/Slider/C.jpg")" alt="UNL - Rectorado">
+                        <img src="@Url.Content("~/Content/Imagenes/Slider/D.jpg")" alt="UNL - Facultad de Ciencias Agrarias">
+                        <img src="@Url.Content("~/Content/Imagenes/Slider/E.jpg")" alt="">
+                        <img src="@Url.Content("~/Content/Imagenes/Slider/F.jpg")" alt="">
+                        <img src="@Url.Content("~/Content/Imagenes/Slider/G.jpg")" alt="">
+                    </div>
+                    <figcaption></figcaption> <!-- slideshow caption -->
+                    <nav id="slider-nav"></nav> <!-- navigation -->
+                </figure>
+                <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+            </div>
+            <div class="6u">
+                <h3>Bienvenidos...</h3>
+                <p>A la web desarrollada para las XV Jornadas Fitosanitarias Argentina, que se desarrollarán del 7 al 9 de octubre de 2015 en la ciudad de Santa Fe.</p>
+                <p>PARANINFO - UNL - Bv. Pellegrini 2750 - Santa Fe; Acreditaciones, acto de apertura y conferencia inaugural.</p>
+                <p>Estación Belgrano - Bv. Gálvez 1150 - Santa Fe; Desarrollo de las jornadas: Paneles, conferencias, mesas redondas, III Taller de Fitopatólogos de Maíz y Asamblea AAF</p>
+                <br />
+                <a href="@Url.Action("Acreditacion", "Home")" class="button">Acreditación</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Section Three -->
+@*<div class="wrapper style4">
+        <section class="container">
+            <header class="major">
+                <h2>Acá podríamos poner algo</h2>
+                <span class="byline">pulvinar mollis. Vestibulum sem magna, elementum vestibulum arcu.</span>
+            </header>
+            <div class="row flush">
+                <div class="4u">
+                    <ul class="special-icons">
+                        <li>
+                            <span class="fa fa-cogs"></span>
+                            <h3>Nulla luctus eleifend</h3>
+                            <p>In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula pellentesque.</p>
+                        </li>
+                        <li>
+                            <span class="fa fa-wrench"></span>
+                            <h3>Etiam posuere augue</h3>
+                            <p>Maecenas ligula. Pellentesque viverra vulputate enim. Aliquam erat volutpat liguala.</p>
+                        </li>
+                        <li>
+                            <span class="fa fa-leaf"></span>
+                            <h3>Fusce ultrices fringilla</h3>
+                            <p>Maecenas pede nisl, elementum eu, ornare ac, malesuada at, erat. Proin gravida orci porttitor.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="4u">
+                    <ul class="special-icons">
+                        <li>
+                            <span class="fa fa-cogs"></span>
+                            <h3>Nulla luctus eleifend</h3>
+                            <p>In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula pellentesque.</p>
+                        </li>
+                        <li>
+                            <span class="fa fa-wrench"></span>
+                            <h3>Etiam posuere augue</h3>
+                            <p>Maecenas ligula. Pellentesque viverra vulputate enim. Aliquam erat volutpat liguala.</p>
+                        </li>
+                        <li>
+                            <span class="fa fa-leaf"></span>
+                            <h3>Fusce ultrices fringilla</h3>
+                            <p>Maecenas pede nisl, elementum eu, ornare ac, malesuada at, erat. Proin gravida orci porttitor.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="4u">
+                    <ul class="special-icons">
+                        <li>
+                            <span class="fa fa-cogs"></span>
+                            <h3>Nulla luctus eleifend</h3>
+                            <p>In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula pellentesque.</p>
+                        </li>
+                        <li>
+                            <span class="fa fa-wrench"></span>
+                            <h3>Etiam posuere augue</h3>
+                            <p>Maecenas ligula. Pellentesque viverra vulputate enim. Aliquam erat volutpat liguala.</p>
+                        </li>
+                        <li>
+                            <span class="fa fa-leaf"></span>
+                            <h3>Fusce ultrices fringilla</h3>
+                            <p>Maecenas pede nisl, elementum eu, ornare ac, malesuada at, erat. Proin gravida orci porttitor.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>*@
+
+<!-- Team -->
+@*<div class="wrapper style5">
+    <section id="team" class="container">
+        <header class="major">
+            <h2>Disertantes y Oradores</h2>
+            <span class="byline">Este espacio se puede usar para cualquier otro fin</span>
+        </header>
+        <div class="row">
+            <div class="3u">
+                <a href="#" class="image"><img src="images/marsillon.jpg" style="width: 200px;height: 200px;" alt=""></a>
+                <h3>Margarita Sillón</h3>
+                <p>In posuere eleifend odio quisque semper augue wisi ligula.</p>
+            </div>
+            <div class="3u">
+                <a href="#" class="image"><img src="images/marsillon.jpg" style="width: 200px;height: 200px;" alt=""></a>
+                <h3>Margarita Sillón</h3>
+                <p>In posuere eleifend odio quisque semper augue wisi ligula.</p>
+            </div>
+            <div class="3u">
+                <a href="#" class="image"><img src="images/marsillon.jpg" style="width: 200px;height: 200px;" alt=""></a>
+                <h3>Margarita Sillón</h3>
+                <p>In posuere eleifend odio quisque semper augue wisi ligula.</p>
+            </div>
+            <div class="3u">
+                <a href="#" class="image"><img src="images/marsillon.jpg" style="width: 200px;height: 200px;" alt=""></a>
+                <h3>Margarita Sillón</h3>
+                <p>In posuere eleifend odio quisque semper augue wisi ligula.</p>
+            </div>
+        </div>
+    </section>
+</div>*@
+
+
+
+@section Scripts
+{
+    <script type="text/javascript">
+        /**
+ * NIVO SLIDER LIKE EFFECT SLIDESHOW BY TAUFIK NURROHMAN
+ * URL: https://plus.google.com/108949996304093815163/about
+ * Based on this slideshow framework: http://www.dte.web.id/2012/09/simple-useful-jquery-slideshow.html
+ */
+
+        (function ($) {
+
+            // ==================================================================================
+            // Configuration here:
+            // ----------------------------------------------------------------------------------
+            var config = {
+                slices: 10, // number of slices
+                speed: 600, // slideshow speed
+                easing: null, // easing type
+                interval: 3000 // slideshow interval
+            };
+            // ==================================================================================
+
+            // Some variables...
+            var $slider = $('#slider'),
+                $caption = $slider.find('figcaption'),
+                $container = $slider.find('.container'),
+                $nav = $('#slider-nav'),
+                $slide = $container.children(),
+                autoSlide = null,
+                $first = $slide.first();
+
+            // Auto append navigation item based on the slides length
+            $slide.each(function (index) {
+                var i = index + 1;
+                $nav.append('<a href="#slide-' + i + '">' + i + '</a>');
+                $(this).attr('id', 'slide-' + i);
+            });
+
+            // Set the slices size
+            var slice_w = $slider.width() / config.slices,
+                slice_h = $slider.height();
+
+            // Build the slices
+            for (var i = 0; i < config.slices; i++) {
+                $('<div class="slice" />').css({
+                    'position': 'absolute',
+                    'width': slice_w,
+                    'height': slice_h,
+                    'left': slice_w * i,
+                    'z-index': 4,
+                    'background-color': 'transparent',
+                    'background-repeat': 'no-repeat',
+                    'background-position': '-' + slice_w * i + 'px 0'
+                }).appendTo($slider);
+            }
+
+            // Catch the slices, and also set the different position between odd and even slices
+            var $sliceOdd = $slider.find('.slice:odd').css('bottom', 0),
+                $sliceEven = $slider.find('.slice:even').css('top', 0);
+
+            // Click to switch!
+            $nav.find('a').on("click", function () {
+
+                $nav.find('.active').removeClass('active');
+                $(this).addClass('active');
+
+                var pos = $(this).index(),
+                    text = $slide.eq(pos).attr('alt'),
+                    bg = $slide.eq(pos).attr('src');
+
+                $slide.hide().eq(pos).trigger("load").show();
+
+                // Do the caption and slices animation here!
+                $caption.stop().animate({ bottom: '-100px' }, config.speed / 2);
+
+                $sliceOdd.each(function (i) {
+                    $(this).stop().delay(i * 100).animate({ bottom: '-' + slice_h + 'px', opacity: 0 }, config.speed, config.easing, function () {
+                        $(this).css({
+                            'background-image': 'url(' + bg + ')',
+                            'bottom': 0,
+                            'opacity': 1
+                        });
+                    });
+                });
+                $sliceEven.each(function (i) {
+                    $(this).stop().delay(i * 100).animate({ top: '-' + slice_h + 'px', opacity: 0 }, config.speed, config.easing, function () {
+                        $(this).css({
+                            'background-image': 'url(' + bg + ')',
+                            'top': 0,
+                            'opacity': 1
+                        });
+                    });
+                }).promise().done(function () {
+                    $caption.html(text).stop().animate({ bottom: '0' }, config.speed / 2);
+                });
+
+                clearInterval(autoSlide);
+                autoSlide = setInterval(slideShow, config.interval);
+
+                return false;
+
+            }).first().addClass('active');
+
+            // Init slideshow
+            $caption.html($slide.first().attr('alt')).stop().animate({ bottom: '0' }, config.speed);
+
+            // Navigation clicker
+            function slideShow() {
+                if ($nav.find('.active').next().length) {
+                    $nav.find('.active').next().trigger("click");
+                } else {
+                    $nav.find('a').first().trigger("click");
+                }
+            }
+
+            // Run the slideshow on page load...
+            // **Edit: Run the slideshow on DOM Ready for the CSS Deck Playground only**
+            $(function () {
+
+                // remove the 'loading background-image' of '#slider'
+                $slider.css('background-image', 'none');
+
+                // Show the '.container', 'figcaption' and '#slide-nav' when the page has been loaded!
+                // **Edit: Show the '.container', 'figcaption' and '#slide-nav' on DOM Ready for the CSS Deck Playground only**
+                $container.show();
+                $caption.show();
+                $nav.css('opacity', 1);
+
+                // Another init slideshow
+                $slider.find('.slice').css('background-image', 'url(' + $first.attr("src") + ')');
+
+                // Then, start the interval...
+                autoSlide = setInterval(slideShow, config.interval);
+
+            });
+
+        })(jQuery);
+    </script>
+}

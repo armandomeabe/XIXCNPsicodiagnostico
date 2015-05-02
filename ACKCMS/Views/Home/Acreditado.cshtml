@@ -1,0 +1,27 @@
+﻿@model ACKCMS.Models.Accreditation
+@{
+    ViewBag.Title = "Acreditación exitosa";
+}
+
+<div class="wrapper style2">
+    <section class="container">
+        <div class="row double">
+            <div class="2u">
+                <img src="@Url.Content("~/images/tick.png")" style="width: 100%;" />
+            </div>
+            <div class="6u">
+                <h3>Muchas gracias</h3>
+                <h4>Su acreditación fue registrada con éxito bajo el número de transacción #@Model.id</h4>
+                <p>Se le recuerda a continuación la información bancaria para realizar el pago de su acreditación.</p>
+
+                <p>
+                    Dra. Roxana L. Maumary<br />
+                    JTP Cátedra de Fitopatologí­a.<br />
+                    Dpto. de ProduciÃ³n Vegetal. FCA-UNL<br />
+                    Tel/Fax:03496-426400 (110-369)<br />
+                    Dirección: P.Kreder 2805-Esperanza (3080)-Santa Fe
+                </p>
+            </div>
+        </div>
+    </section>
+</div>

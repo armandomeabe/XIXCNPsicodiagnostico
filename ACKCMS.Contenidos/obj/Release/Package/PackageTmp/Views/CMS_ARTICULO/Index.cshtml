@@ -1,0 +1,101 @@
+﻿@model IEnumerable<ACKCMS.Contenidos.Models.CMS_ARTICULO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Artículos</h2>
+
+<p>
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>ID (Uso Interno)</th>
+        <th>
+            TÍTULO
+        </th>
+        <th>
+            ENCABEZADO
+        </th>
+        <th>
+            OBSERVACIONES
+        </th>
+        <th style="width: 100px;"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_ARTICULO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TITULO)
+            </td>
+            <td>
+                @Html.Raw(item.ENCABEZADO)
+            </td>
+            <td>
+                @Html.Raw(item.OBSERVACIONES)
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        Acciones
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation" class="dropdown-header">Edición</li>
+                        <li role="presentation">@Html.ActionLink("Editar", "Edit", new {id = item.ID_ARTICULO})</li>
+                        <li role="presentation"><a role="menuitem" href="#" data-toggle="modal" data-target="#deleteModal_@item.ID_ARTICULO">Eliminar</a></li>
+                        <li role="presentation"><a role="menuitem" href="@Url.Action("Articulo", "Home", new {id = item.ID_ARTICULO, area = "Frontend"})">Ver</a></li>
+
+                        <li role="presentation" class="dropdown-header">Otras Acciones</li>
+                        <li role="presentation"><a role="menuitem" href="@Url.Action("Location", "CMS_ARTICULO", new {id = item.ID_ARTICULO})">Ubicación</a></li>
+                    </ul>
+                </div>
+
+                <!-- Modal Eliminar-->
+                <div class="modal fade" id="deleteModal_@item.ID_ARTICULO" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="margin-top: 120px">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Eliminar</h4>
+                            </div>
+                            <div class="modal-body">
+                                <h2>¿Seguro desea eliminar este artículo?</h2>
+                                <h3>@item.TITULO</h3>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="deleteArt(@item.ID_ARTICULO)">Eliminar</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </td>
+        </tr>
+    }
+
+</table>
+<script type="text/javascript">
+
+    function deleteArt(id) {
+        var data = { id: id };
+        $.ajax({
+            url: '@Url.Action("deleteArticulo", "CMS_ARTICULO")',
+            data: data,
+            success: deleteOk
+        });
+    }
+
+    function deleteOk() {
+        location.reload();
+    }
+</script>

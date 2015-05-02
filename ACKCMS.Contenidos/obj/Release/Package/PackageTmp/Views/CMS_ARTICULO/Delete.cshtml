@@ -1,0 +1,177 @@
+﻿@model ACKCMS.Contenidos.Models.CMS_ARTICULO
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CMS_ARTICULO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_FECHA_ALTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_FECHA_ALTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_FECHA_MODIFICACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_FECHA_MODIFICACION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_FECHA_BAJA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_FECHA_BAJA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_USUARIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_USUARIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_INFO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_INFO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_TIPOARTICULO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_TIPOARTICULO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_ESTADOARTICULO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_ESTADOARTICULO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TITULO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TITULO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENCABEZADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENCABEZADO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CONTENIDO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONTENIDO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PATH_CONTENIDOEXT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PATH_CONTENIDOEXT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PATH_PLANCONTENIDOEXT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PATH_PLANCONTENIDOEXT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PATH_CONTENIDOTRANS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PATH_CONTENIDOTRANS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RESUMEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RESUMEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_VENCIMIENTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_VENCIMIENTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ACTIVO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ACTIVO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VERSION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VERSION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OBSERVACIONES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OBSERVACIONES)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

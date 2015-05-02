@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - CMS</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("CMS Backend", "Index", "Home", new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Artículos", "Index", "CMS_ARTICULO")</li>
+                    <li>@Html.ActionLink("Menúes", "Index", "CMS_MENU")</li>
+
+                    @*<li>@Html.ActionLink("Sitios", "Index", "CMS_SITIO")</li>
+                    <li>@Html.ActionLink("Páginas", "Index", "CMS_PAGINA")</li>
+                    <li>@Html.ActionLink("Secciones", "Index", "CMS_SECCION")</li>
+                    <li>@Html.ActionLink("Etiquetas", "Index", "CMS_ETIQUETA")</li>
+                    <li>@Html.ActionLink("Archivos", "Index", "CMS_ARCHIVO")</li>*@
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <ul class="list-group">
+            @foreach (ModelState modelState in ViewData.ModelState.Values)
+            {
+                foreach (ModelError error in modelState.Errors)
+                {
+                    <li class="list-group-item list-group-item-danger">@error.ErrorMessage</li>
+                }
+            }
+        </ul>
+
+        @if (ViewBag.Mensajes != null)
+        {
+            <ul class="list-group">
+                @foreach (string mensaje in ViewBag.Mensajes)
+                {
+                    <li class="list-group-item list-group-item-success">@mensaje</li>
+                }
+            </ul>
+        }
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>CMS Backend</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/librerias")
+    @RenderSection("scripts", required: false)
+    <!-- Place inside the <head> of your HTML -->
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea"
+        });
+    </script>
+    <script type="text/javascript">
+        $('.form_datetime').datetimepicker({
+            language: 'es',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            forceParse: 0,
+            showMeridian: 1
+        });
+    </script>
+</body>
+</html>

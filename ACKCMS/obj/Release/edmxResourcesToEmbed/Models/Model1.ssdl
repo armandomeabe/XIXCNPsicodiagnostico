@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FitosanitariasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accreditation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Apellido" Type="nvarchar" MaxLength="100" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+    <Property Name="Profesion" Type="nvarchar" MaxLength="100" />
+    <Property Name="Pais" Type="nvarchar" MaxLength="100" />
+    <Property Name="Provincia" Type="nvarchar" MaxLength="100" />
+    <Property Name="Localidad" Type="nvarchar" MaxLength="100" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="100" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="100" />
+    <Property Name="Movil" Type="nvarchar" MaxLength="100" />
+    <Property Name="NumeroMatricula" Type="nvarchar" MaxLength="300" />
+    <Property Name="NumeroSocio" Type="nvarchar" MaxLength="300" />
+    <Property Name="EleccionDePago" Type="nvarchar" MaxLength="100" />
+    <Property Name="AcreditacionRealizada" Type="bit" Nullable="false" />
+    <Property Name="AcreditacionComprobanteNro" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="DNI" Type="nvarchar" MaxLength="100" />
+    <Property Name="FechaAcreditacion" Type="datetime" />
+    <Property Name="CantTrabajosPresenta" Type="int" />
+  </EntityType>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+    <Property Name="Establecimiento" Type="nvarchar" MaxLength="1000" />
+    <Property Name="IdWork" Type="int" Nullable="false" />
+    <Property Name="IdEstablishment" Type="int" Nullable="false" />
+    <Property Name="IsPresenter" Type="bit" />
+    <Property Name="OrderPosition" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CMS_ARCHIVO">
+    <Key>
+      <PropertyRef Name="ID_ARCHIVO" />
+    </Key>
+    <Property Name="ID_ARCHIVO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="500" />
+    <Property Name="RelativePath" Type="nvarchar(max)" />
+    <Property Name="ID_TIPO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CMS_ARTICULO">
+    <Key>
+      <PropertyRef Name="ID_ARTICULO" />
+    </Key>
+    <Property Name="ID_ARTICULO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UI_FECHA_ALTA" Type="datetime" Nullable="false" />
+    <Property Name="UI_FECHA_MODIFICACION" Type="datetime" />
+    <Property Name="UI_FECHA_BAJA" Type="datetime" />
+    <Property Name="UI_USUARIO" Type="varchar" MaxLength="50" />
+    <Property Name="UI_INFO" Type="varchar(max)" />
+    <Property Name="ID_TIPOARTICULO" Type="int" Nullable="false" />
+    <Property Name="ID_ESTADOARTICULO" Type="int" Nullable="false" />
+    <Property Name="TITULO" Type="varchar(max)" />
+    <Property Name="ENCABEZADO" Type="varchar(max)" />
+    <Property Name="CONTENIDO" Type="varchar(max)" />
+    <Property Name="PATH_CONTENIDOEXT" Type="varchar" MaxLength="200" />
+    <Property Name="PATH_PLANCONTENIDOEXT" Type="varchar" MaxLength="200" />
+    <Property Name="PATH_CONTENIDOTRANS" Type="varchar" MaxLength="200" />
+    <Property Name="RESUMEN" Type="varchar(max)" />
+    <Property Name="FECHA" Type="datetime" />
+    <Property Name="FECHA_VENCIMIENTO" Type="datetime" />
+    <Property Name="ACTIVO" Type="char" MaxLength="1" />
+    <Property Name="VERSION" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="OBSERVACIONES" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="CMS_CATEGORIA">
+    <Key>
+      <PropertyRef Name="ID_CATEGORIA" />
+    </Key>
+    <Property Name="ID_CATEGORIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="500" />
+    <Property Name="Descripción" Type="nvarchar(max)" />
+    <Property Name="UI_INFO" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="CMS_MENU">
+    <Key>
+      <PropertyRef Name="ID_MENU" />
+    </Key>
+    <Property Name="ID_MENU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UI_FECHA_ALTA" Type="datetime" Nullable="false" />
+    <Property Name="UI_FECHA_MODIFICACION" Type="datetime" />
+    <Property Name="UI_FECHA_BAJA" Type="datetime" />
+    <Property Name="UI_USUARIO" Type="varchar" MaxLength="50" />
+    <Property Name="UI_INFO" Type="varchar" MaxLength="250" />
+    <Property Name="ID_MENUPADRE" Type="int" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="OBSERVACIONES" Type="varchar" MaxLength="500" />
+    <Property Name="ID_ARTICULO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CMS_TIPOARCHIVO">
+    <Key>
+      <PropertyRef Name="ID_TIPO" />
+    </Key>
+    <Property Name="ID_TIPO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="500" />
+    <Property Name="Extensiones" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Establishment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="1000" />
+    <Property Name="IdWork" Type="int" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MID_ARTICULO_ARCHIVO">
+    <Key>
+      <PropertyRef Name="ID_ARTICULO" />
+      <PropertyRef Name="ID_ARCHIVO" />
+    </Key>
+    <Property Name="ID_ARTICULO" Type="int" Nullable="false" />
+    <Property Name="ID_ARCHIVO" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="MID_ARTICULO_CATEGORIA">
+    <Key>
+      <PropertyRef Name="ID_ARTICULO" />
+      <PropertyRef Name="ID_CATEGORIA" />
+    </Key>
+    <Property Name="ID_ARTICULO" Type="int" Nullable="false" />
+    <Property Name="ID_CATEGORIA" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Work">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Body" Type="nvarchar(max)" />
+    <Property Name="AreaID" Type="int" Nullable="false" />
+    <Property Name="AckID" Type="int" Nullable="false" />
+    <Property Name="NotasAdicionales" Type="nvarchar(max)" />
+    <Property Name="EstadoID" Type="int" Nullable="false" />
+    <Property Name="ComentariosDelEvaluador" Type="nvarchar(max)" />
+    <Property Name="Puntaje" Type="int" />
+    <Property Name="PosicionEnElArea" Type="int" />
+    <Property Name="SupervisorUserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="Supervisado" Type="bit" />
+    <Property Name="Autores" Type="nvarchar(max)" />
+    <Property Name="Instituciones" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="WorkArea">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="WorkStatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="75" />
+  </EntityType>
+  <Association Name="FK_Author_Establishment">
+    <End Role="Establishment" Type="Self.Establishment" Multiplicity="1" />
+    <End Role="Author" Type="Self.Author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Establishment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Author">
+        <PropertyRef Name="IdEstablishment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Author_Work">
+    <End Role="Work" Type="Self.Work" Multiplicity="1" />
+    <End Role="Author" Type="Self.Author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Work">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Author">
+        <PropertyRef Name="IdWork" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CMS_ARCHIVO_CMS_TIPOARCHIVO">
+    <End Role="CMS_TIPOARCHIVO" Type="Self.CMS_TIPOARCHIVO" Multiplicity="1" />
+    <End Role="CMS_ARCHIVO" Type="Self.CMS_ARCHIVO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CMS_TIPOARCHIVO">
+        <PropertyRef Name="ID_TIPO" />
+      </Principal>
+      <Dependent Role="CMS_ARCHIVO">
+        <PropertyRef Name="ID_TIPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CMS_MENU_CMS_ARTICULO">
+    <End Role="CMS_ARTICULO" Type="Self.CMS_ARTICULO" Multiplicity="1" />
+    <End Role="CMS_MENU" Type="Self.CMS_MENU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CMS_ARTICULO">
+        <PropertyRef Name="ID_ARTICULO" />
+      </Principal>
+      <Dependent Role="CMS_MENU">
+        <PropertyRef Name="ID_ARTICULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Establishment_Work">
+    <End Role="Work" Type="Self.Work" Multiplicity="1" />
+    <End Role="Establishment" Type="Self.Establishment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Work">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Establishment">
+        <PropertyRef Name="IdWork" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MID_ARTICULO_ARCHIVO_CMS_ARCHIVO">
+    <End Role="CMS_ARCHIVO" Type="Self.CMS_ARCHIVO" Multiplicity="1" />
+    <End Role="MID_ARTICULO_ARCHIVO" Type="Self.MID_ARTICULO_ARCHIVO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CMS_ARCHIVO">
+        <PropertyRef Name="ID_ARCHIVO" />
+      </Principal>
+      <Dependent Role="MID_ARTICULO_ARCHIVO">
+        <PropertyRef Name="ID_ARCHIVO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MID_ARTICULO_ARCHIVO_CMS_ARTICULO">
+    <End Role="CMS_ARTICULO" Type="Self.CMS_ARTICULO" Multiplicity="1" />
+    <End Role="MID_ARTICULO_ARCHIVO" Type="Self.MID_ARTICULO_ARCHIVO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CMS_ARTICULO">
+        <PropertyRef Name="ID_ARTICULO" />
+      </Principal>
+      <Dependent Role="MID_ARTICULO_ARCHIVO">
+        <PropertyRef Name="ID_ARTICULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MID_ARTICULO_CATEGORIA_CMS_ARTICULO">
+    <End Role="CMS_ARTICULO" Type="Self.CMS_ARTICULO" Multiplicity="1" />
+    <End Role="MID_ARTICULO_CATEGORIA" Type="Self.MID_ARTICULO_CATEGORIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CMS_ARTICULO">
+        <PropertyRef Name="ID_ARTICULO" />
+      </Principal>
+      <Dependent Role="MID_ARTICULO_CATEGORIA">
+        <PropertyRef Name="ID_ARTICULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MID_ARTICULO_CATEGORIA_CMS_CATEGORIA">
+    <End Role="CMS_CATEGORIA" Type="Self.CMS_CATEGORIA" Multiplicity="1" />
+    <End Role="MID_ARTICULO_CATEGORIA" Type="Self.MID_ARTICULO_CATEGORIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CMS_CATEGORIA">
+        <PropertyRef Name="ID_CATEGORIA" />
+      </Principal>
+      <Dependent Role="MID_ARTICULO_CATEGORIA">
+        <PropertyRef Name="ID_CATEGORIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Work_Accreditation">
+    <End Role="Accreditation" Type="Self.Accreditation" Multiplicity="1" />
+    <End Role="Work" Type="Self.Work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accreditation">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Work">
+        <PropertyRef Name="AckID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FitosanitariasModelStoreContainer">
+    <EntitySet Name="Accreditation" EntityType="Self.Accreditation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CMS_ARCHIVO" EntityType="Self.CMS_ARCHIVO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CMS_ARTICULO" EntityType="Self.CMS_ARTICULO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CMS_CATEGORIA" EntityType="Self.CMS_CATEGORIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CMS_MENU" EntityType="Self.CMS_MENU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CMS_TIPOARCHIVO" EntityType="Self.CMS_TIPOARCHIVO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Establishment" EntityType="Self.Establishment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MID_ARTICULO_ARCHIVO" EntityType="Self.MID_ARTICULO_ARCHIVO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Work" EntityType="Self.Work" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkArea" EntityType="Self.WorkArea" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkStatus" EntityType="Self.WorkStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MID_ARTICULO_CATEGORIA" EntityType="Self.MID_ARTICULO_CATEGORIA" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [MID_ARTICULO_CATEGORIA].[ID_ARTICULO] AS [ID_ARTICULO], 
+    [MID_ARTICULO_CATEGORIA].[ID_CATEGORIA] AS [ID_CATEGORIA]
+    FROM [dbo].[MID_ARTICULO_CATEGORIA] AS [MID_ARTICULO_CATEGORIA]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Author_Establishment" Association="Self.FK_Author_Establishment">
+      <End Role="Establishment" EntitySet="Establishment" />
+      <End Role="Author" EntitySet="Author" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Author_Work" Association="Self.FK_Author_Work">
+      <End Role="Work" EntitySet="Work" />
+      <End Role="Author" EntitySet="Author" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CMS_ARCHIVO_CMS_TIPOARCHIVO" Association="Self.FK_CMS_ARCHIVO_CMS_TIPOARCHIVO">
+      <End Role="CMS_TIPOARCHIVO" EntitySet="CMS_TIPOARCHIVO" />
+      <End Role="CMS_ARCHIVO" EntitySet="CMS_ARCHIVO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CMS_MENU_CMS_ARTICULO" Association="Self.FK_CMS_MENU_CMS_ARTICULO">
+      <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+      <End Role="CMS_MENU" EntitySet="CMS_MENU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Establishment_Work" Association="Self.FK_Establishment_Work">
+      <End Role="Work" EntitySet="Work" />
+      <End Role="Establishment" EntitySet="Establishment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MID_ARTICULO_ARCHIVO_CMS_ARCHIVO" Association="Self.FK_MID_ARTICULO_ARCHIVO_CMS_ARCHIVO">
+      <End Role="CMS_ARCHIVO" EntitySet="CMS_ARCHIVO" />
+      <End Role="MID_ARTICULO_ARCHIVO" EntitySet="MID_ARTICULO_ARCHIVO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MID_ARTICULO_ARCHIVO_CMS_ARTICULO" Association="Self.FK_MID_ARTICULO_ARCHIVO_CMS_ARTICULO">
+      <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+      <End Role="MID_ARTICULO_ARCHIVO" EntitySet="MID_ARTICULO_ARCHIVO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MID_ARTICULO_CATEGORIA_CMS_ARTICULO" Association="Self.FK_MID_ARTICULO_CATEGORIA_CMS_ARTICULO">
+      <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+      <End Role="MID_ARTICULO_CATEGORIA" EntitySet="MID_ARTICULO_CATEGORIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MID_ARTICULO_CATEGORIA_CMS_CATEGORIA" Association="Self.FK_MID_ARTICULO_CATEGORIA_CMS_CATEGORIA">
+      <End Role="CMS_CATEGORIA" EntitySet="CMS_CATEGORIA" />
+      <End Role="MID_ARTICULO_CATEGORIA" EntitySet="MID_ARTICULO_CATEGORIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Work_Accreditation" Association="Self.FK_Work_Accreditation">
+      <End Role="Accreditation" EntitySet="Accreditation" />
+      <End Role="Work" EntitySet="Work" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,171 @@
+﻿@model ACKCMS.Contenidos.Models.CMS_ARTICULO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CMS_ARTICULO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_FECHA_ALTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_FECHA_ALTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_FECHA_MODIFICACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_FECHA_MODIFICACION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_FECHA_BAJA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_FECHA_BAJA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_USUARIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_USUARIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_INFO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_INFO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_TIPOARTICULO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_TIPOARTICULO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_ESTADOARTICULO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_ESTADOARTICULO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TITULO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TITULO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENCABEZADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENCABEZADO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CONTENIDO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONTENIDO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PATH_CONTENIDOEXT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PATH_CONTENIDOEXT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PATH_PLANCONTENIDOEXT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PATH_PLANCONTENIDOEXT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PATH_CONTENIDOTRANS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PATH_CONTENIDOTRANS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RESUMEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RESUMEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_VENCIMIENTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_VENCIMIENTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ACTIVO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ACTIVO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VERSION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VERSION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OBSERVACIONES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OBSERVACIONES)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_ARTICULO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

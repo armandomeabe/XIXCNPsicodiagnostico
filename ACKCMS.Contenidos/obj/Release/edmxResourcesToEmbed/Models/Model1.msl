@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FitosanitariasModelStoreContainer" CdmEntityContainer="FitosanitariasEntities">
+    <EntitySetMapping Name="Accreditations">
+      <EntityTypeMapping TypeName="FitosanitariasModel.Accreditation">
+        <MappingFragment StoreEntitySet="Accreditation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Localidad" ColumnName="Localidad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Movil" ColumnName="Movil" />
+          <ScalarProperty Name="NumeroMatricula" ColumnName="NumeroMatricula" />
+          <ScalarProperty Name="NumeroSocio" ColumnName="NumeroSocio" />
+          <ScalarProperty Name="EleccionDePago" ColumnName="EleccionDePago" />
+          <ScalarProperty Name="AcreditacionRealizada" ColumnName="AcreditacionRealizada" />
+          <ScalarProperty Name="AcreditacionComprobanteNro" ColumnName="AcreditacionComprobanteNro" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="FechaAcreditacion" ColumnName="FechaAcreditacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="FitosanitariasModel.Author">
+        <MappingFragment StoreEntitySet="Author">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Establecimiento" ColumnName="Establecimiento" />
+          <ScalarProperty Name="IdWork" ColumnName="IdWork" />
+          <ScalarProperty Name="IdEstablishment" ColumnName="IdEstablishment" />
+          <ScalarProperty Name="IsPresenter" ColumnName="IsPresenter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Establishments">
+      <EntityTypeMapping TypeName="FitosanitariasModel.Establishment">
+        <MappingFragment StoreEntitySet="Establishment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdWork" ColumnName="IdWork" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Works">
+      <EntityTypeMapping TypeName="FitosanitariasModel.Work">
+        <MappingFragment StoreEntitySet="Work">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+          <ScalarProperty Name="AckID" ColumnName="AckID" />
+          <ScalarProperty Name="NotasAdicionales" ColumnName="NotasAdicionales" />
+          <ScalarProperty Name="EstadoID" ColumnName="EstadoID" />
+          <ScalarProperty Name="ComentariosDelEvaluador" ColumnName="ComentariosDelEvaluador" />
+          <ScalarProperty Name="Puntaje" ColumnName="Puntaje" />
+          <ScalarProperty Name="PosicionEnElArea" ColumnName="PosicionEnElArea" />
+          <ScalarProperty Name="SupervisorUserId" ColumnName="SupervisorUserId" />
+          <ScalarProperty Name="Supervisado" ColumnName="Supervisado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkAreas">
+      <EntityTypeMapping TypeName="FitosanitariasModel.WorkArea">
+        <MappingFragment StoreEntitySet="WorkArea">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkStatus">
+      <EntityTypeMapping TypeName="FitosanitariasModel.WorkStatu">
+        <MappingFragment StoreEntitySet="WorkStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CMS_ARCHIVO">
+      <EntityTypeMapping TypeName="FitosanitariasModel.CMS_ARCHIVO">
+        <MappingFragment StoreEntitySet="CMS_ARCHIVO">
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+          <ScalarProperty Name="RelativePath" ColumnName="RelativePath" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ID_ARCHIVO" ColumnName="ID_ARCHIVO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CMS_ARTICULO">
+      <EntityTypeMapping TypeName="FitosanitariasModel.CMS_ARTICULO">
+        <MappingFragment StoreEntitySet="CMS_ARTICULO">
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="VERSION" ColumnName="VERSION" />
+          <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+          <ScalarProperty Name="FECHA_VENCIMIENTO" ColumnName="FECHA_VENCIMIENTO" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="RESUMEN" ColumnName="RESUMEN" />
+          <ScalarProperty Name="PATH_CONTENIDOTRANS" ColumnName="PATH_CONTENIDOTRANS" />
+          <ScalarProperty Name="PATH_PLANCONTENIDOEXT" ColumnName="PATH_PLANCONTENIDOEXT" />
+          <ScalarProperty Name="PATH_CONTENIDOEXT" ColumnName="PATH_CONTENIDOEXT" />
+          <ScalarProperty Name="CONTENIDO" ColumnName="CONTENIDO" />
+          <ScalarProperty Name="ENCABEZADO" ColumnName="ENCABEZADO" />
+          <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+          <ScalarProperty Name="ID_ESTADOARTICULO" ColumnName="ID_ESTADOARTICULO" />
+          <ScalarProperty Name="ID_TIPOARTICULO" ColumnName="ID_TIPOARTICULO" />
+          <ScalarProperty Name="UI_INFO" ColumnName="UI_INFO" />
+          <ScalarProperty Name="UI_USUARIO" ColumnName="UI_USUARIO" />
+          <ScalarProperty Name="UI_FECHA_BAJA" ColumnName="UI_FECHA_BAJA" />
+          <ScalarProperty Name="UI_FECHA_MODIFICACION" ColumnName="UI_FECHA_MODIFICACION" />
+          <ScalarProperty Name="UI_FECHA_ALTA" ColumnName="UI_FECHA_ALTA" />
+          <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CMS_CATEGORIA">
+      <EntityTypeMapping TypeName="FitosanitariasModel.CMS_CATEGORIA">
+        <MappingFragment StoreEntitySet="CMS_CATEGORIA">
+          <ScalarProperty Name="UI_INFO" ColumnName="UI_INFO" />
+          <ScalarProperty Name="Descripción" ColumnName="Descripción" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CMS_MENU">
+      <EntityTypeMapping TypeName="FitosanitariasModel.CMS_MENU">
+        <MappingFragment StoreEntitySet="CMS_MENU">
+          <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_MENUPADRE" ColumnName="ID_MENUPADRE" />
+          <ScalarProperty Name="UI_INFO" ColumnName="UI_INFO" />
+          <ScalarProperty Name="UI_USUARIO" ColumnName="UI_USUARIO" />
+          <ScalarProperty Name="UI_FECHA_BAJA" ColumnName="UI_FECHA_BAJA" />
+          <ScalarProperty Name="UI_FECHA_MODIFICACION" ColumnName="UI_FECHA_MODIFICACION" />
+          <ScalarProperty Name="UI_FECHA_ALTA" ColumnName="UI_FECHA_ALTA" />
+          <ScalarProperty Name="ID_MENU" ColumnName="ID_MENU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CMS_TIPOARCHIVO">
+      <EntityTypeMapping TypeName="FitosanitariasModel.CMS_TIPOARCHIVO">
+        <MappingFragment StoreEntitySet="CMS_TIPOARCHIVO">
+          <ScalarProperty Name="Extensiones" ColumnName="Extensiones" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MID_ARTICULO_ARCHIVO" TypeName="FitosanitariasModel.MID_ARTICULO_ARCHIVO" StoreEntitySet="MID_ARTICULO_ARCHIVO">
+      <EndProperty Name="CMS_ARTICULO">
+        <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
+      </EndProperty>
+      <EndProperty Name="CMS_ARCHIVO">
+        <ScalarProperty Name="ID_ARCHIVO" ColumnName="ID_ARCHIVO" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MID_ARTICULO_CATEGORIA" TypeName="FitosanitariasModel.MID_ARTICULO_CATEGORIA" StoreEntitySet="MID_ARTICULO_CATEGORIA">
+      <EndProperty Name="CMS_CATEGORIA">
+        <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+      </EndProperty>
+      <EndProperty Name="CMS_ARTICULO">
+        <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

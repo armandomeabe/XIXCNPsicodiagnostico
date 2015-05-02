@@ -1,0 +1,99 @@
+﻿@model ACKCMS.Models.Work
+
+@{
+    ViewBag.Title = "Editar Trabajo: " + Model.Title;
+}
+
+
+<div class="wrapper style2">
+    <section class="container">
+        <div class="row double">
+            <div class="\-2u">
+                <img src="@Url.Content("~/images/edit.png")" style="width: 100%;" />
+            </div>
+            <div class="6u">
+                <h3>Edición de trabajo</h3>
+                <p>Utilice las cajas de texto para ingresar el contenido de cada caso. Puede guardar el progreso de su trabajo siempre que lo desee, mediante el boton <i>'Guardar cambios'</i>; De este modo, siempre podrá continuar su trabajo desde donde lo dejó la última vez.</p>
+                <br />
+            </div>
+        </div>
+
+        <div class="wrapper style2">
+            <section class="container">
+                <div class="row double">
+                    <div class="12u">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.HiddenFor(model => model.Id)
+
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true, "", new { })
+                                @Html.HiddenFor(model => model.Id)
+
+
+                                <div class="form-group">
+                                    <h2>Área</h2>
+                                    <div class="col-md-10">
+                                        <select id="areaId" name="areaId">
+                                            @foreach (ACKCMS.Models.WorkArea area in ViewBag.Areas)
+                                            {
+                                                <option value="@area.Id">@area.Nombre</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">&nbsp;</div>
+
+                                <div class="form-group">
+                                    <h2>Título</h2>
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.Title, new { htmlAttributes = new { } })
+                                        @Html.ValidationMessageFor(model => model.Title, "", new { })
+                                    </div>
+                                </div>
+                                <div class="row">&nbsp;</div>
+                                <div class="form-group">
+                                    <h2>Autores</h2>
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.Autores, new { htmlAttributes = new { } })
+                                        @Html.ValidationMessageFor(model => model.Body, "", new { })
+                                    </div>
+                                </div>
+                                <div class="row">&nbsp;</div>
+                                <div class="form-group">
+                                    <h2>Instituciones</h2>
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.Instituciones, new { htmlAttributes = new { } })
+                                        @Html.ValidationMessageFor(model => model.Body, "", new { })
+                                    </div>
+                                </div>
+                                <div class="row">&nbsp;</div>
+                                <div class="form-group">
+                                    <h2>Cuerpo del trabajo</h2>
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { } })
+                                        @Html.ValidationMessageFor(model => model.Body, "", new { })
+                                    </div>
+                                </div>
+
+                                <div class="row">&nbsp;</div>
+                                <div class="row">
+                                    <div style="width: 100%;">
+
+                                        @Html.Hidden("finalizado","no")
+
+                                        <input type="button" value="<< Volver" onclick="window.location = '@Url.Action("PrecargaTrabajos", "Home", new { Model.Accreditation.DNI })'" />
+                                        <input type="submit" value="Guardar" />
+                                        <input type="submit" value="Presentar este trabajo" style="background-color: #DFE7B0;" onclick="$('#finalizado').val('si')" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+            </section>
+        </div>
+
+</div>
+

@@ -1,0 +1,33 @@
+﻿@model ACKCMS.Models.Accreditation
+
+@{
+    ViewBag.Title = "Trabajos";
+}
+
+
+<div class="wrapper style2">
+    <section class="container">
+        <div class="row double">
+
+            @foreach (var work in Model.Work.ToList())
+            {
+                <div class="6u">
+                    <p><strong>Título: </strong>@Html.Raw(work.Title)</p>
+                    <p><strong>Autores: </strong>@Html.Raw(work.Autores)</p>
+                    <h2>Cuerpo del trabajo</h2>
+                    <p>@Html.Raw(work.Body)</p>
+                    <br />
+                    @if (work.EstadoID.Equals(1))
+                    {
+                        <a href="@Url.Action("Trabajo", "Home", new { id = work.Id })" class="button">Editar este trabajo</a>
+                    }
+                    else
+                    {
+                        <a href="#" class="button" style="background-color: #DFE7B0">Este trabajo ya fue presentado y será evaluado a la brevedad</a>
+                    }
+                </div>
+            }
+
+        </div>
+    </section>
+</div>

@@ -1,0 +1,839 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FitosanitariasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accreditation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="100" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+          <Property Name="Profesion" Type="nvarchar" MaxLength="100" />
+          <Property Name="Pais" Type="nvarchar" MaxLength="100" />
+          <Property Name="Provincia" Type="nvarchar" MaxLength="100" />
+          <Property Name="Localidad" Type="nvarchar" MaxLength="100" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="100" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="100" />
+          <Property Name="Movil" Type="nvarchar" MaxLength="100" />
+          <Property Name="NumeroMatricula" Type="nvarchar" MaxLength="300" />
+          <Property Name="NumeroSocio" Type="nvarchar" MaxLength="300" />
+          <Property Name="EleccionDePago" Type="nvarchar" MaxLength="100" />
+          <Property Name="AcreditacionRealizada" Type="bit" Nullable="false" />
+          <Property Name="AcreditacionComprobanteNro" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="DNI" Type="nvarchar" MaxLength="100" />
+          <Property Name="FechaAcreditacion" Type="datetime" />
+          <Property Name="CantTrabajosPresenta" Type="int" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+          <Property Name="Establecimiento" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IdWork" Type="int" Nullable="false" />
+          <Property Name="IdEstablishment" Type="int" Nullable="false" />
+          <Property Name="IsPresenter" Type="bit" />
+          <Property Name="OrderPosition" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CMS_ARCHIVO">
+          <Key>
+            <PropertyRef Name="ID_ARCHIVO" />
+          </Key>
+          <Property Name="ID_ARCHIVO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="500" />
+          <Property Name="RelativePath" Type="nvarchar(max)" />
+          <Property Name="ID_TIPO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CMS_ARTICULO">
+          <Key>
+            <PropertyRef Name="ID_ARTICULO" />
+          </Key>
+          <Property Name="ID_ARTICULO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UI_FECHA_ALTA" Type="datetime" Nullable="false" />
+          <Property Name="UI_FECHA_MODIFICACION" Type="datetime" />
+          <Property Name="UI_FECHA_BAJA" Type="datetime" />
+          <Property Name="UI_USUARIO" Type="varchar" MaxLength="50" />
+          <Property Name="UI_INFO" Type="varchar(max)" />
+          <Property Name="ID_TIPOARTICULO" Type="int" Nullable="false" />
+          <Property Name="ID_ESTADOARTICULO" Type="int" Nullable="false" />
+          <Property Name="TITULO" Type="varchar(max)" />
+          <Property Name="ENCABEZADO" Type="varchar(max)" />
+          <Property Name="CONTENIDO" Type="varchar(max)" />
+          <Property Name="PATH_CONTENIDOEXT" Type="varchar" MaxLength="200" />
+          <Property Name="PATH_PLANCONTENIDOEXT" Type="varchar" MaxLength="200" />
+          <Property Name="PATH_CONTENIDOTRANS" Type="varchar" MaxLength="200" />
+          <Property Name="RESUMEN" Type="varchar(max)" />
+          <Property Name="FECHA" Type="datetime" />
+          <Property Name="FECHA_VENCIMIENTO" Type="datetime" />
+          <Property Name="ACTIVO" Type="char" MaxLength="1" />
+          <Property Name="VERSION" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="OBSERVACIONES" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CMS_CATEGORIA">
+          <Key>
+            <PropertyRef Name="ID_CATEGORIA" />
+          </Key>
+          <Property Name="ID_CATEGORIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="500" />
+          <Property Name="Descripción" Type="nvarchar(max)" />
+          <Property Name="UI_INFO" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="CMS_MENU">
+          <Key>
+            <PropertyRef Name="ID_MENU" />
+          </Key>
+          <Property Name="ID_MENU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UI_FECHA_ALTA" Type="datetime" Nullable="false" />
+          <Property Name="UI_FECHA_MODIFICACION" Type="datetime" />
+          <Property Name="UI_FECHA_BAJA" Type="datetime" />
+          <Property Name="UI_USUARIO" Type="varchar" MaxLength="50" />
+          <Property Name="UI_INFO" Type="varchar" MaxLength="250" />
+          <Property Name="ID_MENUPADRE" Type="int" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="OBSERVACIONES" Type="varchar" MaxLength="500" />
+          <Property Name="ID_ARTICULO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CMS_TIPOARCHIVO">
+          <Key>
+            <PropertyRef Name="ID_TIPO" />
+          </Key>
+          <Property Name="ID_TIPO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="500" />
+          <Property Name="Extensiones" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Establishment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IdWork" Type="int" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MID_ARTICULO_ARCHIVO">
+          <Key>
+            <PropertyRef Name="ID_ARTICULO" />
+            <PropertyRef Name="ID_ARCHIVO" />
+          </Key>
+          <Property Name="ID_ARTICULO" Type="int" Nullable="false" />
+          <Property Name="ID_ARCHIVO" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="MID_ARTICULO_CATEGORIA">
+          <Key>
+            <PropertyRef Name="ID_ARTICULO" />
+            <PropertyRef Name="ID_CATEGORIA" />
+          </Key>
+          <Property Name="ID_ARTICULO" Type="int" Nullable="false" />
+          <Property Name="ID_CATEGORIA" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Work">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Body" Type="nvarchar(max)" />
+          <Property Name="AreaID" Type="int" Nullable="false" />
+          <Property Name="AckID" Type="int" Nullable="false" />
+          <Property Name="NotasAdicionales" Type="nvarchar(max)" />
+          <Property Name="EstadoID" Type="int" Nullable="false" />
+          <Property Name="ComentariosDelEvaluador" Type="nvarchar(max)" />
+          <Property Name="Puntaje" Type="int" />
+          <Property Name="PosicionEnElArea" Type="int" />
+          <Property Name="SupervisorUserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="Supervisado" Type="bit" />
+          <Property Name="Autores" Type="nvarchar(max)" />
+          <Property Name="Instituciones" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="WorkArea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="WorkStatus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="75" />
+        </EntityType>
+        <Association Name="FK_Author_Establishment">
+          <End Role="Establishment" Type="Self.Establishment" Multiplicity="1" />
+          <End Role="Author" Type="Self.Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Establishment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="IdEstablishment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Author_Work">
+          <End Role="Work" Type="Self.Work" Multiplicity="1" />
+          <End Role="Author" Type="Self.Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Work">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="IdWork" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMS_ARCHIVO_CMS_TIPOARCHIVO">
+          <End Role="CMS_TIPOARCHIVO" Type="Self.CMS_TIPOARCHIVO" Multiplicity="1" />
+          <End Role="CMS_ARCHIVO" Type="Self.CMS_ARCHIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMS_TIPOARCHIVO">
+              <PropertyRef Name="ID_TIPO" />
+            </Principal>
+            <Dependent Role="CMS_ARCHIVO">
+              <PropertyRef Name="ID_TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMS_MENU_CMS_ARTICULO">
+          <End Role="CMS_ARTICULO" Type="Self.CMS_ARTICULO" Multiplicity="1" />
+          <End Role="CMS_MENU" Type="Self.CMS_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMS_ARTICULO">
+              <PropertyRef Name="ID_ARTICULO" />
+            </Principal>
+            <Dependent Role="CMS_MENU">
+              <PropertyRef Name="ID_ARTICULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Establishment_Work">
+          <End Role="Work" Type="Self.Work" Multiplicity="1" />
+          <End Role="Establishment" Type="Self.Establishment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Work">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Establishment">
+              <PropertyRef Name="IdWork" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MID_ARTICULO_ARCHIVO_CMS_ARCHIVO">
+          <End Role="CMS_ARCHIVO" Type="Self.CMS_ARCHIVO" Multiplicity="1" />
+          <End Role="MID_ARTICULO_ARCHIVO" Type="Self.MID_ARTICULO_ARCHIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMS_ARCHIVO">
+              <PropertyRef Name="ID_ARCHIVO" />
+            </Principal>
+            <Dependent Role="MID_ARTICULO_ARCHIVO">
+              <PropertyRef Name="ID_ARCHIVO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MID_ARTICULO_ARCHIVO_CMS_ARTICULO">
+          <End Role="CMS_ARTICULO" Type="Self.CMS_ARTICULO" Multiplicity="1" />
+          <End Role="MID_ARTICULO_ARCHIVO" Type="Self.MID_ARTICULO_ARCHIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMS_ARTICULO">
+              <PropertyRef Name="ID_ARTICULO" />
+            </Principal>
+            <Dependent Role="MID_ARTICULO_ARCHIVO">
+              <PropertyRef Name="ID_ARTICULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MID_ARTICULO_CATEGORIA_CMS_ARTICULO">
+          <End Role="CMS_ARTICULO" Type="Self.CMS_ARTICULO" Multiplicity="1" />
+          <End Role="MID_ARTICULO_CATEGORIA" Type="Self.MID_ARTICULO_CATEGORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMS_ARTICULO">
+              <PropertyRef Name="ID_ARTICULO" />
+            </Principal>
+            <Dependent Role="MID_ARTICULO_CATEGORIA">
+              <PropertyRef Name="ID_ARTICULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MID_ARTICULO_CATEGORIA_CMS_CATEGORIA">
+          <End Role="CMS_CATEGORIA" Type="Self.CMS_CATEGORIA" Multiplicity="1" />
+          <End Role="MID_ARTICULO_CATEGORIA" Type="Self.MID_ARTICULO_CATEGORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMS_CATEGORIA">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Principal>
+            <Dependent Role="MID_ARTICULO_CATEGORIA">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Work_Accreditation">
+          <End Role="Accreditation" Type="Self.Accreditation" Multiplicity="1" />
+          <End Role="Work" Type="Self.Work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accreditation">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Work">
+              <PropertyRef Name="AckID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FitosanitariasModelStoreContainer">
+          <EntitySet Name="Accreditation" EntityType="Self.Accreditation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMS_ARCHIVO" EntityType="Self.CMS_ARCHIVO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMS_ARTICULO" EntityType="Self.CMS_ARTICULO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMS_CATEGORIA" EntityType="Self.CMS_CATEGORIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMS_MENU" EntityType="Self.CMS_MENU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMS_TIPOARCHIVO" EntityType="Self.CMS_TIPOARCHIVO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Establishment" EntityType="Self.Establishment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MID_ARTICULO_ARCHIVO" EntityType="Self.MID_ARTICULO_ARCHIVO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Work" EntityType="Self.Work" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkArea" EntityType="Self.WorkArea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkStatus" EntityType="Self.WorkStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MID_ARTICULO_CATEGORIA" EntityType="Self.MID_ARTICULO_CATEGORIA" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MID_ARTICULO_CATEGORIA].[ID_ARTICULO] AS [ID_ARTICULO], 
+    [MID_ARTICULO_CATEGORIA].[ID_CATEGORIA] AS [ID_CATEGORIA]
+    FROM [dbo].[MID_ARTICULO_CATEGORIA] AS [MID_ARTICULO_CATEGORIA]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Author_Establishment" Association="Self.FK_Author_Establishment">
+            <End Role="Establishment" EntitySet="Establishment" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Author_Work" Association="Self.FK_Author_Work">
+            <End Role="Work" EntitySet="Work" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMS_ARCHIVO_CMS_TIPOARCHIVO" Association="Self.FK_CMS_ARCHIVO_CMS_TIPOARCHIVO">
+            <End Role="CMS_TIPOARCHIVO" EntitySet="CMS_TIPOARCHIVO" />
+            <End Role="CMS_ARCHIVO" EntitySet="CMS_ARCHIVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMS_MENU_CMS_ARTICULO" Association="Self.FK_CMS_MENU_CMS_ARTICULO">
+            <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+            <End Role="CMS_MENU" EntitySet="CMS_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Establishment_Work" Association="Self.FK_Establishment_Work">
+            <End Role="Work" EntitySet="Work" />
+            <End Role="Establishment" EntitySet="Establishment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MID_ARTICULO_ARCHIVO_CMS_ARCHIVO" Association="Self.FK_MID_ARTICULO_ARCHIVO_CMS_ARCHIVO">
+            <End Role="CMS_ARCHIVO" EntitySet="CMS_ARCHIVO" />
+            <End Role="MID_ARTICULO_ARCHIVO" EntitySet="MID_ARTICULO_ARCHIVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MID_ARTICULO_ARCHIVO_CMS_ARTICULO" Association="Self.FK_MID_ARTICULO_ARCHIVO_CMS_ARTICULO">
+            <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+            <End Role="MID_ARTICULO_ARCHIVO" EntitySet="MID_ARTICULO_ARCHIVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MID_ARTICULO_CATEGORIA_CMS_ARTICULO" Association="Self.FK_MID_ARTICULO_CATEGORIA_CMS_ARTICULO">
+            <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+            <End Role="MID_ARTICULO_CATEGORIA" EntitySet="MID_ARTICULO_CATEGORIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MID_ARTICULO_CATEGORIA_CMS_CATEGORIA" Association="Self.FK_MID_ARTICULO_CATEGORIA_CMS_CATEGORIA">
+            <End Role="CMS_CATEGORIA" EntitySet="CMS_CATEGORIA" />
+            <End Role="MID_ARTICULO_CATEGORIA" EntitySet="MID_ARTICULO_CATEGORIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Work_Accreditation" Association="Self.FK_Work_Accreditation">
+            <End Role="Accreditation" EntitySet="Accreditation" />
+            <End Role="Work" EntitySet="Work" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FitosanitariasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FitosanitariasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accreditation" EntityType="FitosanitariasModel.Accreditation" />
+          <EntitySet Name="Author" EntityType="FitosanitariasModel.Author" />
+          <EntitySet Name="Establishment" EntityType="FitosanitariasModel.Establishment" />
+          <EntitySet Name="Work" EntityType="FitosanitariasModel.Work" />
+          <EntitySet Name="WorkArea" EntityType="FitosanitariasModel.WorkArea" />
+          <EntitySet Name="WorkStatus" EntityType="FitosanitariasModel.WorkStatus" />
+          <AssociationSet Name="FK_Work_Accreditation" Association="FitosanitariasModel.FK_Work_Accreditation">
+            <End Role="Accreditation" EntitySet="Accreditation" />
+            <End Role="Work" EntitySet="Work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Author_Establishment" Association="FitosanitariasModel.FK_Author_Establishment">
+            <End Role="Establishment" EntitySet="Establishment" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Author_Work" Association="FitosanitariasModel.FK_Author_Work">
+            <End Role="Work" EntitySet="Work" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Establishment_Work" Association="FitosanitariasModel.FK_Establishment_Work">
+            <End Role="Work" EntitySet="Work" />
+            <End Role="Establishment" EntitySet="Establishment" />
+          </AssociationSet>
+          <EntitySet Name="CMS_ARCHIVO" EntityType="FitosanitariasModel.CMS_ARCHIVO" />
+          <EntitySet Name="CMS_ARTICULO" EntityType="FitosanitariasModel.CMS_ARTICULO" />
+          <EntitySet Name="CMS_CATEGORIA" EntityType="FitosanitariasModel.CMS_CATEGORIA" />
+          <EntitySet Name="CMS_MENU" EntityType="FitosanitariasModel.CMS_MENU" />
+          <EntitySet Name="CMS_TIPOARCHIVO" EntityType="FitosanitariasModel.CMS_TIPOARCHIVO" />
+          <AssociationSet Name="FK_CMS_ARCHIVO_CMS_TIPOARCHIVO" Association="FitosanitariasModel.FK_CMS_ARCHIVO_CMS_TIPOARCHIVO">
+            <End Role="CMS_TIPOARCHIVO" EntitySet="CMS_TIPOARCHIVO" />
+            <End Role="CMS_ARCHIVO" EntitySet="CMS_ARCHIVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMS_MENU_CMS_ARTICULO" Association="FitosanitariasModel.FK_CMS_MENU_CMS_ARTICULO">
+            <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+            <End Role="CMS_MENU" EntitySet="CMS_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="MID_ARTICULO_ARCHIVO" Association="FitosanitariasModel.MID_ARTICULO_ARCHIVO">
+            <End Role="CMS_ARCHIVO" EntitySet="CMS_ARCHIVO" />
+            <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+          </AssociationSet>
+          <AssociationSet Name="MID_ARTICULO_CATEGORIA" Association="FitosanitariasModel.MID_ARTICULO_CATEGORIA">
+            <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+            <End Role="CMS_CATEGORIA" EntitySet="CMS_CATEGORIA" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Accreditation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Profesion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Pais" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Provincia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Localidad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Movil" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroMatricula" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroSocio" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="EleccionDePago" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AcreditacionRealizada" Type="Boolean" Nullable="false" />
+          <Property Name="AcreditacionComprobanteNro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DNI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FechaAcreditacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Work" Relationship="FitosanitariasModel.FK_Work_Accreditation" FromRole="Accreditation" ToRole="Work" />
+          <Property Name="CantTrabajosPresenta" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Establecimiento" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IdWork" Type="Int32" Nullable="false" />
+          <Property Name="IdEstablishment" Type="Int32" Nullable="false" />
+          <Property Name="IsPresenter" Type="Boolean" />
+          <NavigationProperty Name="Establishment" Relationship="FitosanitariasModel.FK_Author_Establishment" FromRole="Author" ToRole="Establishment" />
+          <NavigationProperty Name="Work" Relationship="FitosanitariasModel.FK_Author_Work" FromRole="Author" ToRole="Work" />
+          <Property Name="OrderPosition" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Establishment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IdWork" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Author" Relationship="FitosanitariasModel.FK_Author_Establishment" FromRole="Establishment" ToRole="Author" />
+          <NavigationProperty Name="Work" Relationship="FitosanitariasModel.FK_Establishment_Work" FromRole="Establishment" ToRole="Work" />
+        </EntityType>
+        <EntityType Name="Work">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AreaID" Type="Int32" Nullable="false" />
+          <Property Name="AckID" Type="Int32" Nullable="false" />
+          <Property Name="NotasAdicionales" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EstadoID" Type="Int32" Nullable="false" />
+          <Property Name="ComentariosDelEvaluador" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Puntaje" Type="Int32" />
+          <Property Name="PosicionEnElArea" Type="Int32" />
+          <Property Name="SupervisorUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Supervisado" Type="Boolean" />
+          <NavigationProperty Name="Accreditation" Relationship="FitosanitariasModel.FK_Work_Accreditation" FromRole="Work" ToRole="Accreditation" />
+          <NavigationProperty Name="Author" Relationship="FitosanitariasModel.FK_Author_Work" FromRole="Work" ToRole="Author" />
+          <NavigationProperty Name="Establishment" Relationship="FitosanitariasModel.FK_Establishment_Work" FromRole="Work" ToRole="Establishment" />
+          <Property Name="Autores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Instituciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="WorkArea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="WorkStatus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Work_Accreditation">
+          <End Type="FitosanitariasModel.Accreditation" Role="Accreditation" Multiplicity="1" />
+          <End Type="FitosanitariasModel.Work" Role="Work" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accreditation">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Work">
+              <PropertyRef Name="AckID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Author_Establishment">
+          <End Type="FitosanitariasModel.Establishment" Role="Establishment" Multiplicity="1" />
+          <End Type="FitosanitariasModel.Author" Role="Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Establishment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="IdEstablishment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Author_Work">
+          <End Type="FitosanitariasModel.Work" Role="Work" Multiplicity="1" />
+          <End Type="FitosanitariasModel.Author" Role="Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Work">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="IdWork" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Establishment_Work">
+          <End Type="FitosanitariasModel.Work" Role="Work" Multiplicity="1" />
+          <End Type="FitosanitariasModel.Establishment" Role="Establishment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Work">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Establishment">
+              <PropertyRef Name="IdWork" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CMS_ARCHIVO">
+          <Key>
+            <PropertyRef Name="ID_ARCHIVO" />
+          </Key>
+          <Property Name="ID_ARCHIVO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="RelativePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_TIPO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CMS_TIPOARCHIVO" Relationship="FitosanitariasModel.FK_CMS_ARCHIVO_CMS_TIPOARCHIVO" FromRole="CMS_ARCHIVO" ToRole="CMS_TIPOARCHIVO" />
+          <NavigationProperty Name="CMS_ARTICULO" Relationship="FitosanitariasModel.MID_ARTICULO_ARCHIVO" FromRole="CMS_ARCHIVO" ToRole="CMS_ARTICULO" />
+        </EntityType>
+        <EntityType Name="CMS_ARTICULO">
+          <Key>
+            <PropertyRef Name="ID_ARTICULO" />
+          </Key>
+          <Property Name="ID_ARTICULO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UI_FECHA_ALTA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UI_FECHA_MODIFICACION" Type="DateTime" Precision="3" />
+          <Property Name="UI_FECHA_BAJA" Type="DateTime" Precision="3" />
+          <Property Name="UI_USUARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UI_INFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ID_TIPOARTICULO" Type="Int32" Nullable="false" />
+          <Property Name="ID_ESTADOARTICULO" Type="Int32" Nullable="false" />
+          <Property Name="TITULO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ENCABEZADO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CONTENIDO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PATH_CONTENIDOEXT" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PATH_PLANCONTENIDOEXT" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PATH_CONTENIDOTRANS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="RESUMEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA" Type="DateTime" Precision="3" />
+          <Property Name="FECHA_VENCIMIENTO" Type="DateTime" Precision="3" />
+          <Property Name="ACTIVO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="VERSION" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="OBSERVACIONES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CMS_MENU" Relationship="FitosanitariasModel.FK_CMS_MENU_CMS_ARTICULO" FromRole="CMS_ARTICULO" ToRole="CMS_MENU" />
+          <NavigationProperty Name="CMS_ARCHIVO" Relationship="FitosanitariasModel.MID_ARTICULO_ARCHIVO" FromRole="CMS_ARTICULO" ToRole="CMS_ARCHIVO" />
+          <NavigationProperty Name="CMS_CATEGORIA" Relationship="FitosanitariasModel.MID_ARTICULO_CATEGORIA" FromRole="CMS_ARTICULO" ToRole="CMS_CATEGORIA" />
+        </EntityType>
+        <EntityType Name="CMS_CATEGORIA">
+          <Key>
+            <PropertyRef Name="ID_CATEGORIA" />
+          </Key>
+          <Property Name="ID_CATEGORIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Descripción" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UI_INFO" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CMS_ARTICULO" Relationship="FitosanitariasModel.MID_ARTICULO_CATEGORIA" FromRole="CMS_CATEGORIA" ToRole="CMS_ARTICULO" />
+        </EntityType>
+        <EntityType Name="CMS_MENU">
+          <Key>
+            <PropertyRef Name="ID_MENU" />
+          </Key>
+          <Property Name="ID_MENU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UI_FECHA_ALTA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UI_FECHA_MODIFICACION" Type="DateTime" Precision="3" />
+          <Property Name="UI_FECHA_BAJA" Type="DateTime" Precision="3" />
+          <Property Name="UI_USUARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UI_INFO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ID_MENUPADRE" Type="Int32" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVACIONES" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ID_ARTICULO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CMS_ARTICULO" Relationship="FitosanitariasModel.FK_CMS_MENU_CMS_ARTICULO" FromRole="CMS_MENU" ToRole="CMS_ARTICULO" />
+        </EntityType>
+        <EntityType Name="CMS_TIPOARCHIVO">
+          <Key>
+            <PropertyRef Name="ID_TIPO" />
+          </Key>
+          <Property Name="ID_TIPO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Extensiones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CMS_ARCHIVO" Relationship="FitosanitariasModel.FK_CMS_ARCHIVO_CMS_TIPOARCHIVO" FromRole="CMS_TIPOARCHIVO" ToRole="CMS_ARCHIVO" />
+        </EntityType>
+        <Association Name="FK_CMS_ARCHIVO_CMS_TIPOARCHIVO">
+          <End Type="FitosanitariasModel.CMS_TIPOARCHIVO" Role="CMS_TIPOARCHIVO" Multiplicity="1" />
+          <End Type="FitosanitariasModel.CMS_ARCHIVO" Role="CMS_ARCHIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMS_TIPOARCHIVO">
+              <PropertyRef Name="ID_TIPO" />
+            </Principal>
+            <Dependent Role="CMS_ARCHIVO">
+              <PropertyRef Name="ID_TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMS_MENU_CMS_ARTICULO">
+          <End Type="FitosanitariasModel.CMS_ARTICULO" Role="CMS_ARTICULO" Multiplicity="1" />
+          <End Type="FitosanitariasModel.CMS_MENU" Role="CMS_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMS_ARTICULO">
+              <PropertyRef Name="ID_ARTICULO" />
+            </Principal>
+            <Dependent Role="CMS_MENU">
+              <PropertyRef Name="ID_ARTICULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MID_ARTICULO_ARCHIVO">
+          <End Type="FitosanitariasModel.CMS_ARCHIVO" Role="CMS_ARCHIVO" Multiplicity="*" />
+          <End Type="FitosanitariasModel.CMS_ARTICULO" Role="CMS_ARTICULO" Multiplicity="*" />
+        </Association>
+        <Association Name="MID_ARTICULO_CATEGORIA">
+          <End Type="FitosanitariasModel.CMS_ARTICULO" Role="CMS_ARTICULO" Multiplicity="*" />
+          <End Type="FitosanitariasModel.CMS_CATEGORIA" Role="CMS_CATEGORIA" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FitosanitariasModelStoreContainer" CdmEntityContainer="FitosanitariasEntities">
+          <EntitySetMapping Name="Accreditation">
+            <EntityTypeMapping TypeName="FitosanitariasModel.Accreditation">
+              <MappingFragment StoreEntitySet="Accreditation">
+                <ScalarProperty Name="CantTrabajosPresenta" ColumnName="CantTrabajosPresenta" />
+                <ScalarProperty Name="FechaAcreditacion" ColumnName="FechaAcreditacion" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AcreditacionComprobanteNro" ColumnName="AcreditacionComprobanteNro" />
+                <ScalarProperty Name="AcreditacionRealizada" ColumnName="AcreditacionRealizada" />
+                <ScalarProperty Name="EleccionDePago" ColumnName="EleccionDePago" />
+                <ScalarProperty Name="NumeroSocio" ColumnName="NumeroSocio" />
+                <ScalarProperty Name="NumeroMatricula" ColumnName="NumeroMatricula" />
+                <ScalarProperty Name="Movil" ColumnName="Movil" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Localidad" ColumnName="Localidad" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Author">
+            <EntityTypeMapping TypeName="FitosanitariasModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="OrderPosition" ColumnName="OrderPosition" />
+                <ScalarProperty Name="IsPresenter" ColumnName="IsPresenter" />
+                <ScalarProperty Name="IdEstablishment" ColumnName="IdEstablishment" />
+                <ScalarProperty Name="IdWork" ColumnName="IdWork" />
+                <ScalarProperty Name="Establecimiento" ColumnName="Establecimiento" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Establishment">
+            <EntityTypeMapping TypeName="FitosanitariasModel.Establishment">
+              <MappingFragment StoreEntitySet="Establishment">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="IdWork" ColumnName="IdWork" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Work">
+            <EntityTypeMapping TypeName="FitosanitariasModel.Work">
+              <MappingFragment StoreEntitySet="Work">
+                <ScalarProperty Name="Instituciones" ColumnName="Instituciones" />
+                <ScalarProperty Name="Autores" ColumnName="Autores" />
+                <ScalarProperty Name="Supervisado" ColumnName="Supervisado" />
+                <ScalarProperty Name="SupervisorUserId" ColumnName="SupervisorUserId" />
+                <ScalarProperty Name="PosicionEnElArea" ColumnName="PosicionEnElArea" />
+                <ScalarProperty Name="Puntaje" ColumnName="Puntaje" />
+                <ScalarProperty Name="ComentariosDelEvaluador" ColumnName="ComentariosDelEvaluador" />
+                <ScalarProperty Name="EstadoID" ColumnName="EstadoID" />
+                <ScalarProperty Name="NotasAdicionales" ColumnName="NotasAdicionales" />
+                <ScalarProperty Name="AckID" ColumnName="AckID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkArea">
+            <EntityTypeMapping TypeName="FitosanitariasModel.WorkArea">
+              <MappingFragment StoreEntitySet="WorkArea">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkStatus">
+            <EntityTypeMapping TypeName="FitosanitariasModel.WorkStatus">
+              <MappingFragment StoreEntitySet="WorkStatus">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMS_ARCHIVO">
+            <EntityTypeMapping TypeName="FitosanitariasModel.CMS_ARCHIVO">
+              <MappingFragment StoreEntitySet="CMS_ARCHIVO">
+                <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+                <ScalarProperty Name="RelativePath" ColumnName="RelativePath" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ID_ARCHIVO" ColumnName="ID_ARCHIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMS_ARTICULO">
+            <EntityTypeMapping TypeName="FitosanitariasModel.CMS_ARTICULO">
+              <MappingFragment StoreEntitySet="CMS_ARTICULO">
+                <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+                <ScalarProperty Name="VERSION" ColumnName="VERSION" />
+                <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+                <ScalarProperty Name="FECHA_VENCIMIENTO" ColumnName="FECHA_VENCIMIENTO" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="RESUMEN" ColumnName="RESUMEN" />
+                <ScalarProperty Name="PATH_CONTENIDOTRANS" ColumnName="PATH_CONTENIDOTRANS" />
+                <ScalarProperty Name="PATH_PLANCONTENIDOEXT" ColumnName="PATH_PLANCONTENIDOEXT" />
+                <ScalarProperty Name="PATH_CONTENIDOEXT" ColumnName="PATH_CONTENIDOEXT" />
+                <ScalarProperty Name="CONTENIDO" ColumnName="CONTENIDO" />
+                <ScalarProperty Name="ENCABEZADO" ColumnName="ENCABEZADO" />
+                <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+                <ScalarProperty Name="ID_ESTADOARTICULO" ColumnName="ID_ESTADOARTICULO" />
+                <ScalarProperty Name="ID_TIPOARTICULO" ColumnName="ID_TIPOARTICULO" />
+                <ScalarProperty Name="UI_INFO" ColumnName="UI_INFO" />
+                <ScalarProperty Name="UI_USUARIO" ColumnName="UI_USUARIO" />
+                <ScalarProperty Name="UI_FECHA_BAJA" ColumnName="UI_FECHA_BAJA" />
+                <ScalarProperty Name="UI_FECHA_MODIFICACION" ColumnName="UI_FECHA_MODIFICACION" />
+                <ScalarProperty Name="UI_FECHA_ALTA" ColumnName="UI_FECHA_ALTA" />
+                <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMS_CATEGORIA">
+            <EntityTypeMapping TypeName="FitosanitariasModel.CMS_CATEGORIA">
+              <MappingFragment StoreEntitySet="CMS_CATEGORIA">
+                <ScalarProperty Name="UI_INFO" ColumnName="UI_INFO" />
+                <ScalarProperty Name="Descripción" ColumnName="Descripción" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMS_MENU">
+            <EntityTypeMapping TypeName="FitosanitariasModel.CMS_MENU">
+              <MappingFragment StoreEntitySet="CMS_MENU">
+                <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
+                <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_MENUPADRE" ColumnName="ID_MENUPADRE" />
+                <ScalarProperty Name="UI_INFO" ColumnName="UI_INFO" />
+                <ScalarProperty Name="UI_USUARIO" ColumnName="UI_USUARIO" />
+                <ScalarProperty Name="UI_FECHA_BAJA" ColumnName="UI_FECHA_BAJA" />
+                <ScalarProperty Name="UI_FECHA_MODIFICACION" ColumnName="UI_FECHA_MODIFICACION" />
+                <ScalarProperty Name="UI_FECHA_ALTA" ColumnName="UI_FECHA_ALTA" />
+                <ScalarProperty Name="ID_MENU" ColumnName="ID_MENU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMS_TIPOARCHIVO">
+            <EntityTypeMapping TypeName="FitosanitariasModel.CMS_TIPOARCHIVO">
+              <MappingFragment StoreEntitySet="CMS_TIPOARCHIVO">
+                <ScalarProperty Name="Extensiones" ColumnName="Extensiones" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="MID_ARTICULO_ARCHIVO" TypeName="FitosanitariasModel.MID_ARTICULO_ARCHIVO" StoreEntitySet="MID_ARTICULO_ARCHIVO">
+            <EndProperty Name="CMS_ARTICULO">
+              <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
+            </EndProperty>
+            <EndProperty Name="CMS_ARCHIVO">
+              <ScalarProperty Name="ID_ARCHIVO" ColumnName="ID_ARCHIVO" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="MID_ARTICULO_CATEGORIA" TypeName="FitosanitariasModel.MID_ARTICULO_CATEGORIA" StoreEntitySet="MID_ARTICULO_CATEGORIA">
+            <EndProperty Name="CMS_CATEGORIA">
+              <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+            </EndProperty>
+            <EndProperty Name="CMS_ARTICULO">
+              <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,90 @@
+﻿@model ACKCMS.Contenidos.Models.CMS_MENU
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CMS_MENU</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_FECHA_ALTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_FECHA_ALTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_FECHA_MODIFICACION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_FECHA_MODIFICACION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_FECHA_BAJA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_FECHA_BAJA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_USUARIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_USUARIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UI_INFO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UI_INFO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_MENUPADRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_MENUPADRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OBSERVACIONES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OBSERVACIONES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CMS_ARTICULO.UI_USUARIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CMS_ARTICULO.UI_USUARIO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_MENU }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

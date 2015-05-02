@@ -1,0 +1,25 @@
+﻿@model ACKCMS.Models.Accreditation
+
+@{
+    ViewBag.Title = "Impresión de Comprobante";
+}
+
+<div class="wrapper style2">
+    <section class="container">
+        <div class="row double">
+            <div class="12u">
+                <center>
+                    <h3>Constancia de Acreditación</h3>
+                    <h4>
+                        Certificamos que de acuerdo a nuestros registros
+                        y con comprobante de pago N° @Model.AcreditacionComprobanteNro
+                        el/la Sr/Sra. @Model.Apellido @Model.Nombre, documento N° @Model.DNI
+                        se encuentra acreditado a las XV Jornadas Fitosanitarias Argentinas
+                        que se realizarán los días 7, 8 y 9 de Octubre de 2015 en la ciudad de Santa Fe.
+                    </h4>
+                </center>
+            </div>
+
+        </div>
+    </section>
+</div>

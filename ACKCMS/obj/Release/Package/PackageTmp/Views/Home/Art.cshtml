@@ -1,0 +1,19 @@
+﻿@model ACKCMS.Models.CMS_ARTICULO
+
+@{
+    ViewBag.Title = Model.TITULO;
+}
+
+<div class="wrapper style2">
+    <section class="container">
+        <div class="row double">
+            <div>
+                <h3>@Model.TITULO</h3>
+                <p>@Html.Raw(Model.CONTENIDO)</p>
+                <br />
+
+                <input type="button" value="Volver" onclick="window.location = '@Url.Action("Index", "Home")';" />
+            </div>
+        </div>
+    </section>
+</div>

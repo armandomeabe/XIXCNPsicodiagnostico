@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Impresión de Comprobante";
+}
+
+<div class="wrapper style2">
+    <section class="container">
+        <div class="row double">
+            <div class="12u">
+                <h3>IMPRESIÓN DE COMPROBANTE</h3>
+            </div>
+
+            @if (ViewBag.Result != null)
+            {
+                <div class="12u" style="color: red;">
+                    <hr />
+                    <h2>@ViewBag.Result</h2>
+                    <p>Puede realizar otra búsqueda de la misma manera con el formulario a continuación.</p>
+                </div>
+            }
+
+            @using (Html.BeginForm())
+            {
+            <div class="12u">
+                <hr />
+                <p>Ingrese su DNI y haga click en buscar.</p>
+                <p>
+                    <label for="DNI">DNI</label>
+                    <input type="text" name="DNI" id="DNI" />
+                </p>
+                <p>
+                    <input type="submit" value="Buscar" />
+                </p>
+            </div>
+            }
+        </div>
+    </section>
+</div>

@@ -1,0 +1,23 @@
+﻿@model List<ACKCMS.Models.WorkArea>
+
+@{
+    ViewBag.Title = "Áreas disponibles para el envío de resúmenes";
+}
+
+<div class="wrapper style2">
+    <section class="container">
+        <div class="row double">
+            <div>
+                <h3>Áreas disponibles para el envío de resúmenes</h3>
+                <ul>
+                    @foreach (var area in Model)
+                    {
+                        <li>#@area.Id - @area.Nombre</li>
+                    }
+                </ul>
+                <br />
+                <a href="@Url.Action("Index", "Home")" class="button">Volver</a>
+            </div>
+        </div>
+    </section>
+</div>

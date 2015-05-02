@@ -1,0 +1,86 @@
+﻿@model ACKCMS.Contenidos.Models.CMS_ARTICULO
+
+@{
+    ViewBag.Title = "Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Crear Artículo</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID_ARTICULO)
+        @Html.HiddenFor(model => model.UI_FECHA_ALTA)
+        @Html.HiddenFor(model => model.UI_FECHA_MODIFICACION)
+        @Html.HiddenFor(model => model.UI_FECHA_BAJA)
+        @Html.HiddenFor(model => model.UI_USUARIO)
+        @Html.HiddenFor(model => model.UI_INFO)
+        @Html.HiddenFor(model => model.ID_TIPOARTICULO)
+        @Html.HiddenFor(model => model.ID_ESTADOARTICULO)
+        @Html.HiddenFor(model => model.PATH_CONTENIDOEXT)
+        @Html.HiddenFor(model => model.PATH_PLANCONTENIDOEXT)
+        @Html.HiddenFor(model => model.PATH_CONTENIDOTRANS)
+        @Html.HiddenFor(model => model.VERSION)
+        @Html.HiddenFor(model => model.ACTIVO)
+        @Html.HiddenFor(model => model.FECHA)
+        @Html.HiddenFor(model => model.FECHA_VENCIMIENTO)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TITULO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TITULO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TITULO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ENCABEZADO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.ENCABEZADO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ENCABEZADO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CONTENIDO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.CONTENIDO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CONTENIDO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RESUMEN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.RESUMEN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RESUMEN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OBSERVACIONES, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.OBSERVACIONES, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OBSERVACIONES, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-default" />
+                <a href="@Url.Action("Index")" class="btn btn-info">Cancelar</a>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

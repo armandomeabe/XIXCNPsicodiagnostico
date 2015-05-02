@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9fcb55915ae548468df572fcf2a4989c" Name="Diagram1">
+        <EntityTypeShape EntityType="FitosanitariasModel.Accreditation" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitosanitariasModel.Author" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitosanitariasModel.Establishment" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitosanitariasModel.Work" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitosanitariasModel.WorkArea" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitosanitariasModel.WorkStatu" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="FitosanitariasModel.FK_Work_Accreditation" ManuallyRouted="false" />
+        <AssociationConnector Association="FitosanitariasModel.FK_Author_Establishment" ManuallyRouted="false" />
+        <AssociationConnector Association="FitosanitariasModel.FK_Author_Work" ManuallyRouted="false" />
+        <AssociationConnector Association="FitosanitariasModel.FK_Establishment_Work" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FitosanitariasModel.CMS_ARCHIVO" Width="1.5" PointX="9.625" PointY="10" />
+        <EntityTypeShape EntityType="FitosanitariasModel.CMS_ARTICULO" Width="1.5" PointX="11.875" PointY="8.375" />
+        <EntityTypeShape EntityType="FitosanitariasModel.CMS_CATEGORIA" Width="1.5" PointX="14.125" PointY="8.125" />
+        <EntityTypeShape EntityType="FitosanitariasModel.CMS_MENU" Width="1.5" PointX="14.125" PointY="10.875" />
+        <EntityTypeShape EntityType="FitosanitariasModel.CMS_TIPOARCHIVO" Width="1.5" PointX="7.375" PointY="10.125" />
+        <AssociationConnector Association="FitosanitariasModel.FK_CMS_ARCHIVO_CMS_TIPOARCHIVO" />
+        <AssociationConnector Association="FitosanitariasModel.FK_CMS_MENU_CMS_ARTICULO" />
+        <AssociationConnector Association="FitosanitariasModel.MID_ARTICULO_ARCHIVO" />
+        <AssociationConnector Association="FitosanitariasModel.MID_ARTICULO_CATEGORIA" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,222 @@
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\ACKCMS.dll.config
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\ACKCMS.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\ACKCMS.pdb
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Antlr3.Runtime.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\EntityFramework.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\EntityFramework.SqlServer.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Newtonsoft.Json.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Owin.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\System.Web.Helpers.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\System.Web.Mvc.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\System.Web.Optimization.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\System.Web.Razor.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\System.Web.WebPages.Deployment.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\System.Web.WebPages.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\System.Web.WebPages.Razor.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\WebGrease.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\System.Web.Helpers.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\System.Web.Mvc.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\System.Web.Optimization.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\System.Web.Razor.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\System.Web.WebPages.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\System.Web.WebPages.Deployment.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\System.Web.WebPages.Razor.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Antlr3.Runtime.pdb
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Newtonsoft.Json.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\EntityFramework.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\EntityFramework.SqlServer.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\System.Web.Helpers.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\System.Web.Mvc.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\System.Web.Optimization.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\System.Web.Razor.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\System.Web.WebPages.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\EntityFramework.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.Owin.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\obj\Debug\ACKCMS.csprojResolveAssemblyReference.cache
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\obj\Debug\ACKCMS.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\AcreditacionesCMS\ACKCMS\obj\Debug\ACKCMS.pdb
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\ACKCMS.dll.config
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\ACKCMS.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\ACKCMS.pdb
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Antlr3.Runtime.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\EntityFramework.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\EntityFramework.SqlServer.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Google.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Web.Infrastructure.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Newtonsoft.Json.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Owin.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\System.Web.Helpers.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\System.Web.Mvc.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\System.Web.Optimization.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\System.Web.Razor.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\System.Web.WebPages.Deployment.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\System.Web.WebPages.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\System.Web.WebPages.Razor.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\WebGrease.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\System.Web.Helpers.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\System.Web.Mvc.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\System.Web.Optimization.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\System.Web.Razor.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\System.Web.WebPages.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\System.Web.WebPages.Deployment.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\System.Web.WebPages.Razor.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Antlr3.Runtime.pdb
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Newtonsoft.Json.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\EntityFramework.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\EntityFramework.SqlServer.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Google.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\System.Web.Helpers.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\System.Web.Mvc.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\System.Web.Optimization.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\System.Web.Razor.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\System.Web.WebPages.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\EntityFramework.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\EntityFramework.SqlServer.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.Owin.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.Owin.Security.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.Owin.Security.Google.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\obj\Debug\ACKCMS.dll
+D:\Storage\AcreditacionesCMS\ACKCMS\obj\Debug\ACKCMS.pdb
+D:\Storage\AcreditacionesCMS\ACKCMS\obj\Debug\ACKCMS.csprojResolveAssemblyReference.cache
+D:\Storage\ADEIP\ACKCMS\bin\ACKCMS.dll.config
+D:\Storage\ADEIP\ACKCMS\bin\ACKCMS.dll
+D:\Storage\ADEIP\ACKCMS\bin\ACKCMS.pdb
+D:\Storage\ADEIP\ACKCMS\bin\Antlr3.Runtime.dll
+D:\Storage\ADEIP\ACKCMS\bin\EntityFramework.dll
+D:\Storage\ADEIP\ACKCMS\bin\EntityFramework.SqlServer.dll
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.dll
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Security.dll
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Security.Google.dll
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Web.Infrastructure.dll
+D:\Storage\ADEIP\ACKCMS\bin\Newtonsoft.Json.dll
+D:\Storage\ADEIP\ACKCMS\bin\Owin.dll
+D:\Storage\ADEIP\ACKCMS\bin\System.Web.Helpers.dll
+D:\Storage\ADEIP\ACKCMS\bin\System.Web.Mvc.dll
+D:\Storage\ADEIP\ACKCMS\bin\System.Web.Optimization.dll
+D:\Storage\ADEIP\ACKCMS\bin\System.Web.Razor.dll
+D:\Storage\ADEIP\ACKCMS\bin\System.Web.WebPages.Deployment.dll
+D:\Storage\ADEIP\ACKCMS\bin\System.Web.WebPages.dll
+D:\Storage\ADEIP\ACKCMS\bin\System.Web.WebPages.Razor.dll
+D:\Storage\ADEIP\ACKCMS\bin\WebGrease.dll
+D:\Storage\ADEIP\ACKCMS\bin\System.Web.Helpers.xml
+D:\Storage\ADEIP\ACKCMS\bin\System.Web.Mvc.xml
+D:\Storage\ADEIP\ACKCMS\bin\System.Web.Optimization.xml
+D:\Storage\ADEIP\ACKCMS\bin\System.Web.Razor.xml
+D:\Storage\ADEIP\ACKCMS\bin\System.Web.WebPages.xml
+D:\Storage\ADEIP\ACKCMS\bin\System.Web.WebPages.Deployment.xml
+D:\Storage\ADEIP\ACKCMS\bin\System.Web.WebPages.Razor.xml
+D:\Storage\ADEIP\ACKCMS\bin\Antlr3.Runtime.pdb
+D:\Storage\ADEIP\ACKCMS\bin\Newtonsoft.Json.xml
+D:\Storage\ADEIP\ACKCMS\bin\EntityFramework.xml
+D:\Storage\ADEIP\ACKCMS\bin\EntityFramework.SqlServer.xml
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.xml
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Security.xml
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Security.Google.xml
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Storage\ADEIP\ACKCMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Storage\ADEIP\ACKCMS\bin\es\System.Web.Helpers.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\System.Web.Mvc.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\System.Web.Optimization.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\System.Web.Razor.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\System.Web.WebPages.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\EntityFramework.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\EntityFramework.SqlServer.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\Microsoft.Owin.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\Microsoft.Owin.Security.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\Microsoft.Owin.Security.Google.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+D:\Storage\ADEIP\ACKCMS\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+D:\Storage\ADEIP\ACKCMS\obj\Debug\ACKCMS.csprojResolveAssemblyReference.cache
+D:\Storage\ADEIP\ACKCMS\obj\Debug\ACKCMS.dll
+D:\Storage\ADEIP\ACKCMS\obj\Debug\ACKCMS.pdb

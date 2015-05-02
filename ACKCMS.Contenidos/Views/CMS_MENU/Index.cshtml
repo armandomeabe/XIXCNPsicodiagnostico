@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ACKCMS.Contenidos.Models.CMS_MENU>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Menúes</h2>
+
+<p>
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_MENU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_MENUPADRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OBSERVACIONES)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CMS_ARTICULO.UI_USUARIO)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_MENU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_MENUPADRE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMBRE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OBSERVACIONES)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CMS_ARTICULO.UI_USUARIO)
+            </td>
+            <td>
+
+
+
+                <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        Acciones
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation" class="dropdown-header">Edición</li>
+                        <li role="presentation">@Html.ActionLink("Editar", "Edit", new { id = item.ID_MENU })</li>
+                        <li role="presentation">@Html.ActionLink("Detalles", "Details", new { id = item.ID_MENU })</li>
+                        <li role="presentation">@Html.ActionLink("Eliminar", "Delete", new { id = item.ID_MENU })</li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
