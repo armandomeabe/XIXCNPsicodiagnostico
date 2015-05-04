@@ -244,10 +244,32 @@
     <Content Include="Content\xv-logo.jpg" />
     <Content Include="Content\xv-y-aaf-logo.jpg" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\ie9.css" />
     <Content Include="css\ie\html5shiv.js" />
     <Content Include="css\ie\PIE.htc" />
     <Content Include="css\ie\v8.css" />
+    <Content Include="css\images\banner.jpg" />
+    <Content Include="css\images\bg01.jpg" />
+    <Content Include="css\images\bg02.jpg" />
+    <Content Include="css\images\bg03.jpg" />
+    <Content Include="css\images\bg04.jpg" />
+    <Content Include="css\images\bg04.png" />
+    <Content Include="css\images\bg1.png" />
+    <Content Include="css\images\button-big-active.svg" />
+    <Content Include="css\images\button-big-hover.svg" />
+    <Content Include="css\images\button-big.svg" />
+    <Content Include="css\images\button-hover.svg" />
+    <Content Include="css\images\button.svg" />
+    <Content Include="css\images\header-wrapper.svg" />
+    <Content Include="css\images\header.svg" />
+    <Content Include="css\images\icon-bubble.png" />
+    <Content Include="css\images\icon-checkmark.png" />
+    <Content Include="css\images\mobileUI-site-nav-opener-bg.svg" />
+    <Content Include="css\images\nav-a-hover.svg" />
+    <Content Include="css\images\nav-a.svg" />
     <Content Include="css\skel.css" />
+    <Content Include="css\style-1000px.css" />
+    <Content Include="css\style-desktop.css" />
     <Content Include="css\style-mobile.css" />
     <Content Include="css\style-narrow.css" />
     <Content Include="css\style-narrower.css" />
@@ -268,10 +290,28 @@
     <Content Include="images\banner2.PNG" />
     <Content Include="images\banner3.PNG" />
     <Content Include="images\edit.png" />
+    <Content Include="images\logo.jpg" />
+    <Content Include="images\Logo.png" />
     <Content Include="images\marsillon.jpg" />
+    <Content Include="images\pic01.jpg" />
+    <Content Include="images\pic02.jpg" />
+    <Content Include="images\pic03.jpg" />
+    <Content Include="images\pic04.jpg" />
+    <Content Include="images\pic05.jpg" />
+    <Content Include="images\pic06.jpg" />
+    <Content Include="images\pic07.jpg" />
+    <Content Include="images\pic08.jpg" />
+    <Content Include="images\pic1.jpg" />
+    <Content Include="images\pic2.jpg" />
+    <Content Include="images\pic3.jpg" />
+    <Content Include="images\pic4.jpg" />
+    <Content Include="images\pic5.jpg" />
+    <Content Include="images\pic6.jpg" />
     <Content Include="images\placeholder.png" />
+    <Content Include="images\Psicología2.jpg" />
     <Content Include="images\register.png" />
     <Content Include="images\tick.png" />
+    <Content Include="js\html5shiv.js" />
     <Content Include="js\init.js" />
     <Content Include="js\jquery.dropotron.min.js" />
     <Content Include="js\jquery.min.js" />
@@ -366,7 +406,9 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Content\Imagenes\Thumbs.db" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -433,6 +475,7 @@
     <Content Include="Views\Home\Trabajo.cshtml" />
     <Content Include="Views\Home\Acreditado.cshtml" />
     <Content Include="Views\Home\Areas.cshtml" />
+    <Content Include="Views\Shared\_Layout - Copia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
