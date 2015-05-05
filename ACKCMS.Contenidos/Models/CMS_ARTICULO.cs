@@ -41,6 +41,7 @@ namespace ACKCMS.Contenidos.Models
         public string ACTIVO { get; set; }
         public Nullable<decimal> VERSION { get; set; }
         public string OBSERVACIONES { get; set; }
+        public string URLIMAGEN { get; set; }
     
         public virtual ICollection<CMS_MENU> CMS_MENU { get; set; }
         public virtual ICollection<CMS_ARCHIVO> CMS_ARCHIVO { get; set; }

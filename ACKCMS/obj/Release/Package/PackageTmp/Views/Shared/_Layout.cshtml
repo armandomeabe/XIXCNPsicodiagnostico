@@ -3,147 +3,217 @@
 @using ACKCMS.Models
 
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <title>XV Jornadas Fitosanitarias Argentinas</title>
+    <title>XIX CNP</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <!--[if lte IE 8]><script src="@Url.Content("~/css/ie/html5shiv.js")"></script><![endif]-->
     <script src="@Url.Content("~/js/jquery.min.js")"></script>
-    <script src="@Url.Content("~/js/jquery.dropotron.min.js")"></script>
     <script src="@Url.Content("~/js/skel.min.js")"></script>
     <script src="@Url.Content("~/js/skel-layers.min.js")"></script>
     <script src="@Url.Content("~/js/init.js")"></script>
     <noscript>
         <link rel="stylesheet" href="@Url.Content("~/css/skel.css")" />
         <link rel="stylesheet" href="@Url.Content("~/css/style.css")" />
+        <link rel="stylesheet" href="@Url.Content("~/css/style-desktop.css")" />
     </noscript>
-    <!--[if lte IE 8]><link rel="stylesheet" href="@Url.Content("~/css/ie/v8.css")" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="@Url.Content("~/css/ie9.css")" /><![endif]-->
+    <!--[if lte IE 8]><script src="@Url.Content("~/js/html5shiv.js")"></script><![endif]-->
 </head>
-<body class="homepage">
+<body>
 
-    <!-- Header Wrapper -->
-    <div class="wrapper style1">
+    <!-- Header -->
+    <div id="header-wrapper">
+        <header id="header" class="container">
+            <div class="row">
+                <div class="12u">
 
-        <!-- Header -->
-        <div id="header">
-            <div class="container">
+                    <!-- Logo -->
+                    <h1><a href="@Url.Action("Index", "Home")" id="logo" style="font-size: 30px;">XIX Congreso Nacional de Psicodiagnóstico | XXVI Jornadas Nacionales de ADEIP</a></h1>
 
-                <!-- Logo -->
-                <h1>
-                    <a href="#" id="logo">XV Jornadas Fitosanitarias Argentinas</a>
-                </h1>
+                    <!-- Nav -->
+                    <nav id="nav">
+                        <a href="@Url.Action("Index", "Home")">Home</a>
+                        <a href="@Url.Action("Acreditacion", "Home")">Acreditación</a>
+                        <a href="@Url.Action("Art", "Home", new { id = 8 })">Trabajos</a>
 
-                <!-- Nav -->
-                <nav id="nav">
-                    <ul>
-                        <li class="active"><a href="@Url.Action("Index", "Home")">Home</a></li>
-                        @foreach (var menu in (List<MenuWithChilds>)ViewBag.Menus)
+                        @if (ViewBag.Menus != null)
                         {
-                            if (menu.ChildMenus.Any())
+                            foreach (var menu in (List<MenuWithChilds>) ViewBag.Menus)
                             {
-                                <li>
-                                    <a href="">@menu.Menu.NOMBRE</a>
-                                    <ul>
-                                        @foreach (var child in menu.ChildMenus)
-                                        {
-                                            <li><a href="@Url.Action("Art", "Home", new {id = child.ID_ARTICULO})">@child.NOMBRE</a></li>
-                                        }
-                                    </ul>
-                                </li>
-                            }
-                            else
-                            {
-                                <li><a href="@Url.Action("Art", "Home", new {id = menu.Menu.ID_ARTICULO})">@menu.Menu.NOMBRE</a></li>
+                                <a href="@Url.Action("Art", "Home", new {id = menu.Menu.ID_ARTICULO})">@menu.Menu.NOMBRE</a>
                             }
                         }
+                    </nav>
 
-
-                        <li>
-                            <a href="#">Acreditación</a>
-                            <ul>
-                                <li><a href="@Url.Action("Acreditacion", "Home")">Acreditación</a></li>
-                                <li><a href="@Url.Action("EstadoAcreditacion", "Home")">Estado de acreditación </a></li>
-                                <li><a href="@Url.Action("ImpresionDeComprobante", "Home")">Impresión de comprobante </a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Presentación de Trabajos</a>
-                            <ul>
-                                <li><a href="@Url.Action("Areas", "Home")">Áreas</a></li>
-                                <li><a href="#">Instrucciones y Fechas Límite</a></li>
-                                <li><a href="@Url.Action("Trabajos", "Home")">Envío de Resúmenes</a></li>
-                                <li><a href="#">Reglamento de Posters</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-
+                </div>
             </div>
-        </div>
-
+        </header>
         @if (ViewBag.ShowBigHeader != null && (bool)ViewBag.ShowBigHeader)
         {
             <div id="banner">
-                <section class="container">
-                    <h2>XV Jornadas Fitosanitarias Argentinas</h2>
-                    <span><strong>Desafíos actuales y futuros</strong></span>
-                    <img src="images/banner3.PNG" style="width: 100%;">
-                    <h1>Universidad Nacional del Litoral - Departamento de Producción Vegetal - Facultad de Ciencias Agrarias.</h1>
-                </section>
-            </div>
-        }
-        else
-        {
-            <div id="banner">
-                <section class="container">
-                    <h3>XV Jornadas Fitosanitarias Argentinas</h3>
-                    <span>@Html.Raw(ViewBag.Title)</span>
-                </section>
+                <div class="container">
+                    <div class="row">
+                        <div class="6u">
+                            <h1 style="font-size: 80px; margin-bottom: 20px; line-height: 65px;">Evaluando Vulnerabilidades</h1>
+                            <h1 style="font-size: 60px; margin-bottom: 15px;">en diferentes contextos</h1>
+                            <h1 style="font-size: 30px; margin-bottom: 5px;">1, 2 y 3 de Octubre de 2015</h1>
+                            <h1 style="font-size: 30px; margin-bottom: 30px;">Lugar : Echagüe 7151 / UCSF. <strong>Santa Fe.</strong></h1>
+                            <a href="@Url.Action("Acreditacion", "Home")" class="button-big">Acreditación</a>
+
+                        </div>
+                        <div class="6u">
+                            <!-- Banner Image -->
+                            <center><a href="#" class="bordered-feature-image"><img src="images/logo.png" style="width: 400px" alt="" /></a></center>
+                        </div>
+                    </div>
+                </div>
             </div>
         }
     </div>
 
-    @if (ViewBag.Notificaciones != null)
+    @if (ViewBag.ShowBigHeader != null && (bool)ViewBag.ShowBigHeader)
     {
-        <div class="wrapper style5">
-            <section class="container">
-                <ul>
-                    @foreach (var notificacion in (List<string>)ViewBag.Notificaciones)
-                    {
-                        <li style="font-size: x-large">Mensaje del sitio web: <i>@notificacion</i></li>
-                    }
-                </ul>
-            </section>
+        <!-- Features -->
+        <div id="features-wrapper">
+            <div id="features">
+                <div class="container">
+                    <div class="row">
+                        @foreach (CMS_ARTICULO articulo in ViewBag.Articles)
+                        {
+                            <div class="3u">
+                                <!-- Feature #1 -->
+                                <section>
+                                    <a href="@Url.Action("Art", "Home", new { id = articulo.ID_ARTICULO })" class="bordered-feature-image"><img src="@articulo.URLIMAGEN" alt="" /></a>
+                                    <a href="@Url.Action("Art", "Home", new {id = articulo.ID_ARTICULO})"><h2>@articulo.TITULO</h2></a>
+                                    <span style="color: lightgray">@Html.Raw(articulo.RESUMEN)</span>
+                                </section>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
     }
 
-    @RenderBody()
+    @if (ViewBag.Notificaciones != null)
+    {
+        <div id="content-wrapper">
+            <div id="content">
+                <div class="container">
+                    <div class="row">
+                        <header>
+                            <h2>Por favor compruebe los siguientes errores y vuelva a intentar</h2>
+                        </header>
+                    </div>
+
+                    <ul class="check-list">
+                        @foreach (var notificacion in (List<string>)ViewBag.Notificaciones)
+                        {
+                            <li style="font-size: x-large"><i>@notificacion</i></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- Content -->
+    <div id="content-wrapper">
+        <div id="content">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
-    <div id="footer">
-        <section class="container">
-            <header class="major">
-                <h2>Contacto</h2>
-            </header>
-            <ul class="icons">
-                <li class="active"><a href="#" class="fa fa-facebook"><span>Facebook</span></a></li>
-                <li><a href="#" class="fa fa-twitter"><span>Twitter</span></a></li>
-                <li><a href="#" class="fa fa-dribbble"><span>Pinterest</span></a></li>
-                <li><a href="#" class="fa fa-google-plus"><span>Google+</span></a></li>
-            </ul>
-            <hr />
-        </section>
+    <div id="footer-wrapper">
+        <footer id="footer" class="container">
+            <div class="row">
+                <div class="4u">
 
-        <!-- Copyright -->
-        <div id="copyright">
-            @DateTime.Now.Year.ToString() | MICE Congresos y Eventos
-        </div>
+                    <!-- Links -->
+                    <section>
+                        <h2>Novedades Destacadas</h2>
+                        <div>
+                            <div class="row">
+                                <div class="6u">
+                                    <ul class="link-list last-child">
+                                        @if (ViewBag.Articles != null)
+                                        {
+                                            foreach (CMS_ARTICULO articulo in ViewBag.Articles)
+                                            {
+                                                <li><a href="@Url.Action("Art", "Home", new {id = articulo.ID_ARTICULO})">@articulo.TITULO</a></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                                <div class="6u">
+                                    <ul class="link-list last-child">
+                                        @if (ViewBag.NotMainArticles != null)
+                                        {
+                                            foreach (CMS_ARTICULO articulo in ViewBag.NotMainArticles)
+                                            {
+                                                <li><a href="@Url.Action("Art", "Home", new {id = articulo.ID_ARTICULO})">@articulo.TITULO</a></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                                @*<div class="3u">
+                                        <ul class="link-list last-child">
+                                            <li><a href="#">Neque amet dapibus</a></li>
+                                            <li><a href="#">Sed mattis quis rutrum</a></li>
+                                            <li><a href="#">Accumsan suspendisse</a></li>
+                                            <li><a href="#">Eu varius vitae magna</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="3u">
+                                        <ul class="link-list last-child">
+                                            <li><a href="#">Neque amet dapibus</a></li>
+                                            <li><a href="#">Sed mattis quis rutrum</a></li>
+                                            <li><a href="#">Accumsan suspendisse</a></li>
+                                            <li><a href="#">Eu varius vitae magna</a></li>
+                                        </ul>
+                                    </div>*@
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+                <div class="4u">
+                    <section>
+                        <h2>Informes e Incripción</h2>
+                        <p>
+                            e-mail: congresoadeip2015@gmail.com
+                            <br />Facebook: Congreso ADEIP 2015
+                        </p>
+                    </section>
+                </div>
+                <div class="4u">
+                    <section>
+                        <h2>Información de Contacto</h2>
+                        <p>
+                            Sede Nacional: 9 de julio 210 Planta Baja (Rosario)
+                            <br />Telefax: (0341) 4240013
+                            <br />Web: www.adeip.org.ar
+                            <br />Facebook: ADEIP Asociación Argentina de
+                            <br />Estudio e Investigación en Psicodiagnóstico
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div id="copyright">
+        &copy; @DateTime.Now.Year - XIX Congreso Nacional de Psicodiagnóstico | XXVI Jornadas Nacionales de ADEIP
     </div>
 
 </body>
 </html>
+
 <script type="text/javascript" src="@Url.Content("~/js/tinymce/tinymce.min.js")"></script>
 <script type="text/javascript">
     tinymce.init({

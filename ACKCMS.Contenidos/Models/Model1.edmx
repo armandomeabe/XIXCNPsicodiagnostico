@@ -27,6 +27,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="DNI" Type="nvarchar" MaxLength="100" />
           <Property Name="FechaAcreditacion" Type="datetime" />
+          <Property Name="CantTrabajosPresenta" Type="int" />
         </EntityType>
         <EntityType Name="Author">
           <Key>
@@ -38,6 +39,7 @@
           <Property Name="IdWork" Type="int" Nullable="false" />
           <Property Name="IdEstablishment" Type="int" Nullable="false" />
           <Property Name="IsPresenter" Type="bit" />
+          <Property Name="OrderPosition" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CMS_ARCHIVO">
           <Key>
@@ -72,6 +74,7 @@
           <Property Name="ACTIVO" Type="char" MaxLength="1" />
           <Property Name="VERSION" Type="decimal" Precision="5" Scale="2" />
           <Property Name="OBSERVACIONES" Type="varchar(max)" />
+          <Property Name="URLIMAGEN" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="CMS_CATEGORIA">
           <Key>
@@ -123,7 +126,7 @@
           <Property Name="ID_ARCHIVO" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'XIXCNPsicodiagnostico.dbo.MID_ARTICULO_CATEGORIA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="MID_ARTICULO_CATEGORIA">
           <Key>
             <PropertyRef Name="ID_ARTICULO" />
@@ -148,6 +151,8 @@ advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' n
           <Property Name="PosicionEnElArea" Type="int" />
           <Property Name="SupervisorUserId" Type="nvarchar" MaxLength="128" />
           <Property Name="Supervisado" Type="bit" />
+          <Property Name="Autores" Type="nvarchar(max)" />
+          <Property Name="Instituciones" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="WorkArea">
           <Key>
@@ -370,6 +375,7 @@ advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' n
           <Property Name="DNI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="FechaAcreditacion" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Works" Relationship="Self.FK_Work_Accreditation" FromRole="Accreditation" ToRole="Work" />
+          <Property Name="CantTrabajosPresenta" Type="Int32" />
         </EntityType>
         <EntityType Name="Author">
           <Key>
@@ -383,6 +389,7 @@ advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' n
           <Property Name="IsPresenter" Type="Boolean" />
           <NavigationProperty Name="Establishment" Relationship="Self.FK_Author_Establishment" FromRole="Author" ToRole="Establishment" />
           <NavigationProperty Name="Work" Relationship="Self.FK_Author_Work" FromRole="Author" ToRole="Work" />
+          <Property Name="OrderPosition" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Establishment">
           <Key>
@@ -414,6 +421,8 @@ advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' n
           <NavigationProperty Name="Accreditation" Relationship="Self.FK_Work_Accreditation" FromRole="Work" ToRole="Accreditation" />
           <NavigationProperty Name="Authors" Relationship="Self.FK_Author_Work" FromRole="Work" ToRole="Author" />
           <NavigationProperty Name="Establishments" Relationship="Self.FK_Establishment_Work" FromRole="Work" ToRole="Establishment" />
+          <Property Name="Autores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Instituciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="WorkArea">
           <Key>
@@ -560,6 +569,7 @@ advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' n
           <NavigationProperty Name="CMS_MENU" Relationship="FitosanitariasModel.FK_CMS_MENU_CMS_ARTICULO" FromRole="CMS_ARTICULO" ToRole="CMS_MENU" />
           <NavigationProperty Name="CMS_ARCHIVO" Relationship="FitosanitariasModel.MID_ARTICULO_ARCHIVO" FromRole="CMS_ARTICULO" ToRole="CMS_ARCHIVO" />
           <NavigationProperty Name="CMS_CATEGORIA" Relationship="FitosanitariasModel.MID_ARTICULO_CATEGORIA" FromRole="CMS_ARTICULO" ToRole="CMS_CATEGORIA" />
+          <Property Name="URLIMAGEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CMS_CATEGORIA">
           <Key>
@@ -637,6 +647,7 @@ advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' n
           <EntitySetMapping Name="Accreditations">
             <EntityTypeMapping TypeName="FitosanitariasModel.Accreditation">
               <MappingFragment StoreEntitySet="Accreditation">
+                <ScalarProperty Name="CantTrabajosPresenta" ColumnName="CantTrabajosPresenta" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Apellido" ColumnName="Apellido" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -661,6 +672,7 @@ advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' n
           <EntitySetMapping Name="Authors">
             <EntityTypeMapping TypeName="FitosanitariasModel.Author">
               <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="OrderPosition" ColumnName="OrderPosition" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Establecimiento" ColumnName="Establecimiento" />
@@ -683,6 +695,8 @@ advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' n
           <EntitySetMapping Name="Works">
             <EntityTypeMapping TypeName="FitosanitariasModel.Work">
               <MappingFragment StoreEntitySet="Work">
+                <ScalarProperty Name="Instituciones" ColumnName="Instituciones" />
+                <ScalarProperty Name="Autores" ColumnName="Autores" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Body" ColumnName="Body" />
@@ -727,6 +741,7 @@ advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' n
           <EntitySetMapping Name="CMS_ARTICULO">
             <EntityTypeMapping TypeName="FitosanitariasModel.CMS_ARTICULO">
               <MappingFragment StoreEntitySet="CMS_ARTICULO">
+                <ScalarProperty Name="URLIMAGEN" ColumnName="URLIMAGEN" />
                 <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
                 <ScalarProperty Name="VERSION" ColumnName="VERSION" />
                 <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />

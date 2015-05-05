@@ -120,6 +120,7 @@ namespace ACKCMS.Controllers
         public ActionResult Index()
         {
             ViewBag.ShowBigHeader = true;
+
             return View();
         }
 

@@ -23,6 +23,9 @@ namespace ACKCMS.Controllers
                     ChildMenus = Db.CMS_MENU.ToList().Where(x => x.ID_MENUPADRE.Equals(menu.ID_MENU)).ToList()
                 }).ToList();
 
+            ViewBag.Articles = Db.CMS_ARTICULO.Where(x => !x.UI_FECHA_BAJA.HasValue && x.ENCABEZADO.Contains("destacado")).ToList();
+            ViewBag.NotMainArticles = Db.CMS_ARTICULO.Where(x => !x.UI_FECHA_BAJA.HasValue && !x.ENCABEZADO.Contains("destacado")).ToList();
+
         }
     }
 

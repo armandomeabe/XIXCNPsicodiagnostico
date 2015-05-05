@@ -98,6 +98,7 @@
     <EntitySetMapping Name="CMS_ARTICULO">
       <EntityTypeMapping TypeName="FitosanitariasModel.CMS_ARTICULO">
         <MappingFragment StoreEntitySet="CMS_ARTICULO">
+          <ScalarProperty Name="URLIMAGEN" ColumnName="URLIMAGEN" />
           <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
           <ScalarProperty Name="VERSION" ColumnName="VERSION" />
           <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />

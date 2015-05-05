@@ -32,6 +32,8 @@ namespace ACKCMS.Contenidos.Models
         public Nullable<int> PosicionEnElArea { get; set; }
         public string SupervisorUserId { get; set; }
         public Nullable<bool> Supervisado { get; set; }
+        public string Autores { get; set; }
+        public string Instituciones { get; set; }
     
         public virtual Accreditation Accreditation { get; set; }
         public virtual ICollection<Author> Authors { get; set; }

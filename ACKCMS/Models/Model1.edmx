@@ -74,6 +74,7 @@
           <Property Name="ACTIVO" Type="char" MaxLength="1" />
           <Property Name="VERSION" Type="decimal" Precision="5" Scale="2" />
           <Property Name="OBSERVACIONES" Type="varchar(max)" />
+          <Property Name="URLIMAGEN" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="CMS_CATEGORIA">
           <Key>
@@ -125,7 +126,7 @@
           <Property Name="ID_ARCHIVO" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'XIXCNPsicodiagnostico.dbo.MID_ARTICULO_CATEGORIA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="MID_ARTICULO_CATEGORIA">
           <Key>
             <PropertyRef Name="ID_ARTICULO" />
@@ -568,6 +569,7 @@ advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' n
           <NavigationProperty Name="CMS_MENU" Relationship="FitosanitariasModel.FK_CMS_MENU_CMS_ARTICULO" FromRole="CMS_ARTICULO" ToRole="CMS_MENU" />
           <NavigationProperty Name="CMS_ARCHIVO" Relationship="FitosanitariasModel.MID_ARTICULO_ARCHIVO" FromRole="CMS_ARTICULO" ToRole="CMS_ARCHIVO" />
           <NavigationProperty Name="CMS_CATEGORIA" Relationship="FitosanitariasModel.MID_ARTICULO_CATEGORIA" FromRole="CMS_ARTICULO" ToRole="CMS_CATEGORIA" />
+          <Property Name="URLIMAGEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CMS_CATEGORIA">
           <Key>
@@ -739,6 +741,7 @@ advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' n
           <EntitySetMapping Name="CMS_ARTICULO">
             <EntityTypeMapping TypeName="FitosanitariasModel.CMS_ARTICULO">
               <MappingFragment StoreEntitySet="CMS_ARTICULO">
+                <ScalarProperty Name="URLIMAGEN" ColumnName="URLIMAGEN" />
                 <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
                 <ScalarProperty Name="VERSION" ColumnName="VERSION" />
                 <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />

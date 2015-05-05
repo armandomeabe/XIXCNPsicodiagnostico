@@ -405,7 +405,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Content Include="Content\Imagenes\Thumbs.db" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -456,7 +455,6 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="images\Thumbs.db" />
     <Content Include="js\tinymce\langs\readme.md" />
     <Content Include="js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="js\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
@@ -468,6 +466,7 @@
     <Content Include="Views\Home\EstadoAcreditacion.cshtml" />
     <Content Include="Views\Home\ImpresionDeComprobante.cshtml" />
     <Content Include="Views\Home\ImpresionDeComprobanteOK.cshtml" />
+    <None Include="Properties\PublishProfiles\ADEIP.pubxml" />
     <None Include="Properties\PublishProfiles\FileSystem 1.pubxml" />
     <Content Include="Views\Home\Ack404.cshtml" />
     <Content Include="Views\Home\PrecargaTrabajos.cshtml" />
@@ -476,6 +475,7 @@
     <Content Include="Views\Home\Acreditado.cshtml" />
     <Content Include="Views\Home\Areas.cshtml" />
     <Content Include="Views\Shared\_Layout - Copia.cshtml" />
+    <Content Include="Views\Shared\_Layout - Copia %282%29.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -217,6 +217,7 @@
     <NavigationProperty Name="CMS_MENU" Relationship="FitosanitariasModel.FK_CMS_MENU_CMS_ARTICULO" FromRole="CMS_ARTICULO" ToRole="CMS_MENU" />
     <NavigationProperty Name="CMS_ARCHIVO" Relationship="FitosanitariasModel.MID_ARTICULO_ARCHIVO" FromRole="CMS_ARTICULO" ToRole="CMS_ARCHIVO" />
     <NavigationProperty Name="CMS_CATEGORIA" Relationship="FitosanitariasModel.MID_ARTICULO_CATEGORIA" FromRole="CMS_ARTICULO" ToRole="CMS_CATEGORIA" />
+    <Property Name="URLIMAGEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="CMS_CATEGORIA">
     <Key>

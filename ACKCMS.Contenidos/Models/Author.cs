@@ -20,6 +20,7 @@ namespace ACKCMS.Contenidos.Models
         public int IdWork { get; set; }
         public int IdEstablishment { get; set; }
         public Nullable<bool> IsPresenter { get; set; }
+        public int OrderPosition { get; set; }
     
         public virtual Establishment Establishment { get; set; }
         public virtual Work Work { get; set; }
