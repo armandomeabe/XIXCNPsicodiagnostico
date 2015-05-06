@@ -748,7 +748,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>05/05/2015 04:53:29</publishTime>
     </File>
     <File Include="Views/Home/Acreditado.cshtml">
-      <publishTime>05/05/2015 05:25:20</publishTime>
+      <publishTime>05/06/2015 00:17:16</publishTime>
     </File>
     <File Include="Views/Home/Areas.cshtml">
       <publishTime>04/28/2015 01:13:33</publishTime>
@@ -814,7 +814,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>05/05/2015 04:53:29</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/05/2015 04:53:29</publishTime>
+      <publishTime>05/06/2015 00:17:14</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>04/22/2015 13:28:23</publishTime>
