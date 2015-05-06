@@ -1,0 +1,147 @@
+﻿@model AcreditacionesBackend.Models.Accreditation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles de la acreditación #@Model.id</h2>
+
+<div>
+    <h4>Acreditación</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Apellido
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+
+        <dt>
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            Profesion
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profesion)
+        </dd>
+
+        <dt>
+            Pais
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais)
+        </dd>
+
+        <dt>
+            Provincia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Provincia)
+        </dd>
+
+        <dt>
+            Localidad
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Localidad)
+        </dd>
+
+        <dt>
+            Direccion
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            Telefono
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            Movil
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Movil)
+        </dd>
+
+        <dt>
+            Número de Mátricula
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroMatricula)
+        </dd>
+
+        <dt>
+            Número de Socio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroSocio)
+        </dd>
+
+        <dt>
+            Elección de Pago
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EleccionDePago)
+        </dd>
+
+        <dt>
+            Acreditación Realizada
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcreditacionRealizada)
+        </dd>
+
+        <dt>
+            Acreditación Comprobante Nro
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcreditacionComprobanteNro)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            DNI
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DNI)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Aprobar acreditación a ésta persona", "Acreditar", new { id = Model.id }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Editar ésta información", "Edit", new { id = Model.id }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-success" })
+</p>

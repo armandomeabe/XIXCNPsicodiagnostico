@@ -1,0 +1,148 @@
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\AcreditacionesBackend.dll.config
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\AcreditacionesBackend.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\AcreditacionesBackend.pdb
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Antlr3.Runtime.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\EntityFramework.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\EntityFramework.SqlServer.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Security.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Newtonsoft.Json.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Owin.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\System.Web.Helpers.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\System.Web.Mvc.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\System.Web.Optimization.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\System.Web.Razor.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\System.Web.WebPages.Deployment.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\System.Web.WebPages.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\System.Web.WebPages.Razor.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\WebGrease.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\System.Web.Helpers.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\System.Web.Mvc.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\System.Web.Optimization.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\System.Web.Razor.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\System.Web.WebPages.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\System.Web.WebPages.Deployment.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\System.Web.WebPages.Razor.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Antlr3.Runtime.pdb
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Newtonsoft.Json.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\EntityFramework.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\EntityFramework.SqlServer.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Security.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\System.Web.Helpers.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\System.Web.Mvc.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\System.Web.Optimization.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\System.Web.Razor.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\System.Web.WebPages.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\EntityFramework.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\Microsoft.Owin.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\obj\Debug\AcreditacionesBackend.dll
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\obj\Debug\AcreditacionesBackend.pdb
+C:\Users\toshiba\Documents\Applied Chaos\Code\René Vera\Acreditaciones\AcreditacionesBackend\obj\Debug\AcreditacionesBackend.csprojResolveAssemblyReference.cache
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\AcreditacionesBackend.dll.config
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\AcreditacionesBackend.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\AcreditacionesBackend.pdb
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Antlr3.Runtime.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\EntityFramework.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\EntityFramework.SqlServer.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Security.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Newtonsoft.Json.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Owin.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\System.Web.Helpers.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\System.Web.Mvc.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\System.Web.Optimization.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\System.Web.Razor.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\System.Web.WebPages.Deployment.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\System.Web.WebPages.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\System.Web.WebPages.Razor.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\WebGrease.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\System.Web.Helpers.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\System.Web.Mvc.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\System.Web.Optimization.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\System.Web.Razor.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\System.Web.WebPages.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\System.Web.WebPages.Deployment.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\System.Web.WebPages.Razor.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Antlr3.Runtime.pdb
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Newtonsoft.Json.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\EntityFramework.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\EntityFramework.SqlServer.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Security.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\System.Web.Helpers.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\System.Web.Mvc.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\System.Web.Optimization.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\System.Web.Razor.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\System.Web.WebPages.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\EntityFramework.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\EntityFramework.SqlServer.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\Microsoft.Owin.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\Microsoft.Owin.Security.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\Microsoft.Owin.Security.Google.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\obj\Debug\AcreditacionesBackend.csprojResolveAssemblyReference.cache
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\obj\Debug\AcreditacionesBackend.dll
+C:\Users\toshiba\Documents\GitHub\XIXCNPsicodiagnostico\AcreditacionesBackend\obj\Debug\AcreditacionesBackend.pdb

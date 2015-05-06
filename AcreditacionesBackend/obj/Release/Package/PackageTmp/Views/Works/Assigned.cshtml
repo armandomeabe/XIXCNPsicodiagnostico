@@ -1,0 +1,61 @@
+﻿@using AcreditacionesBackend.Models
+@model IEnumerable<AcreditacionesBackend.Models.Work>
+
+@{
+    ViewBag.Title = "Asignados";
+    var db = new Entities();
+}
+
+<h2>Mis trabajos asignados para supervisión</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            Area
+        </th>
+        <th>
+            Estado
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Puntaje)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @db.WorkAreas.Find(item.AreaID).Nombre
+            </td>
+            <td>
+                @db.WorkStatus.Find(item.EstadoID).Nombre
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntaje)
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        Acciones
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation" class="dropdown-header">Elija una opción</li>
+                        <li role="presentation">@Html.ActionLink("Supervisar éste trabajo", "Review", new { id = item.Id })</li>
+                        @if (item.Puntaje.HasValue)
+                        {
+                            <li role="presentation">@Html.ActionLink("Finalizar supervisión - Puntaje: " + item.Puntaje, "Finalize", new { id = item.Id })</li>
+                        }
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>

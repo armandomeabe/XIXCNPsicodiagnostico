@@ -1,0 +1,76 @@
+﻿@using AcreditacionesBackend.Models
+@model AcreditacionesBackend.Models.Work
+
+@{
+    ViewBag.Title = "Ver trabajo";
+    var db = new Entities();
+    var ack = db.Accreditations.Find(Model.AckID);
+    var status = db.WorkStatus.Find(Model.EstadoID);
+}
+
+<h2>@Model.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <div class="row well">
+            <dt>
+                Cuerpo
+            </dt>
+
+            <dd>
+                @Html.Raw(Model.Body)
+            </dd>
+        </div>
+
+        <div class="row well">
+            <dt>
+                Comentarios del evaluador
+            </dt>
+
+            <dd>
+                @Html.Raw(Model.ComentariosDelEvaluador)
+            </dd>
+        </div>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AreaID)
+        </dt>
+
+        <dd>
+            @(db.WorkAreas.Find(Model.AreaID).Nombre)
+        </dd>
+
+        <dt>
+            Acreditado Nro.
+        </dt>
+
+        <dd>
+            #@Html.DisplayFor(model => model.AckID) - <strong><a href="@Url.Action("Details", "Administracion", new {id = ack.id})" target="_blank">Ver información del acreditado: @string.Format("{0}, {1}", ack.Apellido, ack.Nombre)</a></strong>
+        </dd>
+
+        <dt>
+            Estado
+        </dt>
+
+        <dd>
+            #@Html.DisplayFor(model => model.EstadoID) - @status.Nombre
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Puntaje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Puntaje)
+        </dd>
+
+    </dl>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            window.print();
+        });
+</script>
+}

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style type="text/css">
+        @@media print {
+            .no-print, .no-print * {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Administración de Acreditaciones", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@*@Html.ActionLink("Inicio", "Index", "Home")*@</li>
+                    <li>@Html.ActionLink("Administración", "Index", "Administracion")</li>
+                    <li>@Html.ActionLink("Trabajos", "Index", "Works")</li>
+                    <li>@Html.ActionLink("Supervisores", "Index", "AspNetUsers")</li>
+                    <li>@Html.ActionLink("Supervisar Trabajos", "Assigned", "Works")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exportar <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="@Url.Action("ExportarEmailsPosters", "Administracion")">Emails y datos de presentadores de pósters</a></li>
+                            <li><a href="@Url.Action("ExportarTitulosYAutores", "Administracion")">Títulos y autores</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <br />
+        <br />
+        <br />  
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - III Congreso de Bioquímicos del Litoral, XVI Jornadas Argentinas de Microbiología.</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/tinymce/tinymce.min.js")
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea"
+        });
+    </script>
+
+    @Scripts.Render("~/Scripts/datepicker/js/bootstrap-datepicker.js")
+    @Scripts.Render("~/Scripts/datepicker/locales/bootstrap-datepicker.es.min.js")
+    @Styles.Render("~/Scripts/datepicker/css/bootstrap-datepicker.css")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

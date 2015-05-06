@@ -1,0 +1,74 @@
+﻿@using AcreditacionesBackend.Models
+@model IEnumerable<AcreditacionesBackend.Models.Work>
+
+@{
+    ViewBag.Title = "Index";
+    var db = new Entities();
+}
+
+<h2>Trabajos</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            Area
+        </th>
+        <th>
+            Estado
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Puntaje)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.Raw(item.Title)
+            </td>
+            <td>
+                @if (item.AreaID > 0)
+                {
+                    <span>@db.WorkAreas.Find(item.AreaID).Nombre</span>
+                }
+                else
+                {
+                    <span>Sin Area</span>
+                }
+            </td>
+            <td>
+                @db.WorkStatus.Find(item.EstadoID).Nombre
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntaje)
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        Acciones
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation" class="dropdown-header">Elija una opción</li>
+                        <li role="presentation">@*@Html.ActionLink("Editar", "Edit", new { id = item.Id })*@</li>
+                        <li role="presentation">@Html.ActionLink("Ver trabajo", "Details", new { id = item.Id })</li>
+                        <li role="presentation">@Html.ActionLink("Exportar Trabajo", "Export", new { id = item.Id }, new { target = "_blank" })</li>
+                        <li role="presentation">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</li>
+                        <li role="presentation" class="dropdown-header">Evaluación</li>
+                        <li role="presentation">@Html.ActionLink("Asignar a supervisor", "AssignWorkToSupervisor", new { id = item.Id })</li>
+                    </ul>
+                </div>
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>*@
+        </tr>
+    }
+
+</table>

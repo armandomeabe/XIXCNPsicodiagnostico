@@ -1,0 +1,107 @@
+﻿@using AcreditacionesBackend.Models
+@model AcreditacionesBackend.Models.Work
+
+@{
+    ViewBag.Title = "Asignar trabajo a un supervisor";
+    var db = new Entities();
+    var ack = db.Accreditations.Find(Model.AckID);
+    var status = db.WorkStatus.Find(Model.EstadoID);
+}
+
+<h2>Asignar trabajo a un supervisor</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <div>
+        <h4>@Html.Raw(Model.Title)</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <br />
+            <div class="row well">
+                <dt>
+                    Cuerpo
+                </dt>
+
+                <dd>
+                    @Html.Raw(Model.Body)
+                </dd>
+            </div>
+
+            <div class="row well">
+                <dt>
+                    Comentarios del evaluador
+                </dt>
+
+                <dd>
+                    @Html.Raw(Model.ComentariosDelEvaluador)
+                </dd>
+            </div>
+
+            <dt>
+                Area
+            </dt>
+
+            <dd>
+                @(db.WorkAreas.Find(Model.AreaID).Nombre)
+            </dd>
+
+            <dt>
+                Acreditado Nro.
+            </dt>
+
+            <dd>
+                #@Html.DisplayFor(model => model.AckID) - <strong><a href="@Url.Action("Details", "Administracion", new {id = ack.id})" target="_blank">Ver información del acreditado: @string.Format("{0}, {1}", ack.Apellido, ack.Nombre)</a></strong>
+            </dd>
+
+            <dt>
+                Estado
+            </dt>
+
+            <dd>
+                #@Html.DisplayFor(model => model.EstadoID) - @status.Nombre
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Puntaje)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Puntaje)
+            </dd>
+
+        </dl>
+    </div>
+
+    <div class="form-horizontal">
+        <h4>Asignar este trabajo</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NotasAdicionales, "Notas adicionales", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.NotasAdicionales, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NotasAdicionales, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SupervisorUserId, "Supervisor asignado", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SupervisorUserId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SupervisorUserId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-success"/>
+                <a href="@Url.Action("Index")" class="btn btn-info">Cancelar</a>
+            </div>
+        </div>
+    </div>
+}

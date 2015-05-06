@@ -1,0 +1,153 @@
+﻿@model IEnumerable<AcreditacionesBackend.Models.Accreditation>
+
+@{
+    ViewBag.Title = "Acreditaciones";
+}
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Acreditaciones</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ver <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="@Url.Action("Index")">Todas las acreditaciones</a></li>
+                        <li><a href="@Url.Action("Index", new {onlyPendingAcks = true})">Ver solo pendientes de acreditar</a></li>
+                    </ul>
+                </li>
+                <li><a href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Crear una manualmente</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Desde" id="txtDesde">
+                    <input type="text" class="form-control" placeholder="Hasta" id="txtHasta">
+                </div>
+                <button type="button" class="btn btn-default" onclick="filtrar()">Filtrar</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reportes <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" onclick="print()">Imprimir resultados</a></li>
+                        <li><a href="@Url.Action("ExportData")">Exportar a Excel</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="row well">
+    <table class="table">
+        <tr>
+            <th>
+                Orden Nro.
+            </th>
+            <th>
+                <a href="@Url.Action("Index", new { orderby = "name" })">Nombre</a>
+            </th>
+            <th>
+                <a href="@Url.Action("Index", new { orderby = "date" })">Fecha</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profesion)
+            </th>
+            <th>
+                Origen
+            </th>
+            <th>
+                Forma pago
+            </th>
+            <th>
+                Pagó
+            </th>
+            <th>
+                Comprobante
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DNI)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @item.Apellido, @item.Nombre
+                </td>
+                <td>
+                    @(item.FechaAcreditacion.HasValue ? item.FechaAcreditacion.Value.ToShortDateString() : "")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Profesion)
+                </td>
+                <td>
+                    @item.Localidad, @item.Provincia. (@item.Pais)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EleccionDePago)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AcreditacionRealizada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AcreditacionComprobanteNro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DNI)
+                </td>
+                <td>
+                    <div class="dropdown no-print">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            Acciones
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation" class="dropdown-header">Elija una opción</li>
+                            <li role="presentation">@Html.ActionLink("Aprobar Acreditación", "Acreditar", new { id = item.id })</li>
+                            <li role="presentation">@Html.ActionLink("Ver Información Completa", "Details", new { id = item.id })</li>
+                            <li role="presentation">@Html.ActionLink("Editar", "Edit", new { id = item.id })</li>
+                            <li role="presentation">@Html.ActionLink("Eliminar", "Delete", new { id = item.id })</li>
+                        </ul>
+                    </div>
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.id })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+</div>
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#txtDesde").datepicker({ language: "es" });
+            $("#txtHasta").datepicker({ language: "es" });
+        });
+
+        function filtrar() {
+            var desde = "/Administracion?desde=" + $("#txtDesde").val() + "&hasta=" + $("#txtHasta").val();
+            window.location.href = desde;
+        };
+    </script>
+}

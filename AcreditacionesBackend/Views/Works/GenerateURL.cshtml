@@ -1,0 +1,25 @@
+﻿@using AcreditacionesBackend.Models
+@model AcreditacionesBackend.Models.Work
+
+@{
+    ViewBag.Title = "GenerateURL";
+    var db = new Entities();
+    var area = db.WorkAreas.Find(Model.AreaID);
+}
+
+
+<div class="jumbotron">
+    <h2>Generar URL anónima para el evaluador</h2>
+    <p class="lead">Título de trabajo: @Model.Title</p>
+    <p class="lead">Area del trabajo: @area.Nombre</p>
+    <p class="lead">Posición de trabajo en el area: @Model.PosicionEnElArea</p>
+
+
+    <hr />
+    <p>El siguiente código deberá entregarse al evaluador</p>
+    <h4><strong>@ViewBag.SecretCode</strong></h4>
+</div>
+
+<p>
+    <a href="@Url.Action("Index")" class="btn btn-info">Volver</a>
+</p>

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACKCMS", "ACKCMS\ACKCMS.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACKCMS.Contenidos", "ACKCMS.Contenidos\ACKCMS.Contenidos.csproj", "{9952F4F7-53BC-492A-AFEA-F1A35F367CD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcreditacionesBackend", "AcreditacionesBackend\AcreditacionesBackend.csproj", "{618788F4-4FC4-47A2-A5E7-7F79B147881B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9952F4F7-53BC-492A-AFEA-F1A35F367CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9952F4F7-53BC-492A-AFEA-F1A35F367CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9952F4F7-53BC-492A-AFEA-F1A35F367CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{618788F4-4FC4-47A2-A5E7-7F79B147881B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{618788F4-4FC4-47A2-A5E7-7F79B147881B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{618788F4-4FC4-47A2-A5E7-7F79B147881B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{618788F4-4FC4-47A2-A5E7-7F79B147881B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

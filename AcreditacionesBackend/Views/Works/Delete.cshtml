@@ -1,0 +1,72 @@
+﻿@model AcreditacionesBackend.Models.Work
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar un trabajo</h2>
+
+<h3>¿Seguro desea eliminar este trabajo?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Título
+        </dt>
+        
+        <dd>
+            @Html.Raw(Model.Title)
+        </dd>
+        <hr />
+        <dt>
+            Cuerpo de resumen
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Body)
+        </dd>
+        <hr />
+        <dt>
+            ID de Acreditación
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AckID)
+        </dd>
+        <hr />
+        <dt>
+            Notas adicionales
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotasAdicionales)
+        </dd>
+        <hr />
+        <dt>
+            Comentarios del evaluador
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComentariosDelEvaluador)
+        </dd>
+        <hr />
+        <dt>
+            Puntaje
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Puntaje)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <a href="@Url.Action("Index")" class="btn btn-info">Cancelar</a>
+            <input type="submit" value="Eliminar" class="btn btn-default" /> 
+        </div>
+    }
+</div>

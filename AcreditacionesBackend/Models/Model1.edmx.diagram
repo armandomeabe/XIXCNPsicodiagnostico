@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="239c10924ff047729a487cb0ab458005" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="Model.Accreditation" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Model.AspNetRole" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="Model.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="9.125" />
+        <EntityTypeShape EntityType="Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="6.625" />
+        <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="Model.Author" Width="1.5" PointX="7.5" PointY="3.875" />
+        <EntityTypeShape EntityType="Model.Establishment" Width="1.5" PointX="7.5" PointY="1.375" />
+        <EntityTypeShape EntityType="Model.Work" Width="1.5" PointX="5.25" PointY="1.75" />
+        <EntityTypeShape EntityType="Model.WorkArea" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.WorkStatu" Width="1.5" PointX="9.75" PointY="0.75" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Model.FK_Work_AspNetUsers" />
+        <AssociationConnector Association="Model.FK_Author_Work" />
+        <AssociationConnector Association="Model.FK_Establishment_Work" />
+        <AssociationConnector Association="Model.AspNetUserRoles" />
+        <AssociationConnector Association="Model.FK_Work_Accreditation" />
+        <AssociationConnector Association="Model.FK_Author_Establishment" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
