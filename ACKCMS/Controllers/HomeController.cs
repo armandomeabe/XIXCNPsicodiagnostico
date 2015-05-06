@@ -80,6 +80,7 @@ namespace ACKCMS.Controllers
                 return RedirectToAction("Ack404", "Home", new { message = "Su acreditación todavía se encuentra sujeta a verificación de pago. Por favor vuelva a intentar luego." });
 
             var works = ack.Work.ToList();
+            ack.CantTrabajosPresenta = 2;
 
             if (!works.Any())
             {
