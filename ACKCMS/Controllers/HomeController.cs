@@ -98,7 +98,7 @@ namespace ACKCMS.Controllers
                         Puntaje = null,
                         PosicionEnElArea = null,
                         SupervisorUserId = null,
-                        Supervisado = false
+                        Supervisado = false,
                     };
                     Db.Work.Add(newWorkA);
                     Db.SaveChanges();
@@ -111,7 +111,8 @@ namespace ACKCMS.Controllers
         public ActionResult Ack404(string message)
         {
             if (string.IsNullOrWhiteSpace(message))
-                ViewBag.Message = "La información ingresada no produjo ningún resultado en la base de datos, por favor verifique y vuelva a intentar.";
+                ViewBag.Message =
+                    "La información ingresada no produjo ningún resultado en la base de datos, por favor verifique y vuelva a intentar. Recuerde que para presentar resúmenes debe estar acreditado, si aún no realizó su acreditación (inscripción), por favor utilice el link 'Realizar Inscripción' arriba en esta página";
             else
                 ViewBag.Message = message;
 
@@ -178,8 +179,9 @@ namespace ACKCMS.Controllers
 
             if (ModelState.IsValid && !string.IsNullOrWhiteSpace(opcionDePago))
             {
-                var cantidadDeTrabajos = int.Parse(opcionDePago);
-                model.CantTrabajosPresenta = cantidadDeTrabajos;
+                //var cantidadDeTrabajos = int.Parse(opcionDePago);
+
+                model.CantTrabajosPresenta = 2;
                 model.FechaAcreditacion = DateTime.Now;
                 model.EleccionDePago = opcionDePago;
                 Db.Accreditation.Add(model);

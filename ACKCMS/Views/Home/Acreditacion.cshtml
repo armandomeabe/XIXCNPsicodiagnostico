@@ -34,7 +34,8 @@
                     Banco Nación<br />
                     Sucursal: 3020 Rosario<br />
                     N°: 444256367 / 5<br />
-                    CBU: 01104442 - 400444 - 25636758
+                    CBU: 01104442 - 400444 - 25636758<br />
+                    CUIT: 30-65337374-7
                 </p>
             </div>
             <div class="2u">
@@ -170,21 +171,21 @@
                         <select id="opcionDePago" name="opcionDePago">
                             @if (DateTime.Now <= new DateTime(2015, 04, 30))
                             {
-                                <option value="2">Socios - $ 750</option>
-                                <option value="0">No socios - $ 1000</option>
-                                <option value="0">Estudiantes graduados hasta 3 años - $ 125</option>
+                                <option value="Socios - ARS 750">Socios - $ 750</option>
+                                <option value="No socios - ARS 1000">No socios - $ 1000</option>
+    <option value="Estudiantes graduados hasta 3 años - ARS 125">Estudiantes graduados hasta 3 años - $ 125</option>
                             }
                             else if (DateTime.Now <= new DateTime(2015, 07, 30))
                             {
-                                <option value="2">Socios - $ 875</option>
-                                <option value="0">No socios - $ 1125</option>
-                                <option value="0">Estudiantes graduados hasta 3 años - $ 190</option>
+                                <option value="Socios - ARS 875">Socios - $ 875</option>
+    <option value="No socios - ARS 1125">No socios - $ 1125</option>
+    <option value="Estudiantes graduados hasta 3 años - ARS 190">Estudiantes graduados hasta 3 años - $ 190</option>
                             }
                             else
                             {
-                                <option value="2">Socios - $ 975</option>
-                                <option value="0">No socios - $ 1240</option>
-                                <option value="0">Estudiantes graduados hasta 3 años - $ 310</option>
+                                <option value="Socios - ARS 975">Socios - $ 975</option>
+    <option value="No socios - ARS 1240">No socios - $ 1240</option>
+    <option value="Estudiantes graduados hasta 3 años - ARS 310">Estudiantes graduados hasta 3 años - $ 310</option>
                             }
                         </select>
                     </div>
