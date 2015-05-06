@@ -6,11 +6,11 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\IIS\FitoSanFrontEnd</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\IIS\ADEIP</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/ACKCMS.dll">
-      <publishTime>04/28/2015 22:46:16</publishTime>
+      <publishTime>05/05/2015 04:54:18</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>04/22/2015 13:28:13</publishTime>
@@ -208,7 +208,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/28/2015 21:50:23</publishTime>
     </File>
     <File Include="Content/Imagenes/Slider/F.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>04/28/2015 21:50:00</publishTime>
     </File>
     <File Include="Content/Imagenes/Slider/G.jpg">
       <publishTime>04/28/2015 21:49:10</publishTime>
@@ -240,11 +240,77 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="css/ie/v8.css">
       <publishTime>04/27/2015 02:57:15</publishTime>
     </File>
+    <File Include="css/ie9.css">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/banner.jpg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/bg01.jpg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/bg02.jpg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/bg03.jpg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/bg04.jpg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/bg04.png">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/bg1.png">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/button-big-active.svg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/button-big-hover.svg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/button-big.svg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/button-hover.svg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/button.svg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/header-wrapper.svg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/header.svg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/icon-bubble.png">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/icon-checkmark.png">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/mobileUI-site-nav-opener-bg.svg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/nav-a-hover.svg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/images/nav-a.svg">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
     <File Include="css/skel.css">
-      <publishTime>04/27/2015 02:57:15</publishTime>
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/style-1000px.css">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="css/style-desktop.css">
+      <publishTime>05/05/2015 04:53:29</publishTime>
     </File>
     <File Include="css/style-mobile.css">
-      <publishTime>04/27/2015 02:57:15</publishTime>
+      <publishTime>05/05/2015 04:53:29</publishTime>
     </File>
     <File Include="css/style-narrow.css">
       <publishTime>04/27/2015 02:57:15</publishTime>
@@ -259,7 +325,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/27/2015 02:57:15</publishTime>
     </File>
     <File Include="css/style.css">
-      <publishTime>04/27/2015 02:57:15</publishTime>
+      <publishTime>05/05/2015 04:53:29</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>04/22/2015 13:27:11</publishTime>
@@ -286,7 +352,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/27/2015 02:57:15</publishTime>
     </File>
     <File Include="images/banner.jpg">
-      <publishTime>04/27/2015 02:57:15</publishTime>
+      <publishTime>05/05/2015 04:53:30</publishTime>
     </File>
     <File Include="images/banner2.jpg">
       <publishTime>04/27/2015 02:57:15</publishTime>
@@ -300,11 +366,62 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="images/edit.png">
       <publishTime>04/27/2015 23:48:45</publishTime>
     </File>
+    <File Include="images/logo.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
+    <File Include="images/Logo.png">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
     <File Include="images/marsillon.jpg">
       <publishTime>04/27/2015 02:57:15</publishTime>
     </File>
+    <File Include="images/pic01.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
+    <File Include="images/pic02.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
+    <File Include="images/pic03.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
+    <File Include="images/pic04.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
+    <File Include="images/pic05.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
+    <File Include="images/pic06.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
+    <File Include="images/pic07.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
+    <File Include="images/pic08.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
+    <File Include="images/pic1.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
+    <File Include="images/pic2.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
+    <File Include="images/pic3.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
+    <File Include="images/pic4.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
+    <File Include="images/pic5.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
+    <File Include="images/pic6.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
     <File Include="images/placeholder.png">
       <publishTime>04/27/2015 02:57:15</publishTime>
+    </File>
+    <File Include="images/Psicología2.jpg">
+      <publishTime>05/05/2015 04:53:30</publishTime>
     </File>
     <File Include="images/register.png">
       <publishTime>04/28/2015 00:51:03</publishTime>
@@ -315,20 +432,23 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="images/tick.png">
       <publishTime>04/28/2015 00:59:15</publishTime>
     </File>
+    <File Include="js/html5shiv.js">
+      <publishTime>05/05/2015 04:53:30</publishTime>
+    </File>
     <File Include="js/init.js">
-      <publishTime>04/27/2015 19:54:42</publishTime>
+      <publishTime>05/05/2015 04:53:30</publishTime>
     </File>
     <File Include="js/jquery.dropotron.min.js">
       <publishTime>04/27/2015 02:57:15</publishTime>
     </File>
     <File Include="js/jquery.min.js">
-      <publishTime>04/27/2015 02:57:15</publishTime>
+      <publishTime>05/05/2015 04:53:30</publishTime>
     </File>
     <File Include="js/skel-layers.min.js">
-      <publishTime>04/27/2015 02:57:15</publishTime>
+      <publishTime>05/05/2015 04:53:30</publishTime>
     </File>
     <File Include="js/skel.min.js">
-      <publishTime>04/27/2015 02:57:15</publishTime>
+      <publishTime>05/05/2015 04:53:30</publishTime>
     </File>
     <File Include="js/tinymce/langs/es.js">
       <publishTime>04/28/2015 00:33:07</publishTime>
@@ -625,16 +745,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/27/2015 23:29:39</publishTime>
     </File>
     <File Include="Views/Home/Acreditacion.cshtml">
-      <publishTime>05/02/2015 15:37:12</publishTime>
+      <publishTime>05/05/2015 04:53:29</publishTime>
     </File>
     <File Include="Views/Home/Acreditado.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>05/05/2015 04:53:29</publishTime>
     </File>
     <File Include="Views/Home/Areas.cshtml">
       <publishTime>04/28/2015 01:13:33</publishTime>
     </File>
     <File Include="Views/Home/Art.cshtml">
-      <publishTime>04/28/2015 00:39:51</publishTime>
+      <publishTime>05/05/2015 04:53:29</publishTime>
     </File>
     <File Include="Views/Home/Categoria.cshtml">
       <publishTime>04/22/2015 16:44:25</publishTime>
@@ -652,7 +772,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/27/2015 22:21:18</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>05/05/2015 04:53:29</publishTime>
     </File>
     <File Include="Views/Home/PrecargaTrabajos.cshtml">
       <publishTime>04/28/2015 22:46:03</publishTime>
@@ -687,8 +807,14 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Views/Shared/Lockout.cshtml">
       <publishTime>04/22/2015 13:28:23</publishTime>
     </File>
+    <File Include="Views/Shared/_Layout - Copia %282%29.cshtml">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout - Copia.cshtml">
+      <publishTime>05/05/2015 04:53:29</publishTime>
+    </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/02/2015 15:49:33</publishTime>
+      <publishTime>05/05/2015 04:53:29</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>04/22/2015 13:28:23</publishTime>
@@ -700,7 +826,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/22/2015 13:27:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/28/2015 21:56:03</publishTime>
+      <publishTime>05/05/2015 04:54:19</publishTime>
     </File>
   </ItemGroup>
 </Project>
