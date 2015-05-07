@@ -23,6 +23,7 @@
     <Property Name="DNI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="FechaAcreditacion" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Works" Relationship="Self.FK_Work_Accreditation" FromRole="Accreditation" ToRole="Work" />
+    <Property Name="CantTrabajosPresenta" Type="Int32" />
   </EntityType>
   <EntityType Name="Author">
     <Key>
@@ -36,6 +37,7 @@
     <Property Name="IsPresenter" Type="Boolean" />
     <NavigationProperty Name="Establishment" Relationship="Self.FK_Author_Establishment" FromRole="Author" ToRole="Establishment" />
     <NavigationProperty Name="Work" Relationship="Self.FK_Author_Work" FromRole="Author" ToRole="Work" />
+    <Property Name="OrderPosition" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Establishment">
     <Key>
@@ -67,6 +69,8 @@
     <NavigationProperty Name="Accreditation" Relationship="Self.FK_Work_Accreditation" FromRole="Work" ToRole="Accreditation" />
     <NavigationProperty Name="Authors" Relationship="Self.FK_Author_Work" FromRole="Work" ToRole="Author" />
     <NavigationProperty Name="Establishments" Relationship="Self.FK_Establishment_Work" FromRole="Work" ToRole="Establishment" />
+    <Property Name="Autores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Instituciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="WorkArea">
     <Key>
@@ -213,6 +217,7 @@
     <NavigationProperty Name="CMS_MENU" Relationship="FitosanitariasModel.FK_CMS_MENU_CMS_ARTICULO" FromRole="CMS_ARTICULO" ToRole="CMS_MENU" />
     <NavigationProperty Name="CMS_ARCHIVO" Relationship="FitosanitariasModel.MID_ARTICULO_ARCHIVO" FromRole="CMS_ARTICULO" ToRole="CMS_ARCHIVO" />
     <NavigationProperty Name="CMS_CATEGORIA" Relationship="FitosanitariasModel.MID_ARTICULO_CATEGORIA" FromRole="CMS_ARTICULO" ToRole="CMS_CATEGORIA" />
+    <Property Name="URLIMAGEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="CMS_CATEGORIA">
     <Key>

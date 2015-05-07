@@ -22,6 +22,7 @@
     <Property Name="Email" Type="nvarchar" MaxLength="100" />
     <Property Name="DNI" Type="nvarchar" MaxLength="100" />
     <Property Name="FechaAcreditacion" Type="datetime" />
+    <Property Name="CantTrabajosPresenta" Type="int" />
   </EntityType>
   <EntityType Name="Author">
     <Key>
@@ -33,6 +34,7 @@
     <Property Name="IdWork" Type="int" Nullable="false" />
     <Property Name="IdEstablishment" Type="int" Nullable="false" />
     <Property Name="IsPresenter" Type="bit" />
+    <Property Name="OrderPosition" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="CMS_ARCHIVO">
     <Key>
@@ -67,6 +69,7 @@
     <Property Name="ACTIVO" Type="char" MaxLength="1" />
     <Property Name="VERSION" Type="decimal" Precision="5" Scale="2" />
     <Property Name="OBSERVACIONES" Type="varchar(max)" />
+    <Property Name="URLIMAGEN" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="CMS_CATEGORIA">
     <Key>
@@ -118,7 +121,7 @@
     <Property Name="ID_ARCHIVO" Type="int" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'XIXCNPsicodiagnostico.dbo.MID_ARTICULO_CATEGORIA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="MID_ARTICULO_CATEGORIA">
     <Key>
       <PropertyRef Name="ID_ARTICULO" />
@@ -143,6 +146,8 @@ advertencia 6002: La tabla o vista 'Fitosanitarias.dbo.MID_ARTICULO_CATEGORIA' n
     <Property Name="PosicionEnElArea" Type="int" />
     <Property Name="SupervisorUserId" Type="nvarchar" MaxLength="128" />
     <Property Name="Supervisado" Type="bit" />
+    <Property Name="Autores" Type="nvarchar(max)" />
+    <Property Name="Instituciones" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="WorkArea">
     <Key>
