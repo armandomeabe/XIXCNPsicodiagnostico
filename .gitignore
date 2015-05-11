@@ -45,3 +45,5 @@ Temporary Items
 *.dll
 ACKCMS/bin/ACKCMS.dll
 *.dll
+*.suo
+*.suo
