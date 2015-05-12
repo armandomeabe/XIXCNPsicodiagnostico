@@ -147,6 +147,11 @@ namespace ACKCMS.Controllers
         {
 
             var errores = new List<string>();
+
+            if (string.IsNullOrWhiteSpace(model.Profesion))
+                errores.Add("Ingrese la profesión");
+            
+
             if (string.IsNullOrWhiteSpace(model.Apellido))
                 errores.Add("Ingrese el apellido");
             
