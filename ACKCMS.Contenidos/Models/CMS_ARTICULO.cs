@@ -19,6 +19,7 @@ namespace ACKCMS.Contenidos.Models
             this.CMS_MENU = new HashSet<CMS_MENU>();
             this.CMS_ARCHIVO = new HashSet<CMS_ARCHIVO>();
             this.CMS_CATEGORIA = new HashSet<CMS_CATEGORIA>();
+            this.CMS_IMAGEN = new HashSet<CMS_IMAGEN>();
         }
     
         public int ID_ARTICULO { get; set; }
@@ -46,5 +47,6 @@ namespace ACKCMS.Contenidos.Models
         public virtual ICollection<CMS_MENU> CMS_MENU { get; set; }
         public virtual ICollection<CMS_ARCHIVO> CMS_ARCHIVO { get; set; }
         public virtual ICollection<CMS_CATEGORIA> CMS_CATEGORIA { get; set; }
+        public virtual ICollection<CMS_IMAGEN> CMS_IMAGEN { get; set; }
     }
 }

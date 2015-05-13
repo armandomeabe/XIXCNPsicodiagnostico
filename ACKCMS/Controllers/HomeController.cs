@@ -123,7 +123,7 @@ namespace ACKCMS.Controllers
         {
             ViewBag.ShowBigHeader = true;
 
-            return View();
+            return View(Db.CMS_ARTICULO.FirstOrDefault(x => x.OBSERVACIONES.Contains("homepage")));
         }
 
         public ActionResult Art(int id)
@@ -145,12 +145,10 @@ namespace ACKCMS.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult Acreditacion(Accreditation model, string opcionDePago)
         {
-
             var errores = new List<string>();
 
             if (string.IsNullOrWhiteSpace(model.Profesion))
                 errores.Add("Ingrese la profesión");
-            
 
             if (string.IsNullOrWhiteSpace(model.Apellido))
                 errores.Add("Ingrese el apellido");

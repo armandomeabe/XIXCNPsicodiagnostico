@@ -49,7 +49,7 @@ namespace ACKCMS.Contenidos.Controllers
         // GET: CMS_ARTICULO/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new CMS_ARTICULO());
         }
 
         // POST: CMS_ARTICULO/Create
@@ -68,8 +68,42 @@ namespace ACKCMS.Contenidos.Controllers
 
         //    return View(cMS_ARTICULO);
         //}
+        //[HttpPost, ValidateAntiForgeryToken, ValidateInput(false)]
+        //public ActionResult Create([Bind(Include = "ID_ARTICULO,UI_FECHA_ALTA,UI_FECHA_MODIFICACION,UI_FECHA_BAJA,UI_USUARIO,UI_INFO,ID_TIPOARTICULO,ID_ESTADOARTICULO,TITULO,ENCABEZADO,CONTENIDO,PATH_CONTENIDOEXT,PATH_PLANCONTENIDOEXT,PATH_CONTENIDOTRANS,RESUMEN,FECHA,FECHA_VENCIMIENTO,ACTIVO,VERSION,OBSERVACIONES,URLIMAGEN")] CMS_ARTICULO cMS_ARTICULO)
+        //{
+        //    ModelState.Remove("ID_ARTICULO");
+        //    ModelState.Remove("UI_FECHA_ALTA");
+        //    ModelState.Remove("ID_TIPOARTICULO");
+        //    ModelState.Remove("ID_ESTADOARTICULO");
+
+        //    if (string.IsNullOrWhiteSpace(cMS_ARTICULO.TITULO))
+        //        ModelState.AddModelError("error1", "Debe ingresar el título");
+
+        //    if (string.IsNullOrWhiteSpace(cMS_ARTICULO.ENCABEZADO))
+        //        ModelState.AddModelError("error2", "Debe ingresar el encabezado");
+
+        //    if (string.IsNullOrWhiteSpace(cMS_ARTICULO.CONTENIDO))
+        //        ModelState.AddModelError("error3", "Debe ingresar el contenido");
+
+        //    if (string.IsNullOrWhiteSpace(cMS_ARTICULO.RESUMEN))
+        //        ModelState.AddModelError("error4", "Debe ingresar el resumen");
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        cMS_ARTICULO.UI_FECHA_ALTA = DateTime.Now;
+        //        db.CMS_ARTICULO.Add(cMS_ARTICULO);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View(cMS_ARTICULO);
+        //}
+
         [HttpPost, ValidateAntiForgeryToken, ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "ID_ARTICULO,UI_FECHA_ALTA,UI_FECHA_MODIFICACION,UI_FECHA_BAJA,UI_USUARIO,UI_INFO,ID_TIPOARTICULO,ID_ESTADOARTICULO,TITULO,ENCABEZADO,CONTENIDO,PATH_CONTENIDOEXT,PATH_PLANCONTENIDOEXT,PATH_CONTENIDOTRANS,RESUMEN,FECHA,FECHA_VENCIMIENTO,ACTIVO,VERSION,OBSERVACIONES,URLIMAGEN")] CMS_ARTICULO cMS_ARTICULO)
+        public ActionResult Create(
+            [Bind(Include = "ID_ARTICULO,UI_FECHA_ALTA,UI_FECHA_MODIFICACION,UI_FECHA_BAJA,UI_USUARIO,UI_INFO,ID_TIPOARTICULO,ID_ESTADOARTICULO,TITULO,ENCABEZADO,CONTENIDO,PATH_CONTENIDOEXT,PATH_PLANCONTENIDOEXT,PATH_CONTENIDOTRANS,RESUMEN,FECHA,FECHA_VENCIMIENTO,ACTIVO,VERSION,OBSERVACIONES,URLIMAGEN")] CMS_ARTICULO cMS_ARTICULO,
+            HttpPostedFileBase[] uploadImages
+            )
         {
             ModelState.Remove("ID_ARTICULO");
             ModelState.Remove("UI_FECHA_ALTA");
@@ -79,24 +113,51 @@ namespace ACKCMS.Contenidos.Controllers
             if (string.IsNullOrWhiteSpace(cMS_ARTICULO.TITULO))
                 ModelState.AddModelError("error1", "Debe ingresar el título");
 
-            if (string.IsNullOrWhiteSpace(cMS_ARTICULO.ENCABEZADO))
-                ModelState.AddModelError("error2", "Debe ingresar el encabezado");
-
             if (string.IsNullOrWhiteSpace(cMS_ARTICULO.CONTENIDO))
                 ModelState.AddModelError("error3", "Debe ingresar el contenido");
-
-            if (string.IsNullOrWhiteSpace(cMS_ARTICULO.RESUMEN))
-                ModelState.AddModelError("error4", "Debe ingresar el resumen");
 
             if (ModelState.IsValid)
             {
                 cMS_ARTICULO.UI_FECHA_ALTA = DateTime.Now;
+
                 db.CMS_ARTICULO.Add(cMS_ARTICULO);
                 db.SaveChanges();
+
+                if (uploadImages != null && uploadImages.Any())
+                {
+                    foreach (var image in uploadImages)
+                    {
+                        if (image.ContentLength > 0)
+                        {
+                            byte[] imageData = null;
+                            using (var binaryReader = new BinaryReader(image.InputStream))
+                            {
+                                imageData = binaryReader.ReadBytes(image.ContentLength);
+                            }
+                            var relatedImage = new CMS_IMAGEN()
+                            {
+                                BinaryArr = imageData,
+                                Nombre = image.FileName,
+                                CMS_ARTICULO_ID = cMS_ARTICULO.ID_ARTICULO
+                            };
+                            db.CMS_IMAGEN.Add(relatedImage);
+                            db.SaveChanges();
+                        }
+                    }
+                }
+
                 return RedirectToAction("Index");
             }
-
             return View(cMS_ARTICULO);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult ViewImage(int id)
+        {
+            var item = db.CMS_IMAGEN.Find(id);
+            byte[] buffer = item.BinaryArr;
+            return File(buffer, "image/jpg", string.Format("{0}.jpg", id));
         }
 
 
@@ -134,9 +195,7 @@ namespace ACKCMS.Contenidos.Controllers
         [HttpPost, ValidateAntiForgeryToken, ValidateInput(false)]
         public ActionResult Edit(
             [Bind(Include = "ID_ARTICULO,UI_FECHA_ALTA,UI_FECHA_MODIFICACION,UI_FECHA_BAJA,UI_USUARIO,UI_INFO,ID_TIPOARTICULO,ID_ESTADOARTICULO,TITULO,ENCABEZADO,CONTENIDO,PATH_CONTENIDOEXT,PATH_PLANCONTENIDOEXT,PATH_CONTENIDOTRANS,RESUMEN,FECHA,FECHA_VENCIMIENTO,ACTIVO,VERSION,OBSERVACIONES,URLIMAGEN")] CMS_ARTICULO cMS_ARTICULO,
-            HttpPostedFileBase pictureMain,
-            HttpPostedFileBase pictureMid,
-            HttpPostedFileBase pictureThumb
+            HttpPostedFileBase[] uploadImages
             )
         {
             if (ModelState.IsValid)
@@ -144,62 +203,35 @@ namespace ACKCMS.Contenidos.Controllers
                 db.Entry(cMS_ARTICULO).State = EntityState.Modified;
                 db.SaveChanges();
 
-                if (pictureMain != null && pictureMain.ContentLength > 0)
+                if (uploadImages != null && uploadImages.Any() && uploadImages.FirstOrDefault() != null)
                 {
-                    var articuloEdit = db.CMS_ARTICULO.Find(cMS_ARTICULO.ID_ARTICULO);
+                    //cMS_ARTICULO = db.CMS_ARTICULO.Find(cMS_ARTICULO.ID_ARTICULO);
+                    //cMS_ARTICULO.CMS_IMAGEN.Clear();
+                    //db.Entry(cMS_ARTICULO).State = EntityState.Modified;
+                    //db.SaveChanges();
 
-                    var fileName = Path.GetFileName(cMS_ARTICULO.ID_ARTICULO + "_MAIN_" + pictureMain.FileName);
-                    if (fileName != null)
+                    var prevImgs = db.CMS_IMAGEN.Where(x => x.CMS_ARTICULO_ID.Equals(cMS_ARTICULO.ID_ARTICULO)).ToList();
+                    db.CMS_IMAGEN.RemoveRange(prevImgs);
+                    db.SaveChanges();
+
+
+                    foreach (var image in uploadImages)
                     {
-                        var path = Path.Combine(Server.MapPath("~/Uploads/ArchivosArticulos/"), fileName);
-                        pictureMain.SaveAs(path);
-
-                        articuloEdit.CMS_ARCHIVO.Add(new CMS_ARCHIVO()
+                        if (image.ContentLength > 0)
                         {
-                            ID_TIPO = 1, //1 = IMAGEN
-                            Nombre = fileName,
-                            RelativePath = path
-                        });
-                        db.SaveChanges();
-                    }
-                }
-
-                if (pictureMid != null && pictureMid.ContentLength > 0)
-                {
-                    var articuloEdit = db.CMS_ARTICULO.Find(cMS_ARTICULO.ID_ARTICULO);
-
-                    var fileName = Path.GetFileName(cMS_ARTICULO.ID_ARTICULO + "_MID_" + pictureMid.FileName);
-                    if (fileName != null)
-                    {
-                        var path = Path.Combine(Server.MapPath("~/Uploads/ArchivosArticulos/"), fileName);
-                        pictureMid.SaveAs(path);
-
-                        articuloEdit.CMS_ARCHIVO.Add(new CMS_ARCHIVO()
-                        {
-                            ID_TIPO = 1, //1 = IMAGEN
-                            Nombre = fileName,
-                            RelativePath = path
-                        });
-                        db.SaveChanges();
-                    }
-                }
-
-                if (pictureThumb != null && pictureThumb.ContentLength > 0)
-                {
-                    var articuloEdit = db.CMS_ARTICULO.Find(cMS_ARTICULO.ID_ARTICULO);
-
-                    var fileName = Path.GetFileName(cMS_ARTICULO.ID_ARTICULO + "_THUMB_" + pictureThumb.FileName);
-                    if (fileName != null)
-                    {
-                        var path = Path.Combine(Server.MapPath("~/Uploads/ArchivosArticulos/"), fileName);
-                        pictureThumb.SaveAs(path);
-
-                        articuloEdit.CMS_ARCHIVO.Add(new CMS_ARCHIVO()
-                        {
-                            ID_TIPO = 1, //1 = IMAGEN
-                            Nombre = fileName,
-                            RelativePath = path
-                        });
+                            byte[] imageData = null;
+                            using (var binaryReader = new BinaryReader(image.InputStream))
+                            {
+                                imageData = binaryReader.ReadBytes(image.ContentLength);
+                            }
+                            var relatedImage = new CMS_IMAGEN()
+                            {
+                                BinaryArr = imageData,
+                                Nombre = image.FileName,
+                                CMS_ARTICULO_ID = cMS_ARTICULO.ID_ARTICULO
+                            };
+                            db.CMS_IMAGEN.Add(relatedImage);
+                        }
                         db.SaveChanges();
                     }
                 }

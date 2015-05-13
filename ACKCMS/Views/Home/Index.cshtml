@@ -1,8 +1,15 @@
-﻿@{
+﻿@model ACKCMS.Models.CMS_ARTICULO
+@{
     ViewBag.Title = "XIX Congreso Nacional de Psicodiagnóstico";
 }
 
-<div class="row">
+@if (Model != null)
+{
+    <span>@Html.Raw(Model.CONTENIDO)</span>
+}
+
+@*Backup del diseño original del home*@
+@*<div class="row">
     <div class="4u">
 
         <!-- Box #1 -->
@@ -141,4 +148,4 @@
         </section>
 
     </div>
-</div>
+</div>*@

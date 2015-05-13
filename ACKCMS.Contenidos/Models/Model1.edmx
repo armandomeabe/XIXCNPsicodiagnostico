@@ -85,6 +85,15 @@
           <Property Name="Descripción" Type="nvarchar(max)" />
           <Property Name="UI_INFO" Type="nvarchar" MaxLength="500" />
         </EntityType>
+        <EntityType Name="CMS_IMAGEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BinaryArr" Type="image" Nullable="false" />
+          <Property Name="CMS_ARTICULO_ID" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="200" />
+        </EntityType>
         <EntityType Name="CMS_MENU">
           <Key>
             <PropertyRef Name="ID_MENU" />
@@ -125,8 +134,6 @@
           <Property Name="ID_ARTICULO" Type="int" Nullable="false" />
           <Property Name="ID_ARCHIVO" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'XIXCNPsicodiagnostico.dbo.MID_ARTICULO_CATEGORIA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="MID_ARTICULO_CATEGORIA">
           <Key>
             <PropertyRef Name="ID_ARTICULO" />
@@ -201,6 +208,18 @@ advertencia 6002: La tabla o vista 'XIXCNPsicodiagnostico.dbo.MID_ARTICULO_CATEG
             </Principal>
             <Dependent Role="CMS_ARCHIVO">
               <PropertyRef Name="ID_TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMS_IMAGEN_CMS_ARTICULO">
+          <End Role="CMS_ARTICULO" Type="Self.CMS_ARTICULO" Multiplicity="1" />
+          <End Role="CMS_IMAGEN" Type="Self.CMS_IMAGEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMS_ARTICULO">
+              <PropertyRef Name="ID_ARTICULO" />
+            </Principal>
+            <Dependent Role="CMS_IMAGEN">
+              <PropertyRef Name="CMS_ARTICULO_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -294,19 +313,15 @@ advertencia 6002: La tabla o vista 'XIXCNPsicodiagnostico.dbo.MID_ARTICULO_CATEG
           <EntitySet Name="CMS_ARCHIVO" EntityType="Self.CMS_ARCHIVO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CMS_ARTICULO" EntityType="Self.CMS_ARTICULO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CMS_CATEGORIA" EntityType="Self.CMS_CATEGORIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMS_IMAGEN" EntityType="Self.CMS_IMAGEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CMS_MENU" EntityType="Self.CMS_MENU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CMS_TIPOARCHIVO" EntityType="Self.CMS_TIPOARCHIVO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Establishment" EntityType="Self.Establishment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MID_ARTICULO_ARCHIVO" EntityType="Self.MID_ARTICULO_ARCHIVO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MID_ARTICULO_CATEGORIA" EntityType="Self.MID_ARTICULO_CATEGORIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Work" EntityType="Self.Work" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkArea" EntityType="Self.WorkArea" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkStatus" EntityType="Self.WorkStatus" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MID_ARTICULO_CATEGORIA" EntityType="Self.MID_ARTICULO_CATEGORIA" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [MID_ARTICULO_CATEGORIA].[ID_ARTICULO] AS [ID_ARTICULO], 
-    [MID_ARTICULO_CATEGORIA].[ID_CATEGORIA] AS [ID_CATEGORIA]
-    FROM [dbo].[MID_ARTICULO_CATEGORIA] AS [MID_ARTICULO_CATEGORIA]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Author_Establishment" Association="Self.FK_Author_Establishment">
             <End Role="Establishment" EntitySet="Establishment" />
             <End Role="Author" EntitySet="Author" />
@@ -318,6 +333,10 @@ advertencia 6002: La tabla o vista 'XIXCNPsicodiagnostico.dbo.MID_ARTICULO_CATEG
           <AssociationSet Name="FK_CMS_ARCHIVO_CMS_TIPOARCHIVO" Association="Self.FK_CMS_ARCHIVO_CMS_TIPOARCHIVO">
             <End Role="CMS_TIPOARCHIVO" EntitySet="CMS_TIPOARCHIVO" />
             <End Role="CMS_ARCHIVO" EntitySet="CMS_ARCHIVO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMS_IMAGEN_CMS_ARTICULO" Association="Self.FK_CMS_IMAGEN_CMS_ARTICULO">
+            <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+            <End Role="CMS_IMAGEN" EntitySet="CMS_IMAGEN" />
           </AssociationSet>
           <AssociationSet Name="FK_CMS_MENU_CMS_ARTICULO" Association="Self.FK_CMS_MENU_CMS_ARTICULO">
             <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
@@ -530,6 +549,11 @@ advertencia 6002: La tabla o vista 'XIXCNPsicodiagnostico.dbo.MID_ARTICULO_CATEG
             <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
             <End Role="CMS_CATEGORIA" EntitySet="CMS_CATEGORIA" />
           </AssociationSet>
+          <EntitySet Name="CMS_IMAGEN" EntityType="FitosanitariasModel.CMS_IMAGEN" />
+          <AssociationSet Name="FK_CMS_IMAGEN_CMS_ARTICULO" Association="FitosanitariasModel.FK_CMS_IMAGEN_CMS_ARTICULO">
+            <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+            <End Role="CMS_IMAGEN" EntitySet="CMS_IMAGEN" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="CMS_ARCHIVO">
           <Key>
@@ -570,6 +594,7 @@ advertencia 6002: La tabla o vista 'XIXCNPsicodiagnostico.dbo.MID_ARTICULO_CATEG
           <NavigationProperty Name="CMS_ARCHIVO" Relationship="FitosanitariasModel.MID_ARTICULO_ARCHIVO" FromRole="CMS_ARTICULO" ToRole="CMS_ARCHIVO" />
           <NavigationProperty Name="CMS_CATEGORIA" Relationship="FitosanitariasModel.MID_ARTICULO_CATEGORIA" FromRole="CMS_ARTICULO" ToRole="CMS_CATEGORIA" />
           <Property Name="URLIMAGEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CMS_IMAGEN" Relationship="FitosanitariasModel.FK_CMS_IMAGEN_CMS_ARTICULO" FromRole="CMS_ARTICULO" ToRole="CMS_IMAGEN" />
         </EntityType>
         <EntityType Name="CMS_CATEGORIA">
           <Key>
@@ -637,6 +662,28 @@ advertencia 6002: La tabla o vista 'XIXCNPsicodiagnostico.dbo.MID_ARTICULO_CATEG
         <Association Name="MID_ARTICULO_CATEGORIA">
           <End Type="FitosanitariasModel.CMS_ARTICULO" Role="CMS_ARTICULO" Multiplicity="*" />
           <End Type="FitosanitariasModel.CMS_CATEGORIA" Role="CMS_CATEGORIA" Multiplicity="*" />
+        </Association>
+        <EntityType Name="CMS_IMAGEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BinaryArr" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="CMS_ARTICULO_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CMS_ARTICULO" Relationship="FitosanitariasModel.FK_CMS_IMAGEN_CMS_ARTICULO" FromRole="CMS_IMAGEN" ToRole="CMS_ARTICULO" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_CMS_IMAGEN_CMS_ARTICULO">
+          <End Type="FitosanitariasModel.CMS_ARTICULO" Role="CMS_ARTICULO" Multiplicity="1" />
+          <End Type="FitosanitariasModel.CMS_IMAGEN" Role="CMS_IMAGEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMS_ARTICULO">
+              <PropertyRef Name="ID_ARTICULO" />
+            </Principal>
+            <Dependent Role="CMS_IMAGEN">
+              <PropertyRef Name="CMS_ARTICULO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -816,6 +863,16 @@ advertencia 6002: La tabla o vista 'XIXCNPsicodiagnostico.dbo.MID_ARTICULO_CATEG
               <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="CMS_IMAGEN">
+            <EntityTypeMapping TypeName="FitosanitariasModel.CMS_IMAGEN">
+              <MappingFragment StoreEntitySet="CMS_IMAGEN">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CMS_ARTICULO_ID" ColumnName="CMS_ARTICULO_ID" />
+                <ScalarProperty Name="BinaryArr" ColumnName="BinaryArr" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

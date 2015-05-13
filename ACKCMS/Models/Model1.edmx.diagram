@@ -24,6 +24,8 @@
         <AssociationConnector Association="FitosanitariasModel.FK_CMS_MENU_CMS_ARTICULO" />
         <AssociationConnector Association="FitosanitariasModel.MID_ARTICULO_ARCHIVO" />
         <AssociationConnector Association="FitosanitariasModel.MID_ARTICULO_CATEGORIA" />
+        <EntityTypeShape EntityType="FitosanitariasModel.CMS_IMAGEN" Width="1.5" PointX="7.5" PointY="14.625" />
+        <AssociationConnector Association="FitosanitariasModel.FK_CMS_IMAGEN_CMS_ARTICULO" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

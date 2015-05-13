@@ -23,9 +23,18 @@ namespace ACKCMS.Controllers
                     ChildMenus = Db.CMS_MENU.ToList().Where(x => x.ID_MENUPADRE.Equals(menu.ID_MENU)).ToList()
                 }).ToList();
 
-            ViewBag.Articles = Db.CMS_ARTICULO.Where(x => !x.UI_FECHA_BAJA.HasValue && x.ENCABEZADO.Contains("destacado")).ToList();
-            ViewBag.NotMainArticles = Db.CMS_ARTICULO.Where(x => !x.UI_FECHA_BAJA.HasValue && !x.ENCABEZADO.Contains("destacado")).ToList();
+            ViewBag.Articles = Db.CMS_ARTICULO.Where(x => !x.UI_FECHA_BAJA.HasValue && x.OBSERVACIONES.Contains("destacado")).ToList();
+            ViewBag.NotMainArticles = Db.CMS_ARTICULO.Where(x => !x.UI_FECHA_BAJA.HasValue && !x.OBSERVACIONES.Contains("destacado")).ToList();
 
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult ViewImage(int id)
+        {
+            var item = Db.CMS_IMAGEN.Find(id);
+            byte[] buffer = item.BinaryArr;
+            return File(buffer, "image/jpg", string.Format("{0}.jpg", id));
         }
     }
 

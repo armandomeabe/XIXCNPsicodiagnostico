@@ -178,6 +178,11 @@
       <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
       <End Role="CMS_CATEGORIA" EntitySet="CMS_CATEGORIA" />
     </AssociationSet>
+    <EntitySet Name="CMS_IMAGEN" EntityType="FitosanitariasModel.CMS_IMAGEN" />
+    <AssociationSet Name="FK_CMS_IMAGEN_CMS_ARTICULO" Association="FitosanitariasModel.FK_CMS_IMAGEN_CMS_ARTICULO">
+      <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+      <End Role="CMS_IMAGEN" EntitySet="CMS_IMAGEN" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CMS_ARCHIVO">
     <Key>
@@ -218,6 +223,7 @@
     <NavigationProperty Name="CMS_ARCHIVO" Relationship="FitosanitariasModel.MID_ARTICULO_ARCHIVO" FromRole="CMS_ARTICULO" ToRole="CMS_ARCHIVO" />
     <NavigationProperty Name="CMS_CATEGORIA" Relationship="FitosanitariasModel.MID_ARTICULO_CATEGORIA" FromRole="CMS_ARTICULO" ToRole="CMS_CATEGORIA" />
     <Property Name="URLIMAGEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CMS_IMAGEN" Relationship="FitosanitariasModel.FK_CMS_IMAGEN_CMS_ARTICULO" FromRole="CMS_ARTICULO" ToRole="CMS_IMAGEN" />
   </EntityType>
   <EntityType Name="CMS_CATEGORIA">
     <Key>
@@ -285,5 +291,27 @@
   <Association Name="MID_ARTICULO_CATEGORIA">
     <End Type="FitosanitariasModel.CMS_ARTICULO" Role="CMS_ARTICULO" Multiplicity="*" />
     <End Type="FitosanitariasModel.CMS_CATEGORIA" Role="CMS_CATEGORIA" Multiplicity="*" />
+  </Association>
+  <EntityType Name="CMS_IMAGEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BinaryArr" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="CMS_ARTICULO_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CMS_ARTICULO" Relationship="FitosanitariasModel.FK_CMS_IMAGEN_CMS_ARTICULO" FromRole="CMS_IMAGEN" ToRole="CMS_ARTICULO" />
+    <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_CMS_IMAGEN_CMS_ARTICULO">
+    <End Type="FitosanitariasModel.CMS_ARTICULO" Role="CMS_ARTICULO" Multiplicity="1" />
+    <End Type="FitosanitariasModel.CMS_IMAGEN" Role="CMS_IMAGEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CMS_ARTICULO">
+        <PropertyRef Name="ID_ARTICULO" />
+      </Principal>
+      <Dependent Role="CMS_IMAGEN">
+        <PropertyRef Name="CMS_ARTICULO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

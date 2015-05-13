@@ -20,6 +20,7 @@
     </noscript>
     <!--[if lte IE 9]><link rel="stylesheet" href="@Url.Content("~/css/ie9.css")" /><![endif]-->
     <!--[if lte IE 8]><script src="@Url.Content("~/js/html5shiv.js")"></script><![endif]-->
+    
 </head>
 <body>
 
@@ -87,7 +88,14 @@
                             <div class="3u">
                                 <!-- Feature #1 -->
                                 <section>
-                                    <a href="@Url.Action("Art", "Home", new { id = articulo.ID_ARTICULO })" class="bordered-feature-image"><img src="@articulo.URLIMAGEN" alt="" /></a>
+                                    @if (articulo.CMS_IMAGEN.Any())
+                                    {
+                                        <a href="@Url.Action("Art", "Home", new {id = articulo.ID_ARTICULO})" class="bordered-feature-image"><img src="@Url.Action("ViewImage", "Base", new {id = articulo.CMS_IMAGEN.FirstOrDefault().ID})" alt="" /></a>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("Art", "Home", new { id = articulo.ID_ARTICULO })" class="bordered-feature-image"><img src="http://placehold.it/350x150" alt="" /></a>
+                                    }
                                     <a href="@Url.Action("Art", "Home", new {id = articulo.ID_ARTICULO})"><h2>@articulo.TITULO</h2></a>
                                     <span style="color: lightgray">@Html.Raw(articulo.RESUMEN)</span>
                                 </section>

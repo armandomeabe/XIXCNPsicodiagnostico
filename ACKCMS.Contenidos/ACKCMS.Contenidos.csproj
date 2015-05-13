@@ -184,6 +184,9 @@
     <Compile Include="Models\CMS_CATEGORIA.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CMS_IMAGEN.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CMS_MENU.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
