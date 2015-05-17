@@ -470,7 +470,6 @@
     <Content Include="js\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="js\tinymce\skins\lightgray\fonts\tinymce.woff" />
-    <Content Include="js\sss\images\Thumbs.db" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Home\EstadoAcreditacion.cshtml" />
     <Content Include="Views\Home\ImpresionDeComprobante.cshtml" />
