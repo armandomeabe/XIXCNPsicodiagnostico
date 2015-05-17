@@ -34,7 +34,7 @@
 
 
                                 <div class="form-group">
-                                    <h2>Área</h2>
+                                    <h2>Modalidad de Trabajo</h2>
                                     <div class="col-md-10">
                                         <select id="areaId" name="areaId">
                                             @foreach (ACKCMS.Models.WorkArea area in ViewBag.Areas)
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="row">&nbsp;</div>
                                 <div class="form-group">
-                                    <h2>Cuerpo del trabajo</h2>
+                                    <h2>Resumen</h2>
                                     <div class="col-md-10">
                                         @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { } })
                                         @Html.ValidationMessageFor(model => model.Body, "", new { })

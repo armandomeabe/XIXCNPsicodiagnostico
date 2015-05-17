@@ -320,6 +320,11 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\skel-layers.min.js" />
     <Content Include="js\skel.min.js" />
+    <Content Include="js\sss\images\arr.png" />
+    <Content Include="js\sss\license.txt" />
+    <Content Include="js\sss\sss.css" />
+    <Content Include="js\sss\sss.js" />
+    <Content Include="js\sss\sss.min.js" />
     <Content Include="js\tinymce\langs\es.js" />
     <Content Include="js\tinymce\license.txt" />
     <Content Include="js\tinymce\plugins\advlist\plugin.min.js" />
@@ -465,6 +470,7 @@
     <Content Include="js\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="js\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="js\sss\images\Thumbs.db" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Home\EstadoAcreditacion.cshtml" />
     <Content Include="Views\Home\ImpresionDeComprobante.cshtml" />
