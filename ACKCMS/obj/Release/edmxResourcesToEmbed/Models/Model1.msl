@@ -173,5 +173,15 @@
         <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="CMS_IMAGEN">
+      <EntityTypeMapping TypeName="FitosanitariasModel.CMS_IMAGEN">
+        <MappingFragment StoreEntitySet="CMS_IMAGEN">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="CMS_ARTICULO_ID" ColumnName="CMS_ARTICULO_ID" />
+          <ScalarProperty Name="BinaryArr" ColumnName="BinaryArr" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

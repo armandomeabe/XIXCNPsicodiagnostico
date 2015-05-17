@@ -47,3 +47,5 @@ ACKCMS/bin/ACKCMS.dll
 *.dll
 *.suo
 *.suo
+ACKCMS.Contenidos/obj
+ACKCMS.Contenidos/bin

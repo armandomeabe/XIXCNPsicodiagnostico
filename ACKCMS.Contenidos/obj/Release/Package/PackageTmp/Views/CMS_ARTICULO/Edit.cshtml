@@ -11,7 +11,7 @@
 @using (Html.BeginForm("Edit", "CMS_ARTICULO", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -30,6 +30,7 @@
         @Html.HiddenFor(model => model.ACTIVO)
         @Html.HiddenFor(model => model.FECHA)
         @Html.HiddenFor(model => model.FECHA_VENCIMIENTO)
+        @Html.HiddenFor(model => model.ENCABEZADO)
 
         <div class="form-group">
             @Html.LabelFor(model => model.TITULO, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -39,11 +40,19 @@
             </div>
         </div>
 
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.ENCABEZADO, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.ENCABEZADO, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ENCABEZADO, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
         <div class="form-group">
-            @Html.LabelFor(model => model.ENCABEZADO, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.RESUMEN, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.ENCABEZADO, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ENCABEZADO, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(model => model.RESUMEN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RESUMEN, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -56,57 +65,54 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.RESUMEN, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.OBSERVACIONES, "Metadatos", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.RESUMEN, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RESUMEN, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.OBSERVACIONES, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OBSERVACIONES, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-10">
+                <h4>¿Cómo usar los metadatos?</h4>
+                <p>Puede usar todas las palabras clave que sean necesarias, simplemente escribirlas separándolas por coma o espacio. Por ejemplo: destacado,homepage,ocultar,...</p>
+                <ul>
+                    <li>destacado: Se incluye en la sección destacada del sitio principal (arriba de todo, bajo el título)</li>
+                    <li>homepage: Se incluye en el <strong>cuerpo</strong> de la página principal, area de fondo gris claro.</li>
+                    <li>ocultar: No se mostrará el artículo, pero tampoco se eliminará. (Si desea eliminar el artículo, por favor sírvase de la acción 'Eliminar' desde el listado de artículos).</li>
+                </ul>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OBSERVACIONES, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-2"><h4>Imágenes actuales</h4></div>
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.OBSERVACIONES, new {htmlAttributes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.OBSERVACIONES, "", new {@class = "text-danger"})
+                <hr />
+                @foreach (var img in Model.CMS_IMAGEN.ToList())
+                {
+                    <center><img src="@Url.Action("ViewImage", "CMS_ARTICULO", new { id = img.ID})" style="width: 75%" /></center>
+                    <hr />
+                }
+                <hr />
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.URLIMAGEN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">IMÁGENES ASOCIADAS</label>
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.URLIMAGEN, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.URLIMAGEN, "", new { @class = "text-danger" })
+                <input type="file" name="uploadImages" multiple="multiple" />
             </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">IMAGEN PRINCIPAL</label>
             <div class="col-md-10">
-                <input type="file" name="pictureMain"/>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">IMAGEN MEDIANA</label>
-            <div class="col-md-10">
-                <input type="file" name="pictureMid"/>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">THUMBNAIL</label>
-            <div class="col-md-10">
-                <input type="file" name="pictureThumb" />
+                <h4>Acerca de la imagen</h4>
+                <p>Recuerde que si no desea reemplazar la imagen actual de este artículo, puede dejar este campo vacío (no elegir ninguna nueva imagen) y se mantendrá la imagen actual asociada.</p>
+                <p>Recuerde también que puede cargar varias imágenes seleccionando más de un archivo en la ventana de selección de archivos</p>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-default"/>
+                <input type="submit" value="Guardar" class="btn btn-default" />
                 <a href="@Url.Action("Index")" class="btn btn-info">Cancelar</a>
             </div>
         </div>
-        
+
     </div>
 }
 

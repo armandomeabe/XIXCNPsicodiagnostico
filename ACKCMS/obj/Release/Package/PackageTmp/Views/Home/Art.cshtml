@@ -4,7 +4,10 @@
 @{
     ViewBag.Title = Model.TITULO;
 }
-<a href="#" class="bordered-feature-image" style="margin-bottom: 0;"><img src="@Model.URLIMAGEN" alt="" /></a>
+@foreach (var img in Model.CMS_IMAGEN)
+{
+    <a href="#" class="bordered-feature-image" style="margin-bottom: 0;"><img src="@Url.Action("ViewImage", "Base", new { id = img.ID })" alt="" /></a>
+}
 
 <div id="content-wrapper">
     <div id="content">
