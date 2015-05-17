@@ -4,10 +4,14 @@
 @{
     ViewBag.Title = Model.TITULO;
 }
-@foreach (var img in Model.CMS_IMAGEN)
-{
-    <a href="#" class="bordered-feature-image" style="margin-bottom: 0;"><img src="@Url.Action("ViewImage", "Base", new { id = img.ID })" alt="" /></a>
-}
+
+<div class="slider">
+    @foreach (var img in Model.CMS_IMAGEN)
+    {
+        <img src="@Url.Action("ViewImage", "Base", new { id = img.ID })" alt="" />
+    }
+</div>
+
 
 <div id="content-wrapper">
     <div id="content">
