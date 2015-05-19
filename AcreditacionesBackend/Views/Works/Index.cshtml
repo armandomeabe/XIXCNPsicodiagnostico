@@ -21,6 +21,8 @@
         <th>
             @Html.DisplayNameFor(model => model.Puntaje)
         </th>
+        <th>Aprobado Confirmado</th>
+        <th>Trabajo Completo Presentado</th>
         <th></th>
     </tr>
 
@@ -45,6 +47,26 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Puntaje)
+            </td>
+            <td>
+                @if (item.TrabajoAprobado.HasValue && item.TrabajoAprobado.Value)
+                {
+                    <span style="color: green"><strong>SI</strong></span>
+                }
+                else
+                {
+                    <span style="color: orangered"><strong>NO</strong></span>
+                }
+            </td>
+            <td>
+                @if (item.TrabajoCompletoPresentado.HasValue && item.TrabajoCompletoPresentado.Value)
+                {
+                    <span style="color: green"><strong>SI</strong></span>
+                }
+                else
+                {
+                    <span style="color: orangered"><strong>NO</strong></span>
+                }
             </td>
             <td>
                 <div class="dropdown">

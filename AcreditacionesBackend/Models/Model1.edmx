@@ -27,6 +27,8 @@
           <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="DNI" Type="nvarchar" MaxLength="100" />
           <Property Name="FechaAcreditacion" Type="datetime" />
+          <Property Name="CantTrabajosPresenta" Type="int" />
+          <Property Name="InstitucionALaQuePertenece" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
@@ -107,6 +109,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="Body" Type="nvarchar(max)" />
+          <Property Name="FullWorkBody" Type="nvarchar(max)" />
           <Property Name="AreaID" Type="int" Nullable="false" />
           <Property Name="AckID" Type="int" Nullable="false" />
           <Property Name="NotasAdicionales" Type="nvarchar(max)" />
@@ -116,6 +119,10 @@
           <Property Name="PosicionEnElArea" Type="int" />
           <Property Name="SupervisorUserId" Type="nvarchar" MaxLength="128" />
           <Property Name="Supervisado" Type="bit" />
+          <Property Name="Autores" Type="nvarchar(max)" />
+          <Property Name="Instituciones" Type="nvarchar(max)" />
+          <Property Name="TrabajoAprobado" Type="bit" />
+          <Property Name="TrabajoCompletoPresentado" Type="bit" />
         </EntityType>
         <EntityType Name="WorkArea">
           <Key>
@@ -367,6 +374,8 @@
           <Property Name="DNI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="FechaAcreditacion" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Works" Relationship="Model.FK_Work_Accreditation" FromRole="Accreditation" ToRole="Work" />
+          <Property Name="CantTrabajosPresenta" Type="Int32" />
+          <Property Name="InstitucionALaQuePertenece" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="AspNetRole">
           <Key>
@@ -463,6 +472,11 @@
           <NavigationProperty Name="Establishments" Relationship="Model.FK_Establishment_Work" FromRole="Work" ToRole="Establishment" />
           <Property Name="Supervisado" Type="Boolean" />
           <NavigationProperty Name="Accreditation" Relationship="Model.FK_Work_Accreditation" FromRole="Work" ToRole="Accreditation" />
+          <Property Name="FullWorkBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Autores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Instituciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TrabajoAprobado" Type="Boolean" />
+          <Property Name="TrabajoCompletoPresentado" Type="Boolean" />
         </EntityType>
         <EntityType Name="WorkArea">
           <Key>
@@ -579,6 +593,8 @@
           <EntitySetMapping Name="Accreditations">
             <EntityTypeMapping TypeName="Model.Accreditation">
               <MappingFragment StoreEntitySet="Accreditation">
+                <ScalarProperty Name="InstitucionALaQuePertenece" ColumnName="InstitucionALaQuePertenece" />
+                <ScalarProperty Name="CantTrabajosPresenta" ColumnName="CantTrabajosPresenta" />
                 <ScalarProperty Name="FechaAcreditacion" ColumnName="FechaAcreditacion" />
                 <ScalarProperty Name="DNI" ColumnName="DNI" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -671,6 +687,11 @@
           <EntitySetMapping Name="Works">
             <EntityTypeMapping TypeName="Model.Work">
               <MappingFragment StoreEntitySet="Work">
+                <ScalarProperty Name="TrabajoCompletoPresentado" ColumnName="TrabajoCompletoPresentado" />
+                <ScalarProperty Name="TrabajoAprobado" ColumnName="TrabajoAprobado" />
+                <ScalarProperty Name="Instituciones" ColumnName="Instituciones" />
+                <ScalarProperty Name="Autores" ColumnName="Autores" />
+                <ScalarProperty Name="FullWorkBody" ColumnName="FullWorkBody" />
                 <ScalarProperty Name="Supervisado" ColumnName="Supervisado" />
                 <ScalarProperty Name="SupervisorUserId" ColumnName="SupervisorUserId" />
                 <ScalarProperty Name="PosicionEnElArea" ColumnName="PosicionEnElArea" />

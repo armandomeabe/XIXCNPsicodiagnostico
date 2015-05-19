@@ -1,9 +1,7 @@
-﻿@using ACKCMS.Models
-@model ACKCMS.Models.Work
+﻿@model ACKCMS.Models.Work
 
 @{
     ViewBag.Title = "Editar Trabajo: " + Model.Title;
-    var db = new FitosanitariasEntities();
 }
 
 
@@ -14,7 +12,8 @@
                 <img src="@Url.Content("~/images/edit.png")" style="width: 100%;" />
             </div>
             <div class="6u">
-                <h3>Edición de trabajo</h3>
+                <h3>Edición de <strong>RESUMEN</strong></h3>
+                <h2>Utilice esta página para elaborar y presentar el <strong>resumen</strong> de su trabajo. Una vez que el mismo sea aprobado por un revisor, se le solicitará que ingrese el trabajo completo.</h2>
                 <p>Utilice las cajas de texto para ingresar el contenido de cada caso. Puede guardar el progreso de su trabajo siempre que lo desee, mediante el boton <i>'Guardar cambios'</i>; De este modo, siempre podrá continuar su trabajo desde donde lo dejó la última vez.</p>
                 <br />
             </div>
@@ -29,62 +28,62 @@
                             @Html.AntiForgeryToken()
 
                             @Html.HiddenFor(model => model.Id)
-                            @Html.HiddenFor(model => model.Title)
-                            @Html.HiddenFor(model => model.Autores)
-                            @Html.HiddenFor(model => model.Instituciones)
-                            @Html.HiddenFor(model => model.Body)
 
                             <div class="form-horizontal">
                                 @Html.ValidationSummary(true, "", new { })
                                 @Html.HiddenFor(model => model.Id)
 
+
                                 <div class="form-group">
                                     <h2>Modalidad de Trabajo</h2>
                                     <div class="col-md-10">
-                                        <h3>@db.WorkArea.Find(Model.AreaID).Nombre</h3>
+                                        <select id="areaId" name="areaId">
+                                            @foreach (ACKCMS.Models.WorkArea area in ViewBag.Areas)
+                                            {
+                                                <option value="@area.Id">@area.Nombre</option>
+                                            }
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row">&nbsp;</div>
+
                                 <div class="form-group">
                                     <h2>Título</h2>
                                     <div class="col-md-10">
-                                        @Html.Raw(Model.Title)
+                                        @Html.TextAreaFor(model => model.Title, new { htmlAttributes = new { } })
+                                        @Html.ValidationMessageFor(model => model.Title, "", new { })
                                     </div>
                                 </div>
                                 <div class="row">&nbsp;</div>
                                 <div class="form-group">
                                     <h2>Autores</h2>
                                     <div class="col-md-10">
-                                        @Html.Raw(Model.Autores)
+                                        @Html.TextAreaFor(model => model.Autores, new { htmlAttributes = new { } })
+                                        @Html.ValidationMessageFor(model => model.Body, "", new { })
                                     </div>
                                 </div>
                                 <div class="row">&nbsp;</div>
                                 <div class="form-group">
                                     <h2>Instituciones</h2>
                                     <div class="col-md-10">
-                                        @Html.Raw(Model.Instituciones)
+                                        @Html.TextAreaFor(model => model.Instituciones, new { htmlAttributes = new { } })
+                                        @Html.ValidationMessageFor(model => model.Body, "", new { })
                                     </div>
                                 </div>
                                 <div class="row">&nbsp;</div>
                                 <div class="form-group">
                                     <h2>Resumen</h2>
                                     <div class="col-md-10">
-                                        @Html.Raw(Model.Body)
+                                        @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { } })
+                                        @Html.ValidationMessageFor(model => model.Body, "", new { })
                                     </div>
                                 </div>
-                                <div class="row">&nbsp;</div>
-                                <div class="form-group">
-                                    <h2>Cuerpo completo del trabajo</h2>
-                                    <div class="col-md-10">
-                                        @Html.TextAreaFor(model => model.FullWorkBody, new { htmlAttributes = new { } })
-                                        @Html.ValidationMessageFor(model => model.FullWorkBody, "", new { })
-                                    </div>
-                                </div>
+
                                 <div class="row">&nbsp;</div>
                                 <div class="row">
                                     <div style="width: 100%;">
 
-                                        @Html.Hidden("finalizado", "no")
+                                        @Html.Hidden("finalizado","no")
 
                                         <input type="button" value="<< Volver" onclick="window.location = '@Url.Action("PrecargaTrabajos", "Home", new { Model.Accreditation.DNI })'" />
                                         <input type="submit" value="Guardar" />

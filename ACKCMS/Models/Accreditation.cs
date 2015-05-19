@@ -38,6 +38,7 @@ namespace ACKCMS.Models
         public string DNI { get; set; }
         public Nullable<System.DateTime> FechaAcreditacion { get; set; }
         public Nullable<int> CantTrabajosPresenta { get; set; }
+        public string InstitucionALaQuePertenece { get; set; }
     
         public virtual ICollection<Work> Work { get; set; }
     }

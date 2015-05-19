@@ -74,6 +74,7 @@
     <Property Name="FechaAcreditacion" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Work" Relationship="FitosanitariasModel.FK_Work_Accreditation" FromRole="Accreditation" ToRole="Work" />
     <Property Name="CantTrabajosPresenta" Type="Int32" />
+    <Property Name="InstitucionALaQuePertenece" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Author">
     <Key>
@@ -121,6 +122,9 @@
     <NavigationProperty Name="Establishment" Relationship="FitosanitariasModel.FK_Establishment_Work" FromRole="Work" ToRole="Establishment" />
     <Property Name="Autores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Instituciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FullWorkBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TrabajoAprobado" Type="Boolean" />
+    <Property Name="TrabajoCompletoPresentado" Type="Boolean" />
   </EntityType>
   <EntityType Name="WorkArea">
     <Key>

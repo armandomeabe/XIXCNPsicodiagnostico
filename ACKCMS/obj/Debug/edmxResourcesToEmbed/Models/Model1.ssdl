@@ -23,6 +23,7 @@
     <Property Name="DNI" Type="nvarchar" MaxLength="100" />
     <Property Name="FechaAcreditacion" Type="datetime" />
     <Property Name="CantTrabajosPresenta" Type="int" />
+    <Property Name="InstitucionALaQuePertenece" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="Author">
     <Key>
@@ -144,6 +145,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="nvarchar(max)" />
     <Property Name="Body" Type="nvarchar(max)" />
+    <Property Name="FullWorkBody" Type="nvarchar(max)" />
     <Property Name="AreaID" Type="int" Nullable="false" />
     <Property Name="AckID" Type="int" Nullable="false" />
     <Property Name="NotasAdicionales" Type="nvarchar(max)" />
@@ -155,6 +157,8 @@
     <Property Name="Supervisado" Type="bit" />
     <Property Name="Autores" Type="nvarchar(max)" />
     <Property Name="Instituciones" Type="nvarchar(max)" />
+    <Property Name="TrabajoAprobado" Type="bit" />
+    <Property Name="TrabajoCompletoPresentado" Type="bit" />
   </EntityType>
   <EntityType Name="WorkArea">
     <Key>

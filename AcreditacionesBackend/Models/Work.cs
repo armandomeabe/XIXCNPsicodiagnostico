@@ -32,6 +32,11 @@ namespace AcreditacionesBackend.Models
         public Nullable<int> PosicionEnElArea { get; set; }
         public string SupervisorUserId { get; set; }
         public Nullable<bool> Supervisado { get; set; }
+        public string FullWorkBody { get; set; }
+        public string Autores { get; set; }
+        public string Instituciones { get; set; }
+        public Nullable<bool> TrabajoAprobado { get; set; }
+        public Nullable<bool> TrabajoCompletoPresentado { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual ICollection<Author> Authors { get; set; }

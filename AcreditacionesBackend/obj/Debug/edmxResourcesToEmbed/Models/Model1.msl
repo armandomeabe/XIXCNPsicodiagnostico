@@ -4,6 +4,8 @@
     <EntitySetMapping Name="Accreditations">
       <EntityTypeMapping TypeName="Model.Accreditation">
         <MappingFragment StoreEntitySet="Accreditation">
+          <ScalarProperty Name="InstitucionALaQuePertenece" ColumnName="InstitucionALaQuePertenece" />
+          <ScalarProperty Name="CantTrabajosPresenta" ColumnName="CantTrabajosPresenta" />
           <ScalarProperty Name="FechaAcreditacion" ColumnName="FechaAcreditacion" />
           <ScalarProperty Name="DNI" ColumnName="DNI" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -96,6 +98,11 @@
     <EntitySetMapping Name="Works">
       <EntityTypeMapping TypeName="Model.Work">
         <MappingFragment StoreEntitySet="Work">
+          <ScalarProperty Name="TrabajoCompletoPresentado" ColumnName="TrabajoCompletoPresentado" />
+          <ScalarProperty Name="TrabajoAprobado" ColumnName="TrabajoAprobado" />
+          <ScalarProperty Name="Instituciones" ColumnName="Instituciones" />
+          <ScalarProperty Name="Autores" ColumnName="Autores" />
+          <ScalarProperty Name="FullWorkBody" ColumnName="FullWorkBody" />
           <ScalarProperty Name="Supervisado" ColumnName="Supervisado" />
           <ScalarProperty Name="SupervisorUserId" ColumnName="SupervisorUserId" />
           <ScalarProperty Name="PosicionEnElArea" ColumnName="PosicionEnElArea" />

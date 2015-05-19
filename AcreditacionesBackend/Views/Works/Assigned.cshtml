@@ -28,7 +28,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                @Html.Raw(item.Title)
             </td>
             <td>
                 @db.WorkAreas.Find(item.AreaID).Nombre
@@ -50,7 +50,14 @@
                         <li role="presentation">@Html.ActionLink("Supervisar éste trabajo", "Review", new { id = item.Id })</li>
                         @if (item.Puntaje.HasValue)
                         {
-                            <li role="presentation">@Html.ActionLink("Finalizar supervisión - Puntaje: " + item.Puntaje, "Finalize", new { id = item.Id })</li>
+                            if (item.Puntaje.HasValue && item.EstadoID.Equals(3))
+                            {
+                                <li role="presentation">@Html.ActionLink("Finalizar supervisión - APROBADO con puntaje: " + item.Puntaje, "Finalize", new { id = item.Id })</li>
+                            }
+                            else
+                            {
+                                <li role="presentation">@Html.ActionLink("Finalizar supervisión - NO APROBADO con puntaje: " + item.Puntaje, "Finalize", new { id = item.Id })</li>
+                            }
                         }
                     </ul>
                 </div>

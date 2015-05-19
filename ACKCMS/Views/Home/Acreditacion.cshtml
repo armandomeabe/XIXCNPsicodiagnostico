@@ -162,6 +162,16 @@
                         </div>
                     </div>
                 </div>
+                
+                <div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.InstitucionALaQuePertenece, "Institución a la que pertenece (estudiantes y grupos)", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.InstitucionALaQuePertenece, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.InstitucionALaQuePertenece, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="row"></div>
             <div class="row" style="margin-top: 25px;">
@@ -173,19 +183,22 @@
                             {
                                 <option value="Socios - ARS 750">Socios - $ 750</option>
                                 <option value="No socios - ARS 1000">No socios - $ 1000</option>
-    <option value="Estudiantes graduados hasta 3 años - ARS 125">Estudiantes graduados hasta 3 años - $ 125</option>
+                                <option value="Estudiantes graduados hasta 3 años - ARS 125">Estudiantes graduados hasta 3 años - $ 125</option>
+                                <option value="Grupos de estudiantes - ARS 250">Grupos de estudiantes - ARS 250</option>
                             }
                             else if (DateTime.Now <= new DateTime(2015, 07, 30))
                             {
                                 <option value="Socios - ARS 875">Socios - $ 875</option>
-    <option value="No socios - ARS 1125">No socios - $ 1125</option>
-    <option value="Estudiantes graduados hasta 3 años - ARS 190">Estudiantes graduados hasta 3 años - $ 190</option>
+                                <option value="No socios - ARS 1125">No socios - $ 1125</option>
+                                <option value="Estudiantes graduados hasta 3 años - ARS 190">Estudiantes graduados hasta 3 años - $ 190</option>
+                                <option value="Grupos de estudiantes - ARS 250">Grupos de estudiantes - ARS 250</option>
                             }
                             else
                             {
                                 <option value="Socios - ARS 975">Socios - $ 975</option>
-    <option value="No socios - ARS 1240">No socios - $ 1240</option>
-    <option value="Estudiantes graduados hasta 3 años - ARS 310">Estudiantes graduados hasta 3 años - $ 310</option>
+                                <option value="No socios - ARS 1240">No socios - $ 1240</option>
+                                <option value="Estudiantes graduados hasta 3 años - ARS 310">Estudiantes graduados hasta 3 años - $ 310</option>
+                                <option value="Grupos de estudiantes - ARS 250">Grupos de estudiantes - ARS 250</option>
                             }
                         </select>
                     </div>

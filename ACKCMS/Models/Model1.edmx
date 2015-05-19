@@ -28,6 +28,7 @@
           <Property Name="DNI" Type="nvarchar" MaxLength="100" />
           <Property Name="FechaAcreditacion" Type="datetime" />
           <Property Name="CantTrabajosPresenta" Type="int" />
+          <Property Name="InstitucionALaQuePertenece" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Author">
           <Key>
@@ -149,6 +150,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="Body" Type="nvarchar(max)" />
+          <Property Name="FullWorkBody" Type="nvarchar(max)" />
           <Property Name="AreaID" Type="int" Nullable="false" />
           <Property Name="AckID" Type="int" Nullable="false" />
           <Property Name="NotasAdicionales" Type="nvarchar(max)" />
@@ -160,6 +162,8 @@
           <Property Name="Supervisado" Type="bit" />
           <Property Name="Autores" Type="nvarchar(max)" />
           <Property Name="Instituciones" Type="nvarchar(max)" />
+          <Property Name="TrabajoAprobado" Type="bit" />
+          <Property Name="TrabajoCompletoPresentado" Type="bit" />
         </EntityType>
         <EntityType Name="WorkArea">
           <Key>
@@ -445,6 +449,7 @@
           <Property Name="FechaAcreditacion" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Work" Relationship="FitosanitariasModel.FK_Work_Accreditation" FromRole="Accreditation" ToRole="Work" />
           <Property Name="CantTrabajosPresenta" Type="Int32" />
+          <Property Name="InstitucionALaQuePertenece" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Author">
           <Key>
@@ -492,6 +497,9 @@
           <NavigationProperty Name="Establishment" Relationship="FitosanitariasModel.FK_Establishment_Work" FromRole="Work" ToRole="Establishment" />
           <Property Name="Autores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Instituciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FullWorkBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TrabajoAprobado" Type="Boolean" />
+          <Property Name="TrabajoCompletoPresentado" Type="Boolean" />
         </EntityType>
         <EntityType Name="WorkArea">
           <Key>
@@ -694,6 +702,7 @@
           <EntitySetMapping Name="Accreditation">
             <EntityTypeMapping TypeName="FitosanitariasModel.Accreditation">
               <MappingFragment StoreEntitySet="Accreditation">
+                <ScalarProperty Name="InstitucionALaQuePertenece" ColumnName="InstitucionALaQuePertenece" />
                 <ScalarProperty Name="CantTrabajosPresenta" ColumnName="CantTrabajosPresenta" />
                 <ScalarProperty Name="FechaAcreditacion" ColumnName="FechaAcreditacion" />
                 <ScalarProperty Name="DNI" ColumnName="DNI" />
@@ -742,6 +751,9 @@
           <EntitySetMapping Name="Work">
             <EntityTypeMapping TypeName="FitosanitariasModel.Work">
               <MappingFragment StoreEntitySet="Work">
+                <ScalarProperty Name="TrabajoCompletoPresentado" ColumnName="TrabajoCompletoPresentado" />
+                <ScalarProperty Name="TrabajoAprobado" ColumnName="TrabajoAprobado" />
+                <ScalarProperty Name="FullWorkBody" ColumnName="FullWorkBody" />
                 <ScalarProperty Name="Instituciones" ColumnName="Instituciones" />
                 <ScalarProperty Name="Autores" ColumnName="Autores" />
                 <ScalarProperty Name="Supervisado" ColumnName="Supervisado" />

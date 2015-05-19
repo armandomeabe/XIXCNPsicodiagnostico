@@ -49,3 +49,4 @@ ACKCMS/bin/ACKCMS.dll
 *.suo
 ACKCMS.Contenidos/obj
 ACKCMS.Contenidos/bin
+*.suo

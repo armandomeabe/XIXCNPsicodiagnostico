@@ -49,9 +49,12 @@ namespace AcreditacionesBackend.Controllers
 
         [Authorize]
         [HttpPost, ValidateInput(false)]
-        public async Task<ActionResult> Review(int Id, int Puntaje, int EstadoId, string ComentariosDelEvaluador)
+        public async Task<ActionResult> Review(int Id, int? Puntaje, int EstadoId, string ComentariosDelEvaluador)
         {
+            if (!Puntaje.HasValue) Puntaje = 0;
+
             var work = await db.Works.FindAsync(Id);
+
             work.EstadoID = EstadoId;
             work.Puntaje = Puntaje;
             work.ComentariosDelEvaluador = ComentariosDelEvaluador;
@@ -68,6 +71,9 @@ namespace AcreditacionesBackend.Controllers
 
             if (work.Puntaje.HasValue)
             {
+                if (work.EstadoID.Equals(3))
+                    work.TrabajoAprobado = true;
+
                 work.Supervisado = true;
                 db.Entry(work).State = EntityState.Modified;
                 await db.SaveChangesAsync();
@@ -100,6 +106,10 @@ namespace AcreditacionesBackend.Controllers
             work.Supervisado = false;
             work.SupervisorUserId = SupervisorUserId;
             work.NotasAdicionales = NotasAdicionales;
+
+            work.Supervisado = false;
+            work.TrabajoAprobado = null;
+
             db.Entry(work).State = EntityState.Modified;
             await db.SaveChangesAsync();
 

@@ -15,17 +15,9 @@
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.Id)
     <div>
-        <h1><strong><i>'@Model.Title'</i></strong></h1>
+        <i>@Html.Raw(Model.Title)</i>
         <hr />
         <dl class="dl-horizontal">
-            <dt>
-                Título
-            </dt>
-
-            <dd>
-                <strong>@Html.DisplayFor(model => model.Title)</strong>
-            </dd>
-            <br />
             <div class="row well">
                 <dt>
                     Cuerpo

@@ -29,7 +29,49 @@ namespace ACKCMS.Controllers
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult Trabajo(int Id, string Title, string Autores, string areaId, string Instituciones, string Body, string finalizado)
+        public ActionResult Trabajo(int Id, string Title, string Autores, string areaId, string Instituciones, string Body, string finalizado, string FullWorkBody)
+        {
+            var work = Db.Work.Find(Id);
+            //work.Title = Title;
+            //work.Autores = Autores;
+            //work.Instituciones = Instituciones;
+            //work.Body = Body;
+            //work.AreaID = int.Parse(areaId);
+            
+            work.FullWorkBody = FullWorkBody;
+
+            if (!string.IsNullOrWhiteSpace(finalizado) && finalizado.Equals("si"))
+            {
+                work.EstadoID = 2;
+                work.TrabajoCompletoPresentado = true;
+            }
+
+            Db.SaveChanges();
+
+            ViewBag.Notificaciones = new List<string>() { "Se guardaron los cambios en este trabajo" };
+
+            var words = Utils.HtmlRemoval.WordCount(Body);
+
+            if (words > MaxWorkWords)
+                ((List<string>)ViewBag.Notificaciones).Add("Ha superado el máximo de " + MaxWorkWords + " palabras permitidas para un trabajo. Se guardó su progreso, pero deberá cumplir con este requisito para poder presentarlo.");
+
+            ViewBag.Areas = Db.WorkArea.ToList();
+
+            if (work.EstadoID.Equals(2))
+                return RedirectToAction("PrecargaTrabajos", "Home", new { work.Accreditation.DNI });
+
+            return View(work);
+        }
+
+        public ActionResult Resumen(int id)
+        {
+            var work = Db.Work.Find(id);
+            ViewBag.Areas = Db.WorkArea.ToList();
+            return View(work);
+        }
+
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Resumen(int Id, string Title, string Autores, string areaId, string Instituciones, string Body, string finalizado)
         {
             var work = Db.Work.Find(Id);
             work.Title = Title;
@@ -49,7 +91,7 @@ namespace ACKCMS.Controllers
 
             if (words > MaxWorkWords)
                 ((List<string>)ViewBag.Notificaciones).Add("Ha superado el máximo de " + MaxWorkWords + " palabras permitidas para un trabajo. Se guardó su progreso, pero deberá cumplir con este requisito para poder presentarlo.");
-            
+
             ViewBag.Areas = Db.WorkArea.ToList();
 
             if (work.EstadoID.Equals(2))
@@ -183,7 +225,7 @@ namespace ACKCMS.Controllers
             if (ModelState.IsValid && !string.IsNullOrWhiteSpace(opcionDePago))
             {
                 //var cantidadDeTrabajos = int.Parse(opcionDePago);
-
+                model.DNI = model.DNI.Replace(".", "");
                 model.CantTrabajosPresenta = 2;
                 model.FechaAcreditacion = DateTime.Now;
                 model.EleccionDePago = opcionDePago;

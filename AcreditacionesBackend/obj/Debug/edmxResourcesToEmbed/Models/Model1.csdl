@@ -67,6 +67,8 @@
     <Property Name="DNI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="FechaAcreditacion" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Works" Relationship="Model.FK_Work_Accreditation" FromRole="Accreditation" ToRole="Work" />
+    <Property Name="CantTrabajosPresenta" Type="Int32" />
+    <Property Name="InstitucionALaQuePertenece" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="AspNetRole">
     <Key>
@@ -163,6 +165,11 @@
     <NavigationProperty Name="Establishments" Relationship="Model.FK_Establishment_Work" FromRole="Work" ToRole="Establishment" />
     <Property Name="Supervisado" Type="Boolean" />
     <NavigationProperty Name="Accreditation" Relationship="Model.FK_Work_Accreditation" FromRole="Work" ToRole="Accreditation" />
+    <Property Name="FullWorkBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Autores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Instituciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TrabajoAprobado" Type="Boolean" />
+    <Property Name="TrabajoCompletoPresentado" Type="Boolean" />
   </EntityType>
   <EntityType Name="WorkArea">
     <Key>
