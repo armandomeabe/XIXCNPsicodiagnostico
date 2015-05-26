@@ -18,6 +18,7 @@ namespace ACKCMS.Models
         {
             this.Author = new HashSet<Author>();
             this.Establishment = new HashSet<Establishment>();
+            this.WorkDocument = new HashSet<WorkDocument>();
         }
     
         public int Id { get; set; }
@@ -41,5 +42,6 @@ namespace ACKCMS.Models
         public virtual Accreditation Accreditation { get; set; }
         public virtual ICollection<Author> Author { get; set; }
         public virtual ICollection<Establishment> Establishment { get; set; }
+        public virtual ICollection<WorkDocument> WorkDocument { get; set; }
     }
 }

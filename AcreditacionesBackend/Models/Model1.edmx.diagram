@@ -23,6 +23,8 @@
         <AssociationConnector Association="Model.AspNetUserRoles" />
         <AssociationConnector Association="Model.FK_Work_Accreditation" />
         <AssociationConnector Association="Model.FK_Author_Establishment" />
+        <EntityTypeShape EntityType="Model.WorkDocument" Width="1.5" PointX="7.5" PointY="13.25" />
+        <AssociationConnector Association="Model.FK_WorkDocument_Work" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -71,7 +72,7 @@ namespace ACKCMS.Controllers
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult Resumen(int Id, string Title, string Autores, string areaId, string Instituciones, string Body, string finalizado)
+        public ActionResult Resumen(int Id, string Title, string Autores, string areaId, string Instituciones, string Body, string finalizado, HttpPostedFileBase[] uploadDocs)
         {
             var work = Db.Work.Find(Id);
             work.Title = Title;
@@ -91,6 +92,37 @@ namespace ACKCMS.Controllers
 
             if (words > MaxWorkWords)
                 ((List<string>)ViewBag.Notificaciones).Add("Ha superado el máximo de " + MaxWorkWords + " palabras permitidas para un trabajo. Se guardó su progreso, pero deberá cumplir con este requisito para poder presentarlo.");
+
+            if (uploadDocs != null && uploadDocs.Any() && uploadDocs.FirstOrDefault() != null)
+            {
+                var prevWorks = Db.WorkDocument.Where(x => x.WorkID.Equals(work.Id)).ToList();
+                Db.WorkDocument.RemoveRange(prevWorks);
+                Db.SaveChanges();
+
+                foreach (var doc in uploadDocs)
+                {
+                    if (doc.ContentLength > 0)
+                    {
+                        byte[] fileData = null;
+                        using (var binaryReader = new BinaryReader(doc.InputStream))
+                        {
+                            fileData = binaryReader.ReadBytes(doc.ContentLength);
+                        }
+                        var attachedDocument = new WorkDocument()
+                        {
+                            DocumentFile = fileData,
+                            Nombre = doc.FileName,
+                            WorkID = work.Id,
+                            FechaSubido = DateTime.Now
+                        };
+                        Db.WorkDocument.Add(attachedDocument);
+                        Db.SaveChanges();
+                    }
+                }
+            }
+
+
+
 
             ViewBag.Areas = Db.WorkArea.ToList();
 
@@ -121,7 +153,7 @@ namespace ACKCMS.Controllers
             if (!ack.AcreditacionRealizada)
                 return RedirectToAction("Ack404", "Home", new { message = "Su acreditación todavía se encuentra sujeta a verificación de pago. Por favor vuelva a intentar luego." });
 
-            var works = ack.Work.ToList();
+            var works = ack.Work.Where(x => x.EstadoID != 6).ToList();
             ack.CantTrabajosPresenta = 2;
 
             if (!works.Any())

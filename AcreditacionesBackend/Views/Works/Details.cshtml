@@ -13,6 +13,18 @@
 <div>
     <h4>@Html.Raw(Model.Title)</h4>
     <hr />
+
+    @if (Model.WorkDocuments.Any())
+    {
+        <h2>Archivos Adjuntos</h2>
+        foreach (var doc in Model.WorkDocuments.ToList())
+        {
+            <h4>@doc.Nombre - Subido: @doc.FechaSubido.ToShortDateString() <a href="@Url.Action("GetAttachedFile", "Works", new { id = doc.id})" class="btn btn-success pull-right">Descargar</a></h4>
+            <br />
+        }
+    }
+
+    <hr />
     <dl class="dl-horizontal">
         <dt>
             Título

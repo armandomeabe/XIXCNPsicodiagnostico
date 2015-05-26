@@ -131,6 +131,17 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="WorkDocument">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkID" Type="int" Nullable="false" />
+          <Property Name="DocumentFile" Type="binary" MaxLength="8000" Nullable="false" />
+          <Property Name="IsResumen" Type="bit" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="FechaSubido" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="WorkStatus">
           <Key>
             <PropertyRef Name="id" />
@@ -254,6 +265,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_WorkDocument_Work">
+          <End Role="Work" Type="Self.Work" Multiplicity="1" />
+          <End Role="WorkDocument" Type="Self.WorkDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Work">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkDocument">
+              <PropertyRef Name="WorkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Accreditation" EntityType="Self.Accreditation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -265,6 +288,7 @@
           <EntitySet Name="Establishment" EntityType="Self.Establishment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Work" EntityType="Self.Work" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkArea" EntityType="Self.WorkArea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkDocument" EntityType="Self.WorkDocument" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkStatus" EntityType="Self.WorkStatus" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Author_Establishment" Association="Self.FK_Author_Establishment">
             <End Role="Establishment" EntitySet="Establishment" />
@@ -301,6 +325,10 @@
           <AssociationSet Name="FK_Work_AspNetUsers" Association="Self.FK_Work_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Work" EntitySet="Work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkDocument_Work" Association="Self.FK_WorkDocument_Work">
+            <End Role="Work" EntitySet="Work" />
+            <End Role="WorkDocument" EntitySet="WorkDocument" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -349,6 +377,11 @@
           <AssociationSet Name="FK_Author_Establishment" Association="Model.FK_Author_Establishment">
             <End Role="Establishment" EntitySet="Establishments" />
             <End Role="Author" EntitySet="Authors" />
+          </AssociationSet>
+          <EntitySet Name="WorkDocuments" EntityType="Model.WorkDocument" />
+          <AssociationSet Name="FK_WorkDocument_Work" Association="Model.FK_WorkDocument_Work">
+            <End Role="Work" EntitySet="Works" />
+            <End Role="WorkDocument" EntitySet="WorkDocuments" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Accreditation">
@@ -477,6 +510,7 @@
           <Property Name="Instituciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TrabajoAprobado" Type="Boolean" />
           <Property Name="TrabajoCompletoPresentado" Type="Boolean" />
+          <NavigationProperty Name="WorkDocuments" Relationship="Model.FK_WorkDocument_Work" FromRole="Work" ToRole="WorkDocument" />
         </EntityType>
         <EntityType Name="WorkArea">
           <Key>
@@ -581,6 +615,30 @@
             </Principal>
             <Dependent Role="Author">
               <PropertyRef Name="IdEstablishment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="WorkDocument">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkID" Type="Int32" Nullable="false" />
+          <Property Name="DocumentFile" Type="Binary" Nullable="false" MaxLength="8000" FixedLength="true" />
+          <Property Name="IsResumen" Type="Boolean" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FechaSubido" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Work" Relationship="Model.FK_WorkDocument_Work" FromRole="WorkDocument" ToRole="Work" />
+        </EntityType>
+        <Association Name="FK_WorkDocument_Work">
+          <End Type="Model.Work" Role="Work" Multiplicity="1" />
+          <End Type="Model.WorkDocument" Role="WorkDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Work">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkDocument">
+              <PropertyRef Name="WorkID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -731,6 +789,18 @@
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="WorkDocuments">
+            <EntityTypeMapping TypeName="Model.WorkDocument">
+              <MappingFragment StoreEntitySet="WorkDocument">
+                <ScalarProperty Name="FechaSubido" ColumnName="FechaSubido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IsResumen" ColumnName="IsResumen" />
+                <ScalarProperty Name="DocumentFile" ColumnName="DocumentFile" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

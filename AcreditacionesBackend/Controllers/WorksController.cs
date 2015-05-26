@@ -17,6 +17,16 @@ namespace AcreditacionesBackend.Controllers
     {
         private Entities db = new Entities();
 
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult GetAttachedFile(int id)
+        {
+            var item = db.WorkDocuments.Find(id);
+            byte[] buffer = item.DocumentFile;
+            return File(buffer, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", item.Nombre);
+        }
+
+
         [Authorize]
         public async Task<ActionResult> Export(int id)
         {

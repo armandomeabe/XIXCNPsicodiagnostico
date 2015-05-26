@@ -6,7 +6,7 @@
 <div class="wrapper style2">
     <section class="container">
         <div class="row double">
-            @foreach (var work in Model.Work.ToList())
+            @foreach (var work in Model.Work.Where(x => x.EstadoID != 6).ToList())
             {
                 <div class="6u">
                     <p><strong>Título: </strong>@Html.Raw(work.Title)</p>

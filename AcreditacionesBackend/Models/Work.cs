@@ -18,6 +18,7 @@ namespace AcreditacionesBackend.Models
         {
             this.Authors = new HashSet<Author>();
             this.Establishments = new HashSet<Establishment>();
+            this.WorkDocuments = new HashSet<WorkDocument>();
         }
     
         public int Id { get; set; }
@@ -42,5 +43,6 @@ namespace AcreditacionesBackend.Models
         public virtual ICollection<Author> Authors { get; set; }
         public virtual ICollection<Establishment> Establishments { get; set; }
         public virtual Accreditation Accreditation { get; set; }
+        public virtual ICollection<WorkDocument> WorkDocuments { get; set; }
     }
 }

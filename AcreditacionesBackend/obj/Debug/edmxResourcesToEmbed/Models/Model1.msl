@@ -142,5 +142,17 @@
         <ScalarProperty Name="Id" ColumnName="RoleId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="WorkDocuments">
+      <EntityTypeMapping TypeName="Model.WorkDocument">
+        <MappingFragment StoreEntitySet="WorkDocument">
+          <ScalarProperty Name="FechaSubido" ColumnName="FechaSubido" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IsResumen" ColumnName="IsResumen" />
+          <ScalarProperty Name="DocumentFile" ColumnName="DocumentFile" />
+          <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

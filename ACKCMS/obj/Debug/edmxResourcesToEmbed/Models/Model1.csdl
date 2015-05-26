@@ -49,6 +49,11 @@
       <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
       <End Role="CMS_IMAGEN" EntitySet="CMS_IMAGEN" />
     </AssociationSet>
+    <EntitySet Name="WorkDocument" EntityType="FitosanitariasModel.WorkDocument" />
+    <AssociationSet Name="FK_WorkDocument_Work" Association="FitosanitariasModel.FK_WorkDocument_Work">
+      <End Role="Work" EntitySet="Work" />
+      <End Role="WorkDocument" EntitySet="WorkDocument" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Accreditation">
     <Key>
@@ -125,6 +130,7 @@
     <Property Name="FullWorkBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="TrabajoAprobado" Type="Boolean" />
     <Property Name="TrabajoCompletoPresentado" Type="Boolean" />
+    <NavigationProperty Name="WorkDocument" Relationship="FitosanitariasModel.FK_WorkDocument_Work" FromRole="Work" ToRole="WorkDocument" />
   </EntityType>
   <EntityType Name="WorkArea">
     <Key>
@@ -315,6 +321,30 @@
       </Principal>
       <Dependent Role="CMS_IMAGEN">
         <PropertyRef Name="CMS_ARTICULO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="WorkDocument">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WorkID" Type="Int32" Nullable="false" />
+    <Property Name="DocumentFile" Type="Binary" Nullable="false" MaxLength="8000" FixedLength="true" />
+    <Property Name="IsResumen" Type="Boolean" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FechaSubido" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Work" Relationship="FitosanitariasModel.FK_WorkDocument_Work" FromRole="WorkDocument" ToRole="Work" />
+  </EntityType>
+  <Association Name="FK_WorkDocument_Work">
+    <End Type="FitosanitariasModel.Work" Role="Work" Multiplicity="1" />
+    <End Type="FitosanitariasModel.WorkDocument" Role="WorkDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Work">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkDocument">
+        <PropertyRef Name="WorkID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

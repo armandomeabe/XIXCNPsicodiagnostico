@@ -218,6 +218,9 @@
     <Compile Include="Models\WorkArea.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\WorkDocument.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\WorkStatus.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
