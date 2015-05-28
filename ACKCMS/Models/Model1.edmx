@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="FitosanitariasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FitosanitariasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Accreditation">
           <Key>
             <PropertyRef Name="id" />
@@ -29,6 +29,7 @@
           <Property Name="FechaAcreditacion" Type="datetime" />
           <Property Name="CantTrabajosPresenta" Type="int" />
           <Property Name="InstitucionALaQuePertenece" Type="nvarchar" MaxLength="500" />
+          <Property Name="ComprobanteBinaryArr" Type="image" />
         </EntityType>
         <EntityType Name="Author">
           <Key>
@@ -483,6 +484,7 @@
           <NavigationProperty Name="Work" Relationship="FitosanitariasModel.FK_Work_Accreditation" FromRole="Accreditation" ToRole="Work" />
           <Property Name="CantTrabajosPresenta" Type="Int32" />
           <Property Name="InstitucionALaQuePertenece" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ComprobanteBinaryArr" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Author">
           <Key>
@@ -760,6 +762,7 @@
           <EntitySetMapping Name="Accreditation">
             <EntityTypeMapping TypeName="FitosanitariasModel.Accreditation">
               <MappingFragment StoreEntitySet="Accreditation">
+                <ScalarProperty Name="ComprobanteBinaryArr" ColumnName="ComprobanteBinaryArr" />
                 <ScalarProperty Name="InstitucionALaQuePertenece" ColumnName="InstitucionALaQuePertenece" />
                 <ScalarProperty Name="CantTrabajosPresenta" ColumnName="CantTrabajosPresenta" />
                 <ScalarProperty Name="FechaAcreditacion" ColumnName="FechaAcreditacion" />

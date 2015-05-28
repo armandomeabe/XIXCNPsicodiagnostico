@@ -80,6 +80,7 @@
     <NavigationProperty Name="Work" Relationship="FitosanitariasModel.FK_Work_Accreditation" FromRole="Accreditation" ToRole="Work" />
     <Property Name="CantTrabajosPresenta" Type="Int32" />
     <Property Name="InstitucionALaQuePertenece" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ComprobanteBinaryArr" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Author">
     <Key>

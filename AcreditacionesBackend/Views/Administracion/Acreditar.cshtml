@@ -135,7 +135,10 @@
             @Html.LabelFor(model => model.FechaAcreditacion, "Fecha de Acreditación", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FechaAcreditacion, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
-                <label>Pasaron @((int)((TimeSpan)(DateTime.Now - Model.FechaAcreditacion)).TotalDays) días desde que ésta persona realizó la acreditación online.</label>
+                @if (Model.FechaAcreditacion.HasValue)
+                {
+                    <label>Pasaron @((int)((TimeSpan)(DateTime.Now - Model.FechaAcreditacion)).TotalDays) días desde que ésta persona realizó la acreditación online.</label>
+                }
                 @Html.ValidationMessageFor(model => model.AcreditacionComprobanteNro, "", new { @class = "text-danger" })
             </div>
         </div>

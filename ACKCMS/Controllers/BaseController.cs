@@ -36,6 +36,15 @@ namespace ACKCMS.Controllers
             byte[] buffer = item.BinaryArr;
             return File(buffer, "image/jpg", string.Format("{0}.jpg", id));
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult ViewComprobante(int id)
+        {
+            var item = Db.Accreditation.Find(id);
+            byte[] buffer = item.ComprobanteBinaryArr;
+            return File(buffer, "image/jpg", string.Format("{0}.jpg", id));
+        }
     }
 
     public class MenuWithChilds

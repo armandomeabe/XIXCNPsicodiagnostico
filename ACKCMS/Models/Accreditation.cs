@@ -39,6 +39,7 @@ namespace ACKCMS.Models
         public Nullable<System.DateTime> FechaAcreditacion { get; set; }
         public Nullable<int> CantTrabajosPresenta { get; set; }
         public string InstitucionALaQuePertenece { get; set; }
+        public byte[] ComprobanteBinaryArr { get; set; }
     
         public virtual ICollection<Work> Work { get; set; }
     }

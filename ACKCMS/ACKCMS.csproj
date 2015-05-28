@@ -488,6 +488,7 @@
     <Content Include="Views\Shared\_Layout - Copia.cshtml" />
     <Content Include="Views\Shared\_Layout - Copia %282%29.cshtml" />
     <Content Include="Views\Home\Resumen.cshtml" />
+    <Content Include="Views\Home\SubirComprobante.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,39 @@ namespace ACKCMS.Controllers
     public class HomeController : BaseController
     {
         private const int MaxWorkWords = 500;
+
+        public ActionResult SubirComprobante(int id)
+        {
+            return View(Db.Accreditation.Find(id));
+        }
+
+        [HttpPost]
+        public ActionResult SubirComprobante(int id, HttpPostedFileBase[] uploadDocs)
+        {
+            var ack = Db.Accreditation.Find(id);
+
+            if (uploadDocs != null && uploadDocs.Any() && uploadDocs.FirstOrDefault() != null)
+            {
+                ViewBag.Notificaciones = new List<string>() { "Se recibió su comprobante correctamente. Recuerde que si decide adjuntar un nuevo comprobante, reemplazará al anterior." };
+
+                foreach (var doc in uploadDocs)
+                {
+                    if (doc.ContentLength > 0)
+                    {
+                        byte[] fileData = null;
+                        using (var binaryReader = new BinaryReader(doc.InputStream))
+                        {
+                            fileData = binaryReader.ReadBytes(doc.ContentLength);
+                        }
+                        ack.ComprobanteBinaryArr = fileData;
+                        Db.Entry(ack).State = EntityState.Modified;
+                        Db.SaveChanges();
+                    }
+                }
+            }
+
+            return RedirectToAction("SubirComprobante", "Home", new { id = ack.id });
+        }
 
         public ActionResult Areas()
         {
@@ -38,7 +72,7 @@ namespace ACKCMS.Controllers
             //work.Instituciones = Instituciones;
             //work.Body = Body;
             //work.AreaID = int.Parse(areaId);
-            
+
             work.FullWorkBody = FullWorkBody;
 
             if (!string.IsNullOrWhiteSpace(finalizado) && finalizado.Equals("si"))
@@ -226,7 +260,7 @@ namespace ACKCMS.Controllers
 
             if (string.IsNullOrWhiteSpace(model.Apellido))
                 errores.Add("Ingrese el apellido");
-            
+
             if (string.IsNullOrWhiteSpace(model.Nombre))
                 errores.Add("Ingrese el nombre");
 
