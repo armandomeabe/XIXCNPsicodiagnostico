@@ -365,7 +365,6 @@ E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\ACKCMS\bin\es\Microsoft.Owin.Se
 E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\ACKCMS\bin\es\Microsoft.Owin.Security.Google.resources.dll
 E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\ACKCMS\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
 E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\ACKCMS\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\ACKCMS\obj\Debug\ACKCMS.csprojResolveAssemblyReference.cache
 E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\ACKCMS\obj\Debug\ACKCMS.dll
 E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\ACKCMS\obj\Debug\ACKCMS.pdb
 D:\Storage\ADEIP\XIXCNPsicodiagnostico\ACKCMS\bin\ACKCMS.dll.config

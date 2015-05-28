@@ -18,6 +18,15 @@ namespace ACKCMS.Controllers
             return View(Db.Accreditation.Find(id));
         }
 
+        public ActionResult SubirComprobanteDNI(string DNI)
+        {
+            var ack = Db.Accreditation.FirstOrDefault(x => x.DNI.Trim().Equals(DNI.Trim()));
+
+            if (ack == null) return RedirectToAction("Acreditacion", "Home");
+
+            return RedirectToAction("SubirComprobante", "Home", new { id = ack.id });
+        }
+
         [HttpPost]
         public ActionResult SubirComprobante(int id, HttpPostedFileBase[] uploadDocs)
         {

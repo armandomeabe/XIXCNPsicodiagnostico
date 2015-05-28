@@ -24,6 +24,7 @@
     <Property Name="FechaAcreditacion" Type="datetime" />
     <Property Name="CantTrabajosPresenta" Type="int" />
     <Property Name="InstitucionALaQuePertenece" Type="nvarchar" MaxLength="500" />
+    <Property Name="ComprobanteBinaryArr" Type="image" />
   </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>

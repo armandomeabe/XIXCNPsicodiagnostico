@@ -1,5 +1,4 @@
 ﻿@model ACKCMS.Models.Accreditation
-
 @{
     ViewBag.Title = "Acreditación Online";
 }
@@ -10,13 +9,34 @@
     }
 </style>
 
+@using (Html.BeginForm("SubirComprobanteDNI", "Home"))
+{
+    <section>
+        <div class="12u">
+            <h2>Si usted ya realizó la acreditación, puede subir el comprobante de pago a continuación.</h2>
+            <p>
+                <div>
+                    <div class="form-group">
+                        Ingrese su DNI
+                        <div class="col-md-8">
+                            <input type="text" placeholder="DNI" id="DNI" name="DNI" />
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <p><input type="submit" value="Subir Comprobante de Pago" /></p>
+        </div>
+    </section>
+}
+
+<br />
+
 @using (Html.BeginForm())
 {
 
     @Html.AntiForgeryToken()
 
     <section class="container">
-
         <div class="row">
             <div class="6u">
                 <h3>

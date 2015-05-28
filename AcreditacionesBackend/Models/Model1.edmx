@@ -29,6 +29,7 @@
           <Property Name="FechaAcreditacion" Type="datetime" />
           <Property Name="CantTrabajosPresenta" Type="int" />
           <Property Name="InstitucionALaQuePertenece" Type="nvarchar" MaxLength="500" />
+          <Property Name="ComprobanteBinaryArr" Type="image" />
         </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
@@ -409,6 +410,7 @@
           <NavigationProperty Name="Works" Relationship="Model.FK_Work_Accreditation" FromRole="Accreditation" ToRole="Work" />
           <Property Name="CantTrabajosPresenta" Type="Int32" />
           <Property Name="InstitucionALaQuePertenece" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ComprobanteBinaryArr" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="AspNetRole">
           <Key>
@@ -651,6 +653,7 @@
           <EntitySetMapping Name="Accreditations">
             <EntityTypeMapping TypeName="Model.Accreditation">
               <MappingFragment StoreEntitySet="Accreditation">
+                <ScalarProperty Name="ComprobanteBinaryArr" ColumnName="ComprobanteBinaryArr" />
                 <ScalarProperty Name="InstitucionALaQuePertenece" ColumnName="InstitucionALaQuePertenece" />
                 <ScalarProperty Name="CantTrabajosPresenta" ColumnName="CantTrabajosPresenta" />
                 <ScalarProperty Name="FechaAcreditacion" ColumnName="FechaAcreditacion" />

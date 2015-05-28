@@ -20,6 +20,15 @@ namespace AcreditacionesBackend.Controllers
     {
         private readonly Entities db = new Entities();
 
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult ViewComprobante(int id)
+        {
+            var item = db.Accreditations.Find(id);
+            byte[] buffer = item.ComprobanteBinaryArr;
+            return File(buffer, "image/jpg", string.Format("{0}.jpg", id));
+        }
+
         public ActionResult ExportarEmailsPosters()
         {
             return GenericExporter(db.Accreditations.Where(x => x.Works.Any()).ToList());

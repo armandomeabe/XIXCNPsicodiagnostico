@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Accreditations">
       <EntityTypeMapping TypeName="Model.Accreditation">
         <MappingFragment StoreEntitySet="Accreditation">
+          <ScalarProperty Name="ComprobanteBinaryArr" ColumnName="ComprobanteBinaryArr" />
           <ScalarProperty Name="InstitucionALaQuePertenece" ColumnName="InstitucionALaQuePertenece" />
           <ScalarProperty Name="CantTrabajosPresenta" ColumnName="CantTrabajosPresenta" />
           <ScalarProperty Name="FechaAcreditacion" ColumnName="FechaAcreditacion" />
