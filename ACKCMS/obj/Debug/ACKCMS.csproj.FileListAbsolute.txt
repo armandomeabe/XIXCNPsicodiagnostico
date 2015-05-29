@@ -441,3 +441,4 @@ D:\Storage\ADEIP\XIXCNPsicodiagnostico\ACKCMS\bin\es\Microsoft.Owin.Security.Mic
 D:\Storage\ADEIP\XIXCNPsicodiagnostico\ACKCMS\obj\Debug\ACKCMS.csprojResolveAssemblyReference.cache
 D:\Storage\ADEIP\XIXCNPsicodiagnostico\ACKCMS\obj\Debug\ACKCMS.dll
 D:\Storage\ADEIP\XIXCNPsicodiagnostico\ACKCMS\obj\Debug\ACKCMS.pdb
+E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\ACKCMS\obj\Debug\ACKCMS.csprojResolveAssemblyReference.cache
