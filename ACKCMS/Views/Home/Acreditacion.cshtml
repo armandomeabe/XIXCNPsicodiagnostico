@@ -13,7 +13,7 @@
 {
     <section>
         <div class="12u">
-            <h2>Si usted ya realizó la acreditación, puede subir el comprobante de pago a continuación.</h2>
+            <h2>Si usted ya realizó la acreditación, puede subir el comprobante de pago o solicitar el certificado de asistencia a continuación.</h2>
             <p>
                 <div>
                     <div class="form-group">
@@ -24,7 +24,11 @@
                     </div>
                 </div>
             </p>
-            <p><input type="submit" value="Subir Comprobante de Pago" /></p>
+            <div class="row">
+                <div class="5u"><input type="submit" value="Subir Comprobante de Pago" /></div>
+                <div class="2u">&nbsp;</div>
+                <div class="5u"><input type="button" onclick="window.location = '@Url.Action("ImpresionDeComprobante", "Home")'" value="Imprimir Certificado de Asistencia" /></div>
+            </div>
         </div>
     </section>
 }

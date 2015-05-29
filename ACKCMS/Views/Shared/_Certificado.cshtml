@@ -1,0 +1,114 @@
+﻿@using System.Collections.Specialized
+@using ACKCMS.Controllers
+@using ACKCMS.Models
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XIX CNP</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <script src="@Url.Content("~/js/jquery.min.js")"></script>
+    <script src="@Url.Content("~/js/skel.min.js")"></script>
+    <script src="@Url.Content("~/js/skel-layers.min.js")"></script>
+    <script src="@Url.Content("~/js/init.js")"></script>
+    <noscript>
+        <link rel="stylesheet" href="@Url.Content("~/css/skel.css")" />
+        <link rel="stylesheet" href="@Url.Content("~/css/style.css")" />
+        <link rel="stylesheet" href="@Url.Content("~/css/style-desktop.css")" />
+    </noscript>
+    <!--[if lte IE 9]><link rel="stylesheet" href="@Url.Content("~/css/ie9.css")" /><![endif]-->
+    <!--[if lte IE 8]><script src="@Url.Content("~/js/html5shiv.js")"></script><![endif]-->
+    <script src="@Url.Content("~/js/sss/sss.min.js")"></script>
+    <link rel="stylesheet" href="@Url.Content("~/js/sss/sss.css")" type="text/css" media="all">
+
+    <script>
+        jQuery(function ($) {
+            $('.slider').sss();
+        });
+    </script>
+</head>
+<body>
+
+    @if (ViewBag.ShowBigHeader != null && (bool)ViewBag.ShowBigHeader)
+    {
+        <!-- Features -->
+        <div id="features-wrapper">
+            <div id="features">
+                <div class="container">
+                    <div class="row">
+                        @foreach (CMS_ARTICULO articulo in ViewBag.Articles)
+                        {
+                            <div class="3u">
+                                <!-- Feature #1 -->
+                                <section>
+                                    @if (articulo.CMS_IMAGEN.Any())
+                                    {
+                                        <a href="@Url.Action("Art", "Home", new {id = articulo.ID_ARTICULO})" class="bordered-feature-image"><img src="@Url.Action("ViewImage", "Base", new {id = articulo.CMS_IMAGEN.FirstOrDefault().ID})" alt="" /></a>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("Art", "Home", new { id = articulo.ID_ARTICULO })" class="bordered-feature-image"><img src="http://placehold.it/350x150" alt="" /></a>
+                                    }
+                                    <a href="@Url.Action("Art", "Home", new {id = articulo.ID_ARTICULO})"><h2>@articulo.TITULO</h2></a>
+                                    <span style="color: lightgray">@Html.Raw(articulo.RESUMEN)</span>
+                                </section>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (ViewBag.Notificaciones != null)
+    {
+        <div id="content-wrapper">
+            <div id="content">
+                <div class="container">
+                    <div class="row">
+                        <header>
+                            <h2>Mensajes del sitio web</h2>
+                        </header>
+                    </div>
+
+                    <ul class="check-list">
+                        @foreach (var notificacion in (List<string>)ViewBag.Notificaciones)
+                        {
+                            <li style="font-size: x-large"><i>@notificacion</i></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- Content -->
+    <div id="content-wrapper">
+        <div id="content">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script type="text/javascript" src="@Url.Content("~/js/tinymce/tinymce.min.js")"></script>
+<script type="text/javascript">
+    tinymce.init({
+        selector: "textarea",
+        height: "200px",
+        plugins: "wordcount,charmap",
+        language: "es",
+        setup: function (editor) {
+            editor.on('change', function () {
+                tinymce.triggerSave();
+            });
+        }
+    });
+</script>
+
+@RenderSection("Scripts", false)
