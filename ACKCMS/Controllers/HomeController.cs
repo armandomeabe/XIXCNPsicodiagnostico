@@ -138,29 +138,36 @@ namespace ACKCMS.Controllers
 
             if (uploadDocs != null && uploadDocs.Any() && uploadDocs.FirstOrDefault() != null)
             {
-                var prevWorks = Db.WorkDocument.Where(x => x.WorkID.Equals(work.Id)).ToList();
-                Db.WorkDocument.RemoveRange(prevWorks);
-                Db.SaveChanges();
-
-                foreach (var doc in uploadDocs)
+                try
                 {
-                    if (doc.ContentLength > 0)
+                    var prevWorks = Db.WorkDocument.Where(x => x.WorkID.Equals(work.Id)).ToList();
+                    Db.WorkDocument.RemoveRange(prevWorks);
+                    Db.SaveChanges();
+
+                    foreach (var doc in uploadDocs)
                     {
-                        byte[] fileData = null;
-                        using (var binaryReader = new BinaryReader(doc.InputStream))
+                        if (doc.ContentLength > 0)
                         {
-                            fileData = binaryReader.ReadBytes(doc.ContentLength);
+                            byte[] fileData = null;
+                            using (var binaryReader = new BinaryReader(doc.InputStream))
+                            {
+                                fileData = binaryReader.ReadBytes(doc.ContentLength);
+                            }
+                            var attachedDocument = new WorkDocument()
+                            {
+                                DocumentFile = fileData,
+                                Nombre = doc.FileName,
+                                WorkID = work.Id,
+                                FechaSubido = DateTime.Now
+                            };
+                            Db.WorkDocument.Add(attachedDocument);
+                            Db.SaveChanges();
                         }
-                        var attachedDocument = new WorkDocument()
-                        {
-                            DocumentFile = fileData,
-                            Nombre = doc.FileName,
-                            WorkID = work.Id,
-                            FechaSubido = DateTime.Now
-                        };
-                        Db.WorkDocument.Add(attachedDocument);
-                        Db.SaveChanges();
                     }
+                }
+                catch
+                {
+                    ((List<string>)ViewBag.Notificaciones).Add("Se intentó adjuntar un formato de archivo no válido. Por favor, utilice formato compatible con Microsoft Word.");
                 }
             }
 
