@@ -3,6 +3,8 @@
 
 @{
     ViewBag.Title = "Editar Trabajo: " + Model.Title;
+    var Db = new FitosanitariasEntities();
+    Model.WorkDocument = Db.WorkDocument.Where(x => x.WorkID.Equals(Model.Id)).ToList();
 }
 
 
