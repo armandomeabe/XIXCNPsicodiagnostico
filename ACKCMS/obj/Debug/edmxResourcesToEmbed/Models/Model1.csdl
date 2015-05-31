@@ -331,7 +331,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="WorkID" Type="Int32" Nullable="false" />
-    <Property Name="DocumentFile" Type="Binary" Nullable="false" MaxLength="8000" FixedLength="true" />
+    <Property Name="DocumentFile" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
     <Property Name="IsResumen" Type="Boolean" Nullable="false" />
     <Property Name="Nombre" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="FechaSubido" Type="DateTime" Nullable="false" Precision="3" />

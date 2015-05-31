@@ -140,9 +140,9 @@ namespace ACKCMS.Controllers
             {
                 try
                 {
-                    var prevWorks = Db.WorkDocument.Where(x => x.WorkID.Equals(work.Id)).ToList();
-                    Db.WorkDocument.RemoveRange(prevWorks);
-                    Db.SaveChanges();
+                    //var prevWorks = Db.WorkDocument.Where(x => x.WorkID.Equals(work.Id)).ToList();
+                    //Db.WorkDocument.RemoveRange(prevWorks);
+                    //Db.SaveChanges();
 
                     foreach (var doc in uploadDocs)
                     {
@@ -158,7 +158,8 @@ namespace ACKCMS.Controllers
                                 DocumentFile = fileData,
                                 Nombre = doc.FileName,
                                 WorkID = work.Id,
-                                FechaSubido = DateTime.Now
+                                FechaSubido = DateTime.Now,
+                                IsResumen = false
                             };
                             Db.WorkDocument.Add(attachedDocument);
                             Db.SaveChanges();
@@ -171,15 +172,28 @@ namespace ACKCMS.Controllers
                 }
             }
 
-
-
-
             ViewBag.Areas = Db.WorkArea.ToList();
 
             if (work.EstadoID.Equals(2))
-                return RedirectToAction("PrecargaTrabajos", "Home", new { work.Accreditation.DNI });
+                return RedirectToAction("PrecargaTrabajos", "Home", new { dni = work.Accreditation.DNI });
 
-            return View(work);
+            return RedirectToAction("Resumen", "Home", new { id = work.Id });
+        }
+
+        public ActionResult ClearWorkDocuments(int workid)
+        {
+            Db.WorkDocument.RemoveRange(Db.WorkDocument.Where(x => x.WorkID.Equals(workid)));
+            Db.SaveChanges();
+            return RedirectToAction("Resumen", "Home", new { id = workid });
+        }
+
+        public ActionResult DeleteWorkDocument(int id)
+        {
+            var workdocument = Db.WorkDocument.Find(id);
+            var workid = workdocument.WorkID;
+            Db.WorkDocument.Remove(workdocument);
+            Db.SaveChanges();
+            return RedirectToAction("Resumen", "Home", new { id = workid });
         }
 
         [HttpPost]
@@ -204,11 +218,13 @@ namespace ACKCMS.Controllers
                 return RedirectToAction("Ack404", "Home", new { message = "Su acreditación todavía se encuentra sujeta a verificación de pago. Por favor vuelva a intentar luego." });
 
             var works = ack.Work.Where(x => x.EstadoID != 6).ToList();
-            ack.CantTrabajosPresenta = 2;
 
-            if (!works.Any())
+            if (!ack.CantTrabajosPresenta.HasValue)
+                ack.CantTrabajosPresenta = 3;
+
+            if (!works.Any() || works.Count() < ack.CantTrabajosPresenta)
             {
-                for (int i = 0; i < ack.CantTrabajosPresenta; i++)
+                for (int i = works.Count(); i <= ack.CantTrabajosPresenta; i++)
                 {
                     var newWorkA = new Work
                     {

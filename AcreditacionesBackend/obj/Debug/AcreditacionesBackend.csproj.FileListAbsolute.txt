@@ -219,4 +219,3 @@ E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\Mi
 E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\AcreditacionesBackend\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\AcreditacionesBackend\obj\Debug\AcreditacionesBackend.dll
 E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\AcreditacionesBackend\obj\Debug\AcreditacionesBackend.pdb
-E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\AcreditacionesBackend\obj\Debug\AcreditacionesBackend.csprojResolveAssemblyReference.cache

@@ -174,7 +174,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="WorkID" Type="int" Nullable="false" />
-    <Property Name="DocumentFile" Type="binary" MaxLength="8000" Nullable="false" />
+    <Property Name="DocumentFile" Type="varbinary(max)" Nullable="false" />
     <Property Name="IsResumen" Type="bit" Nullable="false" />
     <Property Name="Nombre" Type="nvarchar" MaxLength="500" Nullable="false" />
     <Property Name="FechaSubido" Type="datetime" Nullable="false" />

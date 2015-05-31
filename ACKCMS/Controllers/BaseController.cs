@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,12 +17,12 @@ namespace ACKCMS.Controllers
             this.Db = new FitosanitariasEntities();
 
             ViewBag.Menus = (from menu in Db.CMS_MENU.ToList()
-                where !menu.ID_MENUPADRE.HasValue
-                select new MenuWithChilds()
-                {
-                    Menu = menu,
-                    ChildMenus = Db.CMS_MENU.ToList().Where(x => x.ID_MENUPADRE.Equals(menu.ID_MENU)).ToList()
-                }).ToList();
+                             where !menu.ID_MENUPADRE.HasValue
+                             select new MenuWithChilds()
+                             {
+                                 Menu = menu,
+                                 ChildMenus = Db.CMS_MENU.ToList().Where(x => x.ID_MENUPADRE.Equals(menu.ID_MENU)).ToList()
+                             }).ToList();
 
             ViewBag.Articles = Db.CMS_ARTICULO.Where(x => !x.UI_FECHA_BAJA.HasValue && x.OBSERVACIONES.Contains("destacado")).ToList();
             ViewBag.NotMainArticles = Db.CMS_ARTICULO.Where(x => !x.UI_FECHA_BAJA.HasValue && !x.OBSERVACIONES.Contains("destacado")).ToList();
@@ -44,6 +45,14 @@ namespace ACKCMS.Controllers
             var item = Db.Accreditation.Find(id);
             byte[] buffer = item.ComprobanteBinaryArr;
             return File(buffer, "image/jpg", string.Format("{0}.jpg", id));
+        }
+
+        [HttpGet, AllowAnonymous]
+        public ActionResult Download(int id)
+        {
+            var document = Db.WorkDocument.Find(id);
+            return File(document.DocumentFile, "application/force-download", Path.GetFileName(document.Nombre));
+
         }
     }
 
