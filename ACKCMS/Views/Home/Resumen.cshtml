@@ -43,7 +43,14 @@
                                         <select id="areaId" name="areaId">
                                             @foreach (ACKCMS.Models.WorkArea area in ViewBag.Areas)
                                             {
-                                                <option value="@area.Id">@area.Nombre</option>
+                                                if (area.Id.Equals(Model.AreaID))
+                                                {
+                                                    <option value="@area.Id" selected="selected">@area.Nombre</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@area.Id">@area.Nombre</option>
+                                                }
                                             }
                                         </select>
                                     </div>

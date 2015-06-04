@@ -17,6 +17,32 @@ namespace AcreditacionesBackend.Controllers
     {
         private Entities db = new Entities();
 
+        public ActionResult requestReview(int id)
+        {
+            var work = db.Works.Find(id);
+            work.EstadoID = 1; // revisión
+            work.TrabajoAprobado = false;
+            db.Entry(work).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Works");
+        }
+
+        public ActionResult resumeOk(int id, bool ok)
+        {
+            var work = db.Works.Find(id);
+            if (ok)
+                work.EstadoID = 3; // aprobado
+            else
+                work.EstadoID = 2; // revisión
+
+            work.TrabajoAprobado = ok;
+            db.Entry(work).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Works");
+        }
+
         [HttpGet]
         [AllowAnonymous]
         public ActionResult GetAttachedFile(int id)
@@ -126,10 +152,21 @@ namespace AcreditacionesBackend.Controllers
             return RedirectToAction("Index");
         }
 
+        //[Authorize(Roles = "admin")]
+        //public async Task<ActionResult> Index()
+        //{
+        //    return View(await db.Works.Where(x => x.EstadoID != 6).ToListAsync());
+        //}
+
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(bool? notFinished)
         {
-            return View(await db.Works.Where(x => x.EstadoID != 6).ToListAsync());
+            ViewBag.NotFinished = notFinished.GetValueOrDefault(false);
+
+            if (notFinished.GetValueOrDefault(false))
+                return View(await db.Works.Where(x => x.EstadoID == 1).OrderBy(x => x.Id).ToListAsync());
+
+            return View(await db.Works.Where(x => x.EstadoID != 1 && x.EstadoID != 6).OrderBy(x => x.Id).ToListAsync());
         }
 
         [Authorize(Roles = "admin")]

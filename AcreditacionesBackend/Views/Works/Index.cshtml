@@ -6,91 +6,164 @@
     var db = new Entities();
 }
 
-<h2>Trabajos</h2>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            Area
-        </th>
-        <th>
-            Estado
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Puntaje)
-        </th>
-        <th>Aprobado Confirmado</th>
-        <th>Trabajo Completo Presentado</th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
+<div class="jumbotron">
+    @if (ViewBag.NotFinished)
     {
-        <tr>
-            <td>
-                @Html.Raw(item.Title)
-            </td>
-            <td>
-                @if (item.AreaID > 0)
-                {
-                    <span>@db.WorkAreas.Find(item.AreaID).Nombre</span>
-                }
-                else
-                {
-                    <span>Sin Area</span>
-                }
-            </td>
-            <td>
-                @db.WorkStatus.Find(item.EstadoID).Nombre
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Puntaje)
-            </td>
-            <td>
-                @if (item.TrabajoAprobado.HasValue && item.TrabajoAprobado.Value)
-                {
-                    <span style="color: green"><strong>SI</strong></span>
-                }
-                else
-                {
-                    <span style="color: orangered"><strong>NO</strong></span>
-                }
-            </td>
-            <td>
-                @if (item.TrabajoCompletoPresentado.HasValue && item.TrabajoCompletoPresentado.Value)
-                {
-                    <span style="color: green"><strong>SI</strong></span>
-                }
-                else
-                {
-                    <span style="color: orangered"><strong>NO</strong></span>
-                }
-            </td>
-            <td>
-                <div class="dropdown">
-                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                        Acciones
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li role="presentation" class="dropdown-header">Elija una opción</li>
-                        <li role="presentation">@*@Html.ActionLink("Editar", "Edit", new { id = item.Id })*@</li>
-                        <li role="presentation">@Html.ActionLink("Ver trabajo", "Details", new { id = item.Id })</li>
-                        <li role="presentation">@Html.ActionLink("Exportar Trabajo", "Export", new { id = item.Id }, new { target = "_blank" })</li>
-                        <li role="presentation">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</li>
-                        <li role="presentation" class="dropdown-header">Evaluación</li>
-                        <li role="presentation">@Html.ActionLink("Asignar a supervisor", "AssignWorkToSupervisor", new { id = item.Id })</li>
-                    </ul>
-                </div>
-            </td>
-            @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-                </td>*@
-        </tr>
+        <h1 style="color: orangered;">Trabajos que aún no fueron entregados</h1>
+
+        <h3>Corresponde a la lista de aquellos <strong>resúmenes</strong> que aún no fueron presentados y por ese motivo no figuran en la lista de trabajos presentados.</h3>
+        <h4>La opción de <i>'aprobar resumen'</i> está presente también en esta vista en caso de que algún autor olvide <i>presentar su trabajo</i> luego de redactarlo o de adjuntar los archivos correspondientes, pero recuerde que si decide aprobar un resumen que aún no fue entregado, existe la posibilidad de que el autor no haya terminado aún de redactarlo o de adjuntar archivos. Dicho trabajo pasará directamente al estado de resumen aprobado y quedará listo para que se suba el trabajo completo (no resumen).</h4>
+        <h4 style="color: orangered">Si aprueba accidentalmente un resumen que aún no fue entregado:</h4>
+        <ol>
+            <li>Regrese a la lista de trabajos presentados con el botón a continuación y ubique el trabajo que se aprobó accidentalmente.</li>
+            <li>Utilice la opción <i>Quitar Resumen Aprobado</i></li>
+            <li>Finalmente utilice la opción <i>Solicitar Revisión al Autor</i>, para que vuelva a ser editable por el él.</li>
+        </ol>
+        <hr />
+        <h4>Para volver al a lista de trabajos/resúmenes entregados, utilice la siguiente opción</h4>
+        <a href="@Url.Action("Index", "Works", new { notFinished = false })" class="btn btn-info">Volver a lista de trabajos presentados</a>
+    }
+    else
+    {
+        <h1>Trabajos Agrupados por Modalidad</h1>
+        <h3>Corresponde a la lista de trabajos que ya fueron presentados (el usuario terminó de editar / adjuntar archivos e hizo click en 'Presentar Resumen' o 'Presentar Trabajo')</h3>
+
+        <hr />
+        <h4>Si desea ver los trabajos que aún no fueron entregados, utilice la siguiente opción</h4>
+        <a href="@Url.Action("Index", "Works", new { notFinished = true })" class="btn btn-info">Ver trabajos en edición (no presentados)</a>
     }
 
-</table>
+</div>
+<div class="jumbotron">
+    <h1>Contador global</h1>
+    <h2>@Model.Count(x => x.EstadoID != 6) trabajos en total</h2>
+    <hr />
+    <h3>Revisión Rápida de Trabajos por Modalidades de Trabajo:</h3>
+    <div class="col-md-12">
+        <ul class="breadcrumb">
+            @foreach (var area in db.WorkAreas.ToList())
+            {
+                <li><strong>#@area.Id @area.Nombre:</strong> <span style="color: red;">@Model.Count(x => x.AreaID.Equals(area.Id)) trabajos.</span></li>
+            }
+        </ul>
+    </div>
+    <br />
+    <hr />
+</div>
+
+
+@foreach (var area in db.WorkAreas.ToList())
+{
+    <h1>@area.Nombre (@Model.Count(x => x.AreaID.Equals(area.Id))) trabajo/s</h1>
+
+    <table class="table">
+        <tr>
+            <th>
+                Título
+            </th>
+            <th>
+                Modalidad
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Autor/es
+            </th>
+            <th>Resumen Aprobado</th>
+            <th>Trabajo Completo Presentado</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Where(x => x.AreaID.Equals(area.Id)))
+        {
+            <tr>
+                <td>
+                    <strong>@Html.Raw(AcreditacionesBackend.Utils.HtmlRemoval.StripTagsRegex(item.Title))</strong>
+                </td>
+                <td>
+                    @if (item.AreaID > 0)
+                    {
+                        <span>@db.WorkAreas.Find(item.AreaID).Nombre</span>
+                    }
+                    else
+                    {
+                        <span>Sin Area</span>
+                    }
+                </td>
+                <td>
+                    @db.WorkStatus.Find(item.EstadoID).Nombre
+                </td>
+                <td>
+                    @Html.Raw(AcreditacionesBackend.Utils.HtmlRemoval.StripTagsRegex(item.Autores))
+                </td>
+                <td>
+                    @if (item.TrabajoAprobado.GetValueOrDefault(false))
+                    {
+                        if (item.TrabajoCompletoPresentado.HasValue && item.TrabajoCompletoPresentado.Value)
+                        {
+                            <span style="color: green"><strong><img src="~/Content/check.png" style="width: 25px;" /><img src="~/Content/check.png" style="width: 25px;" /></strong></span>
+                        }
+                        else
+                        {
+                            <span style="color: green"><strong><img src="~/Content/check.png" style="width: 25px;" /></strong></span>
+                        }
+                    }
+                    else
+                    {
+                        <span style="color: orangered"><strong><img src="~/Content/no.png" style="width: 25px;" /></strong></span>
+                    }
+                </td>
+                <td>
+                    @if (item.TrabajoCompletoPresentado.HasValue && item.TrabajoCompletoPresentado.Value)
+                    {
+                        <span style="color: green"><strong><img src="~/Content/check.png" style="width: 25px;" /></strong></span>
+                    }
+                    else
+                    {
+                        <span style="color: orangered"><strong><img src="~/Content/no.png" style="width: 25px;" /></strong></span>
+                    }
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            Acciones
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation" class="dropdown-header">Elija una opción</li>
+                            <li role="presentation">@*@Html.ActionLink("Editar", "Edit", new { id = item.Id })*@</li>
+                            <li role="presentation">@Html.ActionLink("Ver trabajo", "Details", new { id = item.Id })</li>
+                            @if (item.EstadoID.Equals(2))
+                            {
+                                <li role="presentation">@Html.ActionLink("Solicitar Revisión al Autor", "requestReview", new { id = item.Id })</li>
+                            }
+                            @if (item.TrabajoAprobado.GetValueOrDefault(false))
+                            {
+                                if (!item.TrabajoCompletoPresentado.GetValueOrDefault(false))
+                                {
+                                    <li role="presentation">@Html.ActionLink("Quitar Resumen Aprobado", "resumeOk", new { id = item.Id, ok = false })</li>
+                                }
+
+                            }
+                            else
+                            {
+                                <li role="presentation">@Html.ActionLink("Aprobar Resumen", "resumeOk", new { id = item.Id, ok = true })</li>
+                            }
+                            <li role="presentation">@Html.ActionLink("Exportar Trabajo", "Export", new { id = item.Id }, new { target = "_blank" })</li>
+                            <li role="presentation">@Html.ActionLink("Eliminar", "Delete", new { id = item.Id })</li>
+                            <li role="presentation" class="dropdown-header">Evaluación</li>
+                            <li role="presentation">@Html.ActionLink("Asignar a supervisor", "AssignWorkToSupervisor", new { id = item.Id })</li>
+                        </ul>
+                    </div>
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+}

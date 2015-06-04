@@ -73,7 +73,7 @@ namespace ACKCMS.Controllers
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult Trabajo(int Id, string Title, string Autores, string areaId, string Instituciones, string Body, string finalizado, string FullWorkBody)
+        public ActionResult Trabajo(int Id, string Title, string Autores, string areaId, string Instituciones, string Body, string finalizado, string FullWorkBody, HttpPostedFileBase[] uploadDocs)
         {
             var work = Db.Work.Find(Id);
             //work.Title = Title;
@@ -98,6 +98,42 @@ namespace ACKCMS.Controllers
 
             if (words > MaxWorkWords)
                 ((List<string>)ViewBag.Notificaciones).Add("Ha superado el máximo de " + MaxWorkWords + " palabras permitidas para un trabajo. Se guardó su progreso, pero deberá cumplir con este requisito para poder presentarlo.");
+
+            if (uploadDocs != null && uploadDocs.Any() && uploadDocs.FirstOrDefault() != null)
+            {
+                try
+                {
+                    //var prevWorks = Db.WorkDocument.Where(x => x.WorkID.Equals(work.Id)).ToList();
+                    //Db.WorkDocument.RemoveRange(prevWorks);
+                    //Db.SaveChanges();
+
+                    foreach (var doc in uploadDocs)
+                    {
+                        if (doc.ContentLength > 0)
+                        {
+                            byte[] fileData = null;
+                            using (var binaryReader = new BinaryReader(doc.InputStream))
+                            {
+                                fileData = binaryReader.ReadBytes(doc.ContentLength);
+                            }
+                            var attachedDocument = new WorkDocument()
+                            {
+                                DocumentFile = fileData,
+                                Nombre = doc.FileName,
+                                WorkID = work.Id,
+                                FechaSubido = DateTime.Now,
+                                IsResumen = false
+                            };
+                            Db.WorkDocument.Add(attachedDocument);
+                            Db.SaveChanges();
+                        }
+                    }
+                }
+                catch
+                {
+                    ((List<string>)ViewBag.Notificaciones).Add("Se intentó adjuntar un formato de archivo no válido. Por favor, utilice formato compatible con Microsoft Word.");
+                }
+            }
 
             ViewBag.Areas = Db.WorkArea.ToList();
 
@@ -180,10 +216,13 @@ namespace ACKCMS.Controllers
             return RedirectToAction("Resumen", "Home", new { id = work.Id });
         }
 
-        public ActionResult ClearWorkDocuments(int workid)
+        public ActionResult ClearWorkDocuments(int workid, bool? trabajo)
         {
             Db.WorkDocument.RemoveRange(Db.WorkDocument.Where(x => x.WorkID.Equals(workid)));
             Db.SaveChanges();
+
+            if (trabajo.GetValueOrDefault(false))
+                return RedirectToAction("Trabajo", "Home", new { id = workid });
             return RedirectToAction("Resumen", "Home", new { id = workid });
         }
 

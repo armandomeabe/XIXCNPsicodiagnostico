@@ -36,11 +36,19 @@
         <br />
         <div class="row well">
             <dt>
-                Cuerpo
+                Cuerpo (Resumen)
             </dt>
 
             <dd>
                 @Html.Raw(Model.Body)
+            </dd>
+            
+            <dt>
+                Cuerpo (Trabajo Completo)
+            </dt>
+
+            <dd>
+                @Html.Raw(Model.FullWorkBody)
             </dd>
         </div>
 
