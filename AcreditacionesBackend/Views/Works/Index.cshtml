@@ -95,7 +95,10 @@
                     @db.WorkStatus.Find(item.EstadoID).Nombre
                 </td>
                 <td>
-                    @Html.Raw(AcreditacionesBackend.Utils.HtmlRemoval.StripTagsRegex(item.Autores))
+                    <ul>
+                        <li><strong>Responsable Acreditado: </strong>@item.Accreditation.Apellido, @item.Accreditation.Nombre</li>
+                        <li>Autor/es: @Html.Raw(AcreditacionesBackend.Utils.HtmlRemoval.StripTagsRegex(item.Autores))</li>
+                    </ul>
                 </td>
                 <td>
                     @if (item.TrabajoAprobado.GetValueOrDefault(false))
