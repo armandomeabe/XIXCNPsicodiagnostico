@@ -165,6 +165,9 @@
           <Property Name="Instituciones" Type="nvarchar(max)" />
           <Property Name="TrabajoAprobado" Type="bit" />
           <Property Name="TrabajoCompletoPresentado" Type="bit" />
+          <Property Name="FechaUltimaModificacion" Type="datetime" />
+          <Property Name="FechaResumenPresentado" Type="datetime" />
+          <Property Name="FechaTrabajoPresentado" Type="datetime" />
         </EntityType>
         <EntityType Name="WorkArea">
           <Key>
@@ -536,6 +539,9 @@
           <Property Name="TrabajoAprobado" Type="Boolean" />
           <Property Name="TrabajoCompletoPresentado" Type="Boolean" />
           <NavigationProperty Name="WorkDocument" Relationship="FitosanitariasModel.FK_WorkDocument_Work" FromRole="Work" ToRole="WorkDocument" />
+          <Property Name="FechaUltimaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaResumenPresentado" Type="DateTime" Precision="3" />
+          <Property Name="FechaTrabajoPresentado" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="WorkArea">
           <Key>
@@ -812,6 +818,9 @@
           <EntitySetMapping Name="Work">
             <EntityTypeMapping TypeName="FitosanitariasModel.Work">
               <MappingFragment StoreEntitySet="Work">
+                <ScalarProperty Name="FechaTrabajoPresentado" ColumnName="FechaTrabajoPresentado" />
+                <ScalarProperty Name="FechaResumenPresentado" ColumnName="FechaResumenPresentado" />
+                <ScalarProperty Name="FechaUltimaModificacion" ColumnName="FechaUltimaModificacion" />
                 <ScalarProperty Name="TrabajoCompletoPresentado" ColumnName="TrabajoCompletoPresentado" />
                 <ScalarProperty Name="TrabajoAprobado" ColumnName="TrabajoAprobado" />
                 <ScalarProperty Name="FullWorkBody" ColumnName="FullWorkBody" />

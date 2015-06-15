@@ -160,6 +160,9 @@
     <Property Name="Instituciones" Type="nvarchar(max)" />
     <Property Name="TrabajoAprobado" Type="bit" />
     <Property Name="TrabajoCompletoPresentado" Type="bit" />
+    <Property Name="FechaUltimaModificacion" Type="datetime" />
+    <Property Name="FechaResumenPresentado" Type="datetime" />
+    <Property Name="FechaTrabajoPresentado" Type="datetime" />
   </EntityType>
   <EntityType Name="WorkArea">
     <Key>

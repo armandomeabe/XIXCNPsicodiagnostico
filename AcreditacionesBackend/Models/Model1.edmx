@@ -124,6 +124,9 @@
           <Property Name="Instituciones" Type="nvarchar(max)" />
           <Property Name="TrabajoAprobado" Type="bit" />
           <Property Name="TrabajoCompletoPresentado" Type="bit" />
+          <Property Name="FechaUltimaModificacion" Type="datetime" />
+          <Property Name="FechaResumenPresentado" Type="datetime" />
+          <Property Name="FechaTrabajoPresentado" Type="datetime" />
         </EntityType>
         <EntityType Name="WorkArea">
           <Key>
@@ -138,7 +141,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="WorkID" Type="int" Nullable="false" />
-          <Property Name="DocumentFile" Type="binary" MaxLength="8000" Nullable="false" />
+          <Property Name="DocumentFile" Type="varbinary(max)" Nullable="false" />
           <Property Name="IsResumen" Type="bit" Nullable="false" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="FechaSubido" Type="datetime" Nullable="false" />
@@ -513,6 +516,9 @@
           <Property Name="TrabajoAprobado" Type="Boolean" />
           <Property Name="TrabajoCompletoPresentado" Type="Boolean" />
           <NavigationProperty Name="WorkDocuments" Relationship="Model.FK_WorkDocument_Work" FromRole="Work" ToRole="WorkDocument" />
+          <Property Name="FechaUltimaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaResumenPresentado" Type="DateTime" Precision="3" />
+          <Property Name="FechaTrabajoPresentado" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="WorkArea">
           <Key>
@@ -626,7 +632,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="WorkID" Type="Int32" Nullable="false" />
-          <Property Name="DocumentFile" Type="Binary" Nullable="false" MaxLength="8000" FixedLength="true" />
+          <Property Name="DocumentFile" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Name="IsResumen" Type="Boolean" Nullable="false" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="FechaSubido" Type="DateTime" Nullable="false" Precision="3" />
@@ -748,6 +754,9 @@
           <EntitySetMapping Name="Works">
             <EntityTypeMapping TypeName="Model.Work">
               <MappingFragment StoreEntitySet="Work">
+                <ScalarProperty Name="FechaTrabajoPresentado" ColumnName="FechaTrabajoPresentado" />
+                <ScalarProperty Name="FechaResumenPresentado" ColumnName="FechaResumenPresentado" />
+                <ScalarProperty Name="FechaUltimaModificacion" ColumnName="FechaUltimaModificacion" />
                 <ScalarProperty Name="TrabajoCompletoPresentado" ColumnName="TrabajoCompletoPresentado" />
                 <ScalarProperty Name="TrabajoAprobado" ColumnName="TrabajoAprobado" />
                 <ScalarProperty Name="Instituciones" ColumnName="Instituciones" />

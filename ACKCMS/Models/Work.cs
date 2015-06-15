@@ -38,6 +38,9 @@ namespace ACKCMS.Models
         public string FullWorkBody { get; set; }
         public Nullable<bool> TrabajoAprobado { get; set; }
         public Nullable<bool> TrabajoCompletoPresentado { get; set; }
+        public Nullable<System.DateTime> FechaUltimaModificacion { get; set; }
+        public Nullable<System.DateTime> FechaResumenPresentado { get; set; }
+        public Nullable<System.DateTime> FechaTrabajoPresentado { get; set; }
     
         public virtual Accreditation Accreditation { get; set; }
         public virtual ICollection<Author> Author { get; set; }

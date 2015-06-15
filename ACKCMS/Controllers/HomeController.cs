@@ -83,11 +83,13 @@ namespace ACKCMS.Controllers
             //work.AreaID = int.Parse(areaId);
 
             work.FullWorkBody = FullWorkBody;
+            work.FechaUltimaModificacion = DateTime.Now;
 
             if (!string.IsNullOrWhiteSpace(finalizado) && finalizado.Equals("si"))
             {
                 work.EstadoID = 2;
                 work.TrabajoCompletoPresentado = true;
+                work.FechaTrabajoPresentado = DateTime.Now;
             }
 
             Db.SaveChanges();
@@ -159,9 +161,13 @@ namespace ACKCMS.Controllers
             work.Instituciones = Instituciones;
             work.Body = Body;
             work.AreaID = int.Parse(areaId);
+            work.FechaUltimaModificacion = DateTime.Now;
 
             if (!string.IsNullOrWhiteSpace(finalizado) && finalizado.Equals("si"))
+            {
                 work.EstadoID = 2;
+                work.FechaResumenPresentado = DateTime.Now;
+            }
 
             Db.SaveChanges();
 

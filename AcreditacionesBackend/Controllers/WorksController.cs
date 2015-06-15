@@ -164,7 +164,7 @@ namespace AcreditacionesBackend.Controllers
             ViewBag.NotFinished = notFinished.GetValueOrDefault(false);
 
             if (notFinished.GetValueOrDefault(false))
-                return View(await db.Works.Where(x => x.EstadoID == 1).OrderBy(x => x.Id).ToListAsync());
+                return View(await db.Works.Where(x => x.EstadoID == 1 && x.FechaUltimaModificacion.HasValue).OrderBy(x => x.Id).ToListAsync());
 
             return View(await db.Works.Where(x => x.EstadoID != 1 && x.EstadoID != 6).OrderBy(x => x.Id).ToListAsync());
         }

@@ -99,6 +99,9 @@
     <EntitySetMapping Name="Works">
       <EntityTypeMapping TypeName="Model.Work">
         <MappingFragment StoreEntitySet="Work">
+          <ScalarProperty Name="FechaTrabajoPresentado" ColumnName="FechaTrabajoPresentado" />
+          <ScalarProperty Name="FechaResumenPresentado" ColumnName="FechaResumenPresentado" />
+          <ScalarProperty Name="FechaUltimaModificacion" ColumnName="FechaUltimaModificacion" />
           <ScalarProperty Name="TrabajoCompletoPresentado" ColumnName="TrabajoCompletoPresentado" />
           <ScalarProperty Name="TrabajoAprobado" ColumnName="TrabajoAprobado" />
           <ScalarProperty Name="Instituciones" ColumnName="Instituciones" />

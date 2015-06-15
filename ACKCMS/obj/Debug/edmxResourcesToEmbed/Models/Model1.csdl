@@ -132,6 +132,9 @@
     <Property Name="TrabajoAprobado" Type="Boolean" />
     <Property Name="TrabajoCompletoPresentado" Type="Boolean" />
     <NavigationProperty Name="WorkDocument" Relationship="FitosanitariasModel.FK_WorkDocument_Work" FromRole="Work" ToRole="WorkDocument" />
+    <Property Name="FechaUltimaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaResumenPresentado" Type="DateTime" Precision="3" />
+    <Property Name="FechaTrabajoPresentado" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="WorkArea">
     <Key>
