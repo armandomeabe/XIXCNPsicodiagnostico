@@ -99,7 +99,7 @@
                         <li><strong>Responsable Acreditado: </strong>@item.Accreditation.Apellido, @item.Accreditation.Nombre</li>
                         <li>Autor/es: @Html.Raw(AcreditacionesBackend.Utils.HtmlRemoval.StripTagsRegex(item.Autores))</li>
                         <li>Última modif.: @(Html.Raw(item.FechaUltimaModificacion.HasValue ? item.FechaUltimaModificacion.Value.ToString() : "<strong>Sin datos</strong>"))</li>
-                        <li>Última Resumen Presentado: @(Html.Raw(item.FechaResumenPresentado.HasValue ? item.FechaResumenPresentado.Value.ToString() : "<strong>Sin datos</strong>"))</li>
+                        <li>Fecha Resumen Presentado: @(Html.Raw(item.FechaResumenPresentado.HasValue ? item.FechaResumenPresentado.Value.ToString() : "<strong>Sin datos</strong>"))</li>
                         <li>Fecha Trabajo Presentado: @(Html.Raw(item.FechaTrabajoPresentado.HasValue ? item.FechaTrabajoPresentado.Value.ToString() : "<strong>Sin datos</strong>"))</li>
                     </ul>
                 </td>

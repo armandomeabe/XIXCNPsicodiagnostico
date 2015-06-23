@@ -52,3 +52,5 @@ ACKCMS.Contenidos/bin
 *.suo
 *.suo
 *.dll
+*.pdb
+ACKCMS.v12.suo
