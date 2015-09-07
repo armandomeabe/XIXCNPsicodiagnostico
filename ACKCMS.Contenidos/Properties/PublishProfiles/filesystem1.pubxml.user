@@ -10,10 +10,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/ACKCMS.Contenidos.dll">
-      <publishTime>07/31/2015 15:08:06</publishTime>
+      <publishTime>09/07/2015 02:05:02</publishTime>
     </File>
     <File Include="bin/ACKCMS.Contenidos.pdb">
-      <publishTime>07/31/2015 15:08:06</publishTime>
+      <publishTime>09/07/2015 02:05:02</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>05/12/2015 11:55:37</publishTime>
@@ -160,7 +160,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>05/12/2015 11:55:02</publishTime>
     </File>
     <File Include="Content/modelo_comprobante.png">
-      <publishTime>03/07/2015 14:31:17</publishTime>
+      <publishTime>07/03/2015 14:31:17</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>05/12/2015 11:55:01</publishTime>
@@ -745,16 +745,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>07/31/2015 15:04:38</publishTime>
     </File>
     <File Include="Views/Configuracion/Delete.cshtml">
-      <publishTime>03/07/2015 16:53:02</publishTime>
+      <publishTime>07/03/2015 16:53:02</publishTime>
     </File>
     <File Include="Views/Configuracion/Details.cshtml">
-      <publishTime>03/07/2015 15:59:01</publishTime>
+      <publishTime>07/03/2015 15:59:01</publishTime>
     </File>
     <File Include="Views/Configuracion/Edit.cshtml">
-      <publishTime>03/07/2015 14:20:40</publishTime>
+      <publishTime>07/03/2015 14:20:40</publishTime>
     </File>
     <File Include="Views/Configuracion/Index.cshtml">
-      <publishTime>03/07/2015 15:47:19</publishTime>
+      <publishTime>07/03/2015 15:47:19</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>05/12/2015 11:55:06</publishTime>
@@ -790,13 +790,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>05/12/2015 11:55:06</publishTime>
     </File>
     <File Include="Views/Shared/_Certificado.cshtml">
-      <publishTime>03/07/2015 17:34:28</publishTime>
+      <publishTime>07/03/2015 17:34:28</publishTime>
     </File>
     <File Include="Views/Shared/_Layout - Copia.cshtml">
       <publishTime>05/12/2015 11:55:06</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>03/07/2015 15:42:28</publishTime>
+      <publishTime>07/03/2015 15:42:28</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>05/12/2015 11:55:06</publishTime>
@@ -808,7 +808,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>05/12/2015 11:55:07</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/31/2015 16:17:20</publishTime>
+      <publishTime>09/07/2015 02:05:02</publishTime>
     </File>
   </ItemGroup>
 </Project>

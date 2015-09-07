@@ -183,7 +183,7 @@ namespace AcreditacionesBackend.Controllers
                 {
                     return View(db.Works.Where(x => x.EstadoID == 1).OrderBy(x => x.Id).ToList());
                 }
-                return View(db.Works.Where(x => x.EstadoID != 1).OrderBy(x => x.Id).ToList());
+                return View(db.Works.Where(x => x.EstadoID != 1 && x.EstadoID != 6).OrderBy(x => x.Id).ToList());
             }
             else
             {
@@ -191,7 +191,7 @@ namespace AcreditacionesBackend.Controllers
                 {
                     return View(db.Works.Where(x => x.EstadoID == 1 && x.AreaID.Equals(areaId.Value)).OrderBy(x => x.Id).ToList());
                 }
-                return View(db.Works.Where(x => x.EstadoID != 1 && x.AreaID.Equals(areaId.Value)).OrderBy(x => x.Id).ToList());
+                return View(db.Works.Where(x => x.EstadoID != 1 && x.EstadoID != 6 && x.AreaID.Equals(areaId.Value)).OrderBy(x => x.Id).ToList());
             }
         }
 

@@ -38,14 +38,27 @@
     <h1>Contador global</h1>
     <h2>@Model.Count(x => x.EstadoID != 6) trabajos en total</h2>
     <hr />
-    <h3>Revisión Rápida de Trabajos por Modalidades de Trabajo:</h3>
     <div class="col-md-12">
-        <ul class="breadcrumb">
-            @foreach (var area in db.WorkAreas.ToList())
-            {
-                <li><strong>#@area.Id @area.Nombre:</strong> <span style="color: red;">@Model.Count(x => x.AreaID.Equals(area.Id)) trabajos.</span></li>
-            }
-        </ul>
+        @if (ViewBag.areaId == -1)
+        {
+            <ul class="breadcrumb">
+                @foreach (var area in db.WorkAreas.ToList())
+                {
+                    <li>
+                        <a href="@Url.Action("Index", "Works", new { areaId = area.Id })">
+                            <strong>#@area.Id @area.Nombre:</strong> <span style="color: red;">@Model.Count(x => x.AreaID.Equals(area.Id)) trabajos.</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        { 
+            <h3>Mostrando modalidad: @(db.WorkAreas.Find((int)ViewBag.areaId).Nombre) </h3>
+            <a href="@Url.Action("Index", "Works", new { })" class="btn btn-success">
+                Mostrar todas las modalidades
+            </a>
+        }
     </div>
     <br />
     <hr />
@@ -79,21 +92,23 @@
         {
             <tr>
                 <td>
-                    <strong>(
-                    @if (item.Puntaje.HasValue)
-                    {
-                        <span>@item.Puntaje.GetValueOrDefault(-1)</span>
-                    }
-                    else
-                    {
-                        <span style="color:red;">¡Sin Orden!</span>
-                    }
-                        
-                    ) @Html.Raw(AcreditacionesBackend.Utils.HtmlRemoval.StripTagsRegex(item.Title))</strong>
+                    <strong>
+                        (
+                        @if (item.Puntaje.HasValue)
+                {
+                            <span>@item.Puntaje.GetValueOrDefault(-1)</span>
+                        }
+                        else
+                        {
+                            <span style="color:red;">¡Sin Orden!</span>
+                        }
+
+                        ) @Html.Raw(AcreditacionesBackend.Utils.HtmlRemoval.StripTagsRegex(item.Title))
+                    </strong>
                 </td>
                 <td>
                     @if (item.AreaID > 0)
-                    {
+            {
                         <span>@db.WorkAreas.Find(item.AreaID).Nombre</span>
                     }
                     else
@@ -132,7 +147,7 @@
                 </td>
                 <td>
                     @if (item.TrabajoCompletoPresentado.HasValue && item.TrabajoCompletoPresentado.Value)
-                    {
+        {
                         <span style="color: green"><strong><img src="~/Content/check.png" style="width: 25px;" /></strong></span>
                     }
                     else

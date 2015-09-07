@@ -10,19 +10,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AcreditacionesBackend.dll">
-      <publishTime>09/04/2015 16:17:33</publishTime>
+      <publishTime>09/07/2015 01:59:26</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>05/12/2015 11:55:37</publishTime>
     </File>
     <File Include="bin/EmailSender.dll">
-      <publishTime>04/09/2015 16:09:41</publishTime>
+      <publishTime>09/04/2015 16:09:41</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>04/09/2015 14:05:32</publishTime>
+      <publishTime>09/04/2015 14:05:32</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>04/09/2015 14:05:32</publishTime>
+      <publishTime>09/04/2015 14:05:32</publishTime>
     </File>
     <File Include="bin/es/EntityFramework.resources.dll">
       <publishTime>05/12/2015 11:55:38</publishTime>
@@ -151,19 +151,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>05/12/2015 11:55:41</publishTime>
     </File>
     <File Include="bin/WordIO.dll">
-      <publishTime>04/09/2015 16:09:41</publishTime>
+      <publishTime>09/04/2015 16:09:41</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>06/04/2015 02:15:22</publishTime>
+      <publishTime>04/06/2015 02:15:22</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>06/04/2015 02:15:56</publishTime>
+      <publishTime>04/06/2015 02:15:56</publishTime>
     </File>
     <File Include="Content/check.png">
-      <publishTime>06/04/2015 02:43:39</publishTime>
+      <publishTime>04/06/2015 02:43:39</publishTime>
     </File>
     <File Include="Content/no.png">
-      <publishTime>06/04/2015 02:45:11</publishTime>
+      <publishTime>04/06/2015 02:45:11</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>05/12/2015 11:55:27</publishTime>
@@ -187,10 +187,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>05/12/2015 11:55:28</publishTime>
     </File>
     <File Include="Models/Model1.edmx.diagram">
-      <publishTime>04/09/2015 13:59:57</publishTime>
+      <publishTime>09/04/2015 13:59:57</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>04/09/2015 14:05:35</publishTime>
+      <publishTime>09/04/2015 14:05:35</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>05/12/2015 11:55:28</publishTime>
@@ -787,22 +787,22 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>05/12/2015 11:55:32</publishTime>
     </File>
     <File Include="Views/MesasDePonenciasLibres/Create.cshtml">
-      <publishTime>04/09/2015 14:28:41</publishTime>
+      <publishTime>09/04/2015 14:28:41</publishTime>
     </File>
     <File Include="Views/MesasDePonenciasLibres/Delete.cshtml">
-      <publishTime>04/09/2015 14:05:48</publishTime>
+      <publishTime>09/04/2015 14:05:48</publishTime>
     </File>
     <File Include="Views/MesasDePonenciasLibres/Details.cshtml">
-      <publishTime>04/09/2015 14:05:49</publishTime>
+      <publishTime>09/04/2015 14:05:49</publishTime>
     </File>
     <File Include="Views/MesasDePonenciasLibres/Edit.cshtml">
-      <publishTime>04/09/2015 14:31:51</publishTime>
+      <publishTime>09/04/2015 14:31:51</publishTime>
     </File>
     <File Include="Views/MesasDePonenciasLibres/Index.cshtml">
-      <publishTime>04/09/2015 14:41:20</publishTime>
+      <publishTime>09/04/2015 14:41:20</publishTime>
     </File>
     <File Include="Views/MesasDePonenciasLibres/PonenciasEnMesas.cshtml">
-      <publishTime>04/09/2015 15:24:01</publishTime>
+      <publishTime>09/04/2015 15:24:01</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>05/12/2015 11:55:32</publishTime>
@@ -811,10 +811,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>05/12/2015 11:55:32</publishTime>
     </File>
     <File Include="Views/Shared/_Certificado.cshtml">
-      <publishTime>07/03/2015 17:36:32</publishTime>
+      <publishTime>03/07/2015 17:36:32</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>09/04/2015 16:16:48</publishTime>
+      <publishTime>04/09/2015 16:16:48</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>05/12/2015 11:55:32</publishTime>
@@ -844,7 +844,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>05/12/2015 11:55:32</publishTime>
     </File>
     <File Include="Views/Works/ComprobanteOrador.cshtml">
-      <publishTime>07/03/2015 17:37:13</publishTime>
+      <publishTime>03/07/2015 17:37:13</publishTime>
     </File>
     <File Include="Views/Works/Create.cshtml">
       <publishTime>05/12/2015 11:55:32</publishTime>
@@ -865,7 +865,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>05/12/2015 11:55:32</publishTime>
     </File>
     <File Include="Views/Works/Index.cshtml">
-      <publishTime>08/19/2015 03:33:21</publishTime>
+      <publishTime>09/07/2015 01:58:50</publishTime>
     </File>
     <File Include="Views/Works/Review.cshtml">
       <publishTime>05/19/2015 01:45:21</publishTime>
@@ -874,7 +874,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>05/12/2015 11:55:32</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/09/2015 16:09:43</publishTime>
+      <publishTime>09/04/2015 16:09:43</publishTime>
     </File>
   </ItemGroup>
 </Project>

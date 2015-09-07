@@ -123,7 +123,7 @@ namespace ACKCMS.Contenidos.Controllers
                 db.CMS_ARTICULO.Add(cMS_ARTICULO);
                 db.SaveChanges();
 
-                if (uploadImages != null && uploadImages.Any())
+                if (uploadImages != null && uploadImages.Any() && uploadImages[0] != null)
                 {
                     foreach (var image in uploadImages)
                     {
