@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="XIXCNPsicodiagnosticoModelStoreContainer" CdmEntityContainer="XIXCNPsicodiagnosticoEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accreditation">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.Accreditation">
+        <MappingFragment StoreEntitySet="Accreditation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Localidad" ColumnName="Localidad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Movil" ColumnName="Movil" />
+          <ScalarProperty Name="NumeroMatricula" ColumnName="NumeroMatricula" />
+          <ScalarProperty Name="NumeroSocio" ColumnName="NumeroSocio" />
+          <ScalarProperty Name="EleccionDePago" ColumnName="EleccionDePago" />
+          <ScalarProperty Name="AcreditacionRealizada" ColumnName="AcreditacionRealizada" />
+          <ScalarProperty Name="AcreditacionComprobanteNro" ColumnName="AcreditacionComprobanteNro" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="FechaAcreditacion" ColumnName="FechaAcreditacion" />
+          <ScalarProperty Name="CantTrabajosPresenta" ColumnName="CantTrabajosPresenta" />
+          <ScalarProperty Name="InstitucionALaQuePertenece" ColumnName="InstitucionALaQuePertenece" />
+          <ScalarProperty Name="ComprobanteBinaryArr" ColumnName="ComprobanteBinaryArr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Author">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.Author">
+        <MappingFragment StoreEntitySet="Author">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Establecimiento" ColumnName="Establecimiento" />
+          <ScalarProperty Name="IdWork" ColumnName="IdWork" />
+          <ScalarProperty Name="IdEstablishment" ColumnName="IdEstablishment" />
+          <ScalarProperty Name="IsPresenter" ColumnName="IsPresenter" />
+          <ScalarProperty Name="OrderPosition" ColumnName="OrderPosition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CMS_ARCHIVO">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.CMS_ARCHIVO">
+        <MappingFragment StoreEntitySet="CMS_ARCHIVO">
+          <ScalarProperty Name="ID_ARCHIVO" ColumnName="ID_ARCHIVO" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="RelativePath" ColumnName="RelativePath" />
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CMS_ARTICULO">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.CMS_ARTICULO">
+        <MappingFragment StoreEntitySet="CMS_ARTICULO">
+          <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
+          <ScalarProperty Name="UI_FECHA_ALTA" ColumnName="UI_FECHA_ALTA" />
+          <ScalarProperty Name="UI_FECHA_MODIFICACION" ColumnName="UI_FECHA_MODIFICACION" />
+          <ScalarProperty Name="UI_FECHA_BAJA" ColumnName="UI_FECHA_BAJA" />
+          <ScalarProperty Name="UI_USUARIO" ColumnName="UI_USUARIO" />
+          <ScalarProperty Name="UI_INFO" ColumnName="UI_INFO" />
+          <ScalarProperty Name="ID_TIPOARTICULO" ColumnName="ID_TIPOARTICULO" />
+          <ScalarProperty Name="ID_ESTADOARTICULO" ColumnName="ID_ESTADOARTICULO" />
+          <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+          <ScalarProperty Name="ENCABEZADO" ColumnName="ENCABEZADO" />
+          <ScalarProperty Name="CONTENIDO" ColumnName="CONTENIDO" />
+          <ScalarProperty Name="PATH_CONTENIDOEXT" ColumnName="PATH_CONTENIDOEXT" />
+          <ScalarProperty Name="PATH_PLANCONTENIDOEXT" ColumnName="PATH_PLANCONTENIDOEXT" />
+          <ScalarProperty Name="PATH_CONTENIDOTRANS" ColumnName="PATH_CONTENIDOTRANS" />
+          <ScalarProperty Name="RESUMEN" ColumnName="RESUMEN" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="FECHA_VENCIMIENTO" ColumnName="FECHA_VENCIMIENTO" />
+          <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+          <ScalarProperty Name="VERSION" ColumnName="VERSION" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="URLIMAGEN" ColumnName="URLIMAGEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CMS_CATEGORIA">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.CMS_CATEGORIA">
+        <MappingFragment StoreEntitySet="CMS_CATEGORIA">
+          <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripción" ColumnName="Descripción" />
+          <ScalarProperty Name="UI_INFO" ColumnName="UI_INFO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CMS_IMAGEN">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.CMS_IMAGEN">
+        <MappingFragment StoreEntitySet="CMS_IMAGEN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BinaryArr" ColumnName="BinaryArr" />
+          <ScalarProperty Name="CMS_ARTICULO_ID" ColumnName="CMS_ARTICULO_ID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CMS_MENU">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.CMS_MENU">
+        <MappingFragment StoreEntitySet="CMS_MENU">
+          <ScalarProperty Name="ID_MENU" ColumnName="ID_MENU" />
+          <ScalarProperty Name="UI_FECHA_ALTA" ColumnName="UI_FECHA_ALTA" />
+          <ScalarProperty Name="UI_FECHA_MODIFICACION" ColumnName="UI_FECHA_MODIFICACION" />
+          <ScalarProperty Name="UI_FECHA_BAJA" ColumnName="UI_FECHA_BAJA" />
+          <ScalarProperty Name="UI_USUARIO" ColumnName="UI_USUARIO" />
+          <ScalarProperty Name="UI_INFO" ColumnName="UI_INFO" />
+          <ScalarProperty Name="ID_MENUPADRE" ColumnName="ID_MENUPADRE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CMS_TIPOARCHIVO">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.CMS_TIPOARCHIVO">
+        <MappingFragment StoreEntitySet="CMS_TIPOARCHIVO">
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Extensiones" ColumnName="Extensiones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Establishment">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.Establishment">
+        <MappingFragment StoreEntitySet="Establishment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdWork" ColumnName="IdWork" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Work">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.Work">
+        <MappingFragment StoreEntitySet="Work">
+          <ScalarProperty Name="Coordinadores" ColumnName="Coordinadores" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="FullWorkBody" ColumnName="FullWorkBody" />
+          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+          <ScalarProperty Name="AckID" ColumnName="AckID" />
+          <ScalarProperty Name="NotasAdicionales" ColumnName="NotasAdicionales" />
+          <ScalarProperty Name="EstadoID" ColumnName="EstadoID" />
+          <ScalarProperty Name="ComentariosDelEvaluador" ColumnName="ComentariosDelEvaluador" />
+          <ScalarProperty Name="Puntaje" ColumnName="Puntaje" />
+          <ScalarProperty Name="PosicionEnElArea" ColumnName="PosicionEnElArea" />
+          <ScalarProperty Name="SupervisorUserId" ColumnName="SupervisorUserId" />
+          <ScalarProperty Name="Supervisado" ColumnName="Supervisado" />
+          <ScalarProperty Name="Autores" ColumnName="Autores" />
+          <ScalarProperty Name="Instituciones" ColumnName="Instituciones" />
+          <ScalarProperty Name="TrabajoAprobado" ColumnName="TrabajoAprobado" />
+          <ScalarProperty Name="TrabajoCompletoPresentado" ColumnName="TrabajoCompletoPresentado" />
+          <ScalarProperty Name="FechaUltimaModificacion" ColumnName="FechaUltimaModificacion" />
+          <ScalarProperty Name="FechaResumenPresentado" ColumnName="FechaResumenPresentado" />
+          <ScalarProperty Name="FechaTrabajoPresentado" ColumnName="FechaTrabajoPresentado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkArea">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.WorkArea">
+        <MappingFragment StoreEntitySet="WorkArea">
+          <ScalarProperty Name="Coordinadores" ColumnName="Coordinadores" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkDocument">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.WorkDocument">
+        <MappingFragment StoreEntitySet="WorkDocument">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+          <ScalarProperty Name="DocumentFile" ColumnName="DocumentFile" />
+          <ScalarProperty Name="IsResumen" ColumnName="IsResumen" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FechaSubido" ColumnName="FechaSubido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkStatus">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.WorkStatus">
+        <MappingFragment StoreEntitySet="WorkStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="XIXCNPsicodiagnosticoModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MID_ARTICULO_ARCHIVO" TypeName="XIXCNPsicodiagnosticoModel.MID_ARTICULO_ARCHIVO" StoreEntitySet="MID_ARTICULO_ARCHIVO">
+      <EndProperty Name="CMS_ARCHIVO">
+        <ScalarProperty Name="ID_ARCHIVO" ColumnName="ID_ARCHIVO" />
+      </EndProperty>
+      <EndProperty Name="CMS_ARTICULO">
+        <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MID_ARTICULO_CATEGORIA" TypeName="XIXCNPsicodiagnosticoModel.MID_ARTICULO_CATEGORIA" StoreEntitySet="MID_ARTICULO_CATEGORIA">
+      <EndProperty Name="CMS_ARTICULO">
+        <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
+      </EndProperty>
+      <EndProperty Name="CMS_CATEGORIA">
+        <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="MesasDePonenciasLibres">
+      <EntityTypeMapping TypeName="XIXCNPsicodiagnosticoModel.MesasDePonenciasLibres">
+        <MappingFragment StoreEntitySet="MesasDePonenciasLibres">
+          <ScalarProperty Name="DescripcionOpcional" ColumnName="DescripcionOpcional" />
+          <ScalarProperty Name="Coordinadores" ColumnName="Coordinadores" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Work_MesaDePonencias" TypeName="XIXCNPsicodiagnosticoModel.Work_MesaDePonencias" StoreEntitySet="Work_MesaDePonencias">
+      <EndProperty Name="Work">
+        <ScalarProperty Name="Id" ColumnName="idWork" />
+      </EndProperty>
+      <EndProperty Name="MesasDePonenciasLibres">
+        <ScalarProperty Name="id" ColumnName="idMesaDePonenciaLibre" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

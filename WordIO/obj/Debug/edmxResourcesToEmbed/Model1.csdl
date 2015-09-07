@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="XIXCNPsicodiagnosticoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Accreditation" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Profesion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Pais" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Provincia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Localidad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Movil" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NumeroMatricula" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="NumeroSocio" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="EleccionDePago" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AcreditacionRealizada" Type="Boolean" Nullable="false" />
+    <Property Name="AcreditacionComprobanteNro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DNI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FechaAcreditacion" Type="DateTime" Precision="3" />
+    <Property Name="CantTrabajosPresenta" Type="Int32" />
+    <Property Name="InstitucionALaQuePertenece" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ComprobanteBinaryArr" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Work" Relationship="Self.FK_Work_Accreditation" FromRole="Accreditation" ToRole="Work" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="Work" Relationship="Self.FK_Work_AspNetUsers" FromRole="AspNetUsers" ToRole="Work" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Establecimiento" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="IdWork" Type="Int32" Nullable="false" />
+    <Property Name="IdEstablishment" Type="Int32" Nullable="false" />
+    <Property Name="IsPresenter" Type="Boolean" />
+    <Property Name="OrderPosition" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Establishment" Relationship="Self.FK_Author_Establishment" FromRole="Author" ToRole="Establishment" />
+    <NavigationProperty Name="Work" Relationship="Self.FK_Author_Work" FromRole="Author" ToRole="Work" />
+  </EntityType>
+  <EntityType Name="CMS_ARCHIVO">
+    <Key>
+      <PropertyRef Name="ID_ARCHIVO" />
+    </Key>
+    <Property Name="ID_ARCHIVO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="RelativePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ID_TIPO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CMS_TIPOARCHIVO" Relationship="Self.FK_CMS_ARCHIVO_CMS_TIPOARCHIVO" FromRole="CMS_ARCHIVO" ToRole="CMS_TIPOARCHIVO" />
+    <NavigationProperty Name="CMS_ARTICULO" Relationship="Self.MID_ARTICULO_ARCHIVO" FromRole="CMS_ARCHIVO" ToRole="CMS_ARTICULO" />
+  </EntityType>
+  <EntityType Name="CMS_ARTICULO">
+    <Key>
+      <PropertyRef Name="ID_ARTICULO" />
+    </Key>
+    <Property Name="ID_ARTICULO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UI_FECHA_ALTA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UI_FECHA_MODIFICACION" Type="DateTime" Precision="3" />
+    <Property Name="UI_FECHA_BAJA" Type="DateTime" Precision="3" />
+    <Property Name="UI_USUARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UI_INFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ID_TIPOARTICULO" Type="Int32" Nullable="false" />
+    <Property Name="ID_ESTADOARTICULO" Type="Int32" Nullable="false" />
+    <Property Name="TITULO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ENCABEZADO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CONTENIDO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PATH_CONTENIDOEXT" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PATH_PLANCONTENIDOEXT" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PATH_CONTENIDOTRANS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="RESUMEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA" Type="DateTime" Precision="3" />
+    <Property Name="FECHA_VENCIMIENTO" Type="DateTime" Precision="3" />
+    <Property Name="ACTIVO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="VERSION" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="OBSERVACIONES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="URLIMAGEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CMS_IMAGEN" Relationship="Self.FK_CMS_IMAGEN_CMS_ARTICULO" FromRole="CMS_ARTICULO" ToRole="CMS_IMAGEN" />
+    <NavigationProperty Name="CMS_MENU" Relationship="Self.FK_CMS_MENU_CMS_ARTICULO" FromRole="CMS_ARTICULO" ToRole="CMS_MENU" />
+    <NavigationProperty Name="CMS_ARCHIVO" Relationship="Self.MID_ARTICULO_ARCHIVO" FromRole="CMS_ARTICULO" ToRole="CMS_ARCHIVO" />
+    <NavigationProperty Name="CMS_CATEGORIA" Relationship="Self.MID_ARTICULO_CATEGORIA" FromRole="CMS_ARTICULO" ToRole="CMS_CATEGORIA" />
+  </EntityType>
+  <EntityType Name="CMS_CATEGORIA">
+    <Key>
+      <PropertyRef Name="ID_CATEGORIA" />
+    </Key>
+    <Property Name="ID_CATEGORIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Descripción" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UI_INFO" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CMS_ARTICULO" Relationship="Self.MID_ARTICULO_CATEGORIA" FromRole="CMS_CATEGORIA" ToRole="CMS_ARTICULO" />
+  </EntityType>
+  <EntityType Name="CMS_IMAGEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BinaryArr" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="CMS_ARTICULO_ID" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CMS_ARTICULO" Relationship="Self.FK_CMS_IMAGEN_CMS_ARTICULO" FromRole="CMS_IMAGEN" ToRole="CMS_ARTICULO" />
+  </EntityType>
+  <EntityType Name="CMS_MENU">
+    <Key>
+      <PropertyRef Name="ID_MENU" />
+    </Key>
+    <Property Name="ID_MENU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UI_FECHA_ALTA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UI_FECHA_MODIFICACION" Type="DateTime" Precision="3" />
+    <Property Name="UI_FECHA_BAJA" Type="DateTime" Precision="3" />
+    <Property Name="UI_USUARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UI_INFO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ID_MENUPADRE" Type="Int32" />
+    <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OBSERVACIONES" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ID_ARTICULO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CMS_ARTICULO" Relationship="Self.FK_CMS_MENU_CMS_ARTICULO" FromRole="CMS_MENU" ToRole="CMS_ARTICULO" />
+  </EntityType>
+  <EntityType Name="CMS_TIPOARCHIVO">
+    <Key>
+      <PropertyRef Name="ID_TIPO" />
+    </Key>
+    <Property Name="ID_TIPO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Extensiones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CMS_ARCHIVO" Relationship="Self.FK_CMS_ARCHIVO_CMS_TIPOARCHIVO" FromRole="CMS_TIPOARCHIVO" ToRole="CMS_ARCHIVO" />
+  </EntityType>
+  <EntityType Name="Establishment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="IdWork" Type="Int32" Nullable="false" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Author" Relationship="Self.FK_Author_Establishment" FromRole="Establishment" ToRole="Author" />
+    <NavigationProperty Name="Work" Relationship="Self.FK_Establishment_Work" FromRole="Establishment" ToRole="Work" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Work" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FullWorkBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AreaID" Type="Int32" Nullable="false" />
+    <Property Name="AckID" Type="Int32" Nullable="false" />
+    <Property Name="NotasAdicionales" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EstadoID" Type="Int32" Nullable="false" />
+    <Property Name="ComentariosDelEvaluador" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Puntaje" Type="Int32" />
+    <Property Name="PosicionEnElArea" Type="Int32" />
+    <Property Name="SupervisorUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Supervisado" Type="Boolean" />
+    <Property Name="Autores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Instituciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TrabajoAprobado" Type="Boolean" />
+    <Property Name="TrabajoCompletoPresentado" Type="Boolean" />
+    <Property Name="FechaUltimaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaResumenPresentado" Type="DateTime" Precision="3" />
+    <Property Name="FechaTrabajoPresentado" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Accreditation" Relationship="Self.FK_Work_Accreditation" FromRole="Work" ToRole="Accreditation" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_Work_AspNetUsers" FromRole="Work" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Author" Relationship="Self.FK_Author_Work" FromRole="Work" ToRole="Author" />
+    <NavigationProperty Name="Establishment" Relationship="Self.FK_Establishment_Work" FromRole="Work" ToRole="Establishment" />
+    <NavigationProperty Name="WorkDocument" Relationship="Self.FK_WorkDocument_Work" FromRole="Work" ToRole="WorkDocument" />
+    <Property Name="Coordinadores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MesasDePonenciasLibres" Relationship="XIXCNPsicodiagnosticoModel.Work_MesaDePonencias" FromRole="Work" ToRole="MesasDePonenciasLibres" />
+  </EntityType>
+  <EntityType Name="WorkArea">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Coordinadores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="WorkDocument">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WorkID" Type="Int32" Nullable="false" />
+    <Property Name="DocumentFile" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="IsResumen" Type="Boolean" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FechaSubido" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Work" Relationship="Self.FK_WorkDocument_Work" FromRole="WorkDocument" ToRole="Work" />
+  </EntityType>
+  <EntityType Name="WorkStatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Work_Accreditation">
+    <End Role="Accreditation" Type="Self.Accreditation" Multiplicity="1" />
+    <End Role="Work" Type="Self.Work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accreditation">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Work">
+        <PropertyRef Name="AckID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Work_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="Work" Type="Self.Work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Work">
+        <PropertyRef Name="SupervisorUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Author_Establishment">
+    <End Role="Establishment" Type="Self.Establishment" Multiplicity="1" />
+    <End Role="Author" Type="Self.Author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Establishment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Author">
+        <PropertyRef Name="IdEstablishment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Author_Work">
+    <End Role="Work" Type="Self.Work" Multiplicity="1" />
+    <End Role="Author" Type="Self.Author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Work">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Author">
+        <PropertyRef Name="IdWork" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CMS_ARCHIVO_CMS_TIPOARCHIVO">
+    <End Role="CMS_TIPOARCHIVO" Type="Self.CMS_TIPOARCHIVO" Multiplicity="1" />
+    <End Role="CMS_ARCHIVO" Type="Self.CMS_ARCHIVO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CMS_TIPOARCHIVO">
+        <PropertyRef Name="ID_TIPO" />
+      </Principal>
+      <Dependent Role="CMS_ARCHIVO">
+        <PropertyRef Name="ID_TIPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CMS_IMAGEN_CMS_ARTICULO">
+    <End Role="CMS_ARTICULO" Type="Self.CMS_ARTICULO" Multiplicity="1" />
+    <End Role="CMS_IMAGEN" Type="Self.CMS_IMAGEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CMS_ARTICULO">
+        <PropertyRef Name="ID_ARTICULO" />
+      </Principal>
+      <Dependent Role="CMS_IMAGEN">
+        <PropertyRef Name="CMS_ARTICULO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CMS_MENU_CMS_ARTICULO">
+    <End Role="CMS_ARTICULO" Type="Self.CMS_ARTICULO" Multiplicity="1" />
+    <End Role="CMS_MENU" Type="Self.CMS_MENU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CMS_ARTICULO">
+        <PropertyRef Name="ID_ARTICULO" />
+      </Principal>
+      <Dependent Role="CMS_MENU">
+        <PropertyRef Name="ID_ARTICULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Establishment_Work">
+    <End Role="Work" Type="Self.Work" Multiplicity="1" />
+    <End Role="Establishment" Type="Self.Establishment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Work">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Establishment">
+        <PropertyRef Name="IdWork" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkDocument_Work">
+    <End Role="Work" Type="Self.Work" Multiplicity="1" />
+    <End Role="WorkDocument" Type="Self.WorkDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Work">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkDocument">
+        <PropertyRef Name="WorkID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+  </Association>
+  <Association Name="MID_ARTICULO_ARCHIVO">
+    <End Role="CMS_ARCHIVO" Type="Self.CMS_ARCHIVO" Multiplicity="*" />
+    <End Role="CMS_ARTICULO" Type="Self.CMS_ARTICULO" Multiplicity="*" />
+  </Association>
+  <Association Name="MID_ARTICULO_CATEGORIA">
+    <End Role="CMS_ARTICULO" Type="Self.CMS_ARTICULO" Multiplicity="*" />
+    <End Role="CMS_CATEGORIA" Type="Self.CMS_CATEGORIA" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="XIXCNPsicodiagnosticoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Accreditation" EntityType="Self.Accreditation" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="Author" EntityType="Self.Author" />
+    <EntitySet Name="CMS_ARCHIVO" EntityType="Self.CMS_ARCHIVO" />
+    <EntitySet Name="CMS_ARTICULO" EntityType="Self.CMS_ARTICULO" />
+    <EntitySet Name="CMS_CATEGORIA" EntityType="Self.CMS_CATEGORIA" />
+    <EntitySet Name="CMS_IMAGEN" EntityType="Self.CMS_IMAGEN" />
+    <EntitySet Name="CMS_MENU" EntityType="Self.CMS_MENU" />
+    <EntitySet Name="CMS_TIPOARCHIVO" EntityType="Self.CMS_TIPOARCHIVO" />
+    <EntitySet Name="Establishment" EntityType="Self.Establishment" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Work" EntityType="Self.Work" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+    <EntitySet Name="WorkArea" EntityType="Self.WorkArea" />
+    <EntitySet Name="WorkDocument" EntityType="Self.WorkDocument" />
+    <EntitySet Name="WorkStatus" EntityType="Self.WorkStatus" />
+    <AssociationSet Name="FK_Work_Accreditation" Association="Self.FK_Work_Accreditation">
+      <End Role="Accreditation" EntitySet="Accreditation" />
+      <End Role="Work" EntitySet="Work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Work_AspNetUsers" Association="Self.FK_Work_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Work" EntitySet="Work" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Author_Establishment" Association="Self.FK_Author_Establishment">
+      <End Role="Establishment" EntitySet="Establishment" />
+      <End Role="Author" EntitySet="Author" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Author_Work" Association="Self.FK_Author_Work">
+      <End Role="Work" EntitySet="Work" />
+      <End Role="Author" EntitySet="Author" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CMS_ARCHIVO_CMS_TIPOARCHIVO" Association="Self.FK_CMS_ARCHIVO_CMS_TIPOARCHIVO">
+      <End Role="CMS_TIPOARCHIVO" EntitySet="CMS_TIPOARCHIVO" />
+      <End Role="CMS_ARCHIVO" EntitySet="CMS_ARCHIVO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CMS_IMAGEN_CMS_ARTICULO" Association="Self.FK_CMS_IMAGEN_CMS_ARTICULO">
+      <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+      <End Role="CMS_IMAGEN" EntitySet="CMS_IMAGEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CMS_MENU_CMS_ARTICULO" Association="Self.FK_CMS_MENU_CMS_ARTICULO">
+      <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+      <End Role="CMS_MENU" EntitySet="CMS_MENU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Establishment_Work" Association="Self.FK_Establishment_Work">
+      <End Role="Work" EntitySet="Work" />
+      <End Role="Establishment" EntitySet="Establishment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkDocument_Work" Association="Self.FK_WorkDocument_Work">
+      <End Role="Work" EntitySet="Work" />
+      <End Role="WorkDocument" EntitySet="WorkDocument" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="MID_ARTICULO_ARCHIVO" Association="Self.MID_ARTICULO_ARCHIVO">
+      <End Role="CMS_ARCHIVO" EntitySet="CMS_ARCHIVO" />
+      <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="MID_ARTICULO_CATEGORIA" Association="Self.MID_ARTICULO_CATEGORIA">
+      <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
+      <End Role="CMS_CATEGORIA" EntitySet="CMS_CATEGORIA" />
+    </AssociationSet>
+    <EntitySet Name="MesasDePonenciasLibres" EntityType="XIXCNPsicodiagnosticoModel.MesasDePonenciasLibres" />
+    <AssociationSet Name="Work_MesaDePonencias" Association="XIXCNPsicodiagnosticoModel.Work_MesaDePonencias">
+      <End Role="MesasDePonenciasLibres" EntitySet="MesasDePonenciasLibres" />
+      <End Role="Work" EntitySet="Work" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="MesasDePonenciasLibres">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Coordinadores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DescripcionOpcional" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Work" Relationship="XIXCNPsicodiagnosticoModel.Work_MesaDePonencias" FromRole="MesasDePonenciasLibres" ToRole="Work" />
+  </EntityType>
+  <Association Name="Work_MesaDePonencias">
+    <End Type="XIXCNPsicodiagnosticoModel.MesasDePonenciasLibres" Role="MesasDePonenciasLibres" Multiplicity="*" />
+    <End Type="XIXCNPsicodiagnosticoModel.Work" Role="Work" Multiplicity="*" />
+  </Association>
+</Schema>

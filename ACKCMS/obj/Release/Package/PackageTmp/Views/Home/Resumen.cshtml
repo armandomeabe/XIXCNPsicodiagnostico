@@ -1,0 +1,143 @@
+﻿@using ACKCMS.Models
+@model ACKCMS.Models.Work
+
+@{
+    ViewBag.Title = "Editar Trabajo: " + Model.Title;
+    var Db = new FitosanitariasEntities();
+    //Model.WorkDocument = Db.WorkDocument.Where(x => x.WorkID.Equals(Model.Id)).Distinct().ToList();
+}
+
+
+<div class="wrapper style2">
+    <section class="container">
+        <div class="row double">
+            <div class="\-2u">
+                <img src="@Url.Content("~/images/edit.png")" style="width: 100%;" />
+            </div>
+            <div class="6u">
+                <h3>Edición de <strong>RESUMEN</strong></h3>
+                <h2>Utilice esta página para elaborar y presentar el <strong>resumen</strong> de su trabajo. Una vez que el mismo sea aprobado por un revisor, se le solicitará que ingrese el trabajo completo.</h2>
+                <p>Utilice las cajas de texto para ingresar el contenido de cada caso. Puede guardar el progreso de su trabajo siempre que lo desee, mediante el boton <i>'Guardar cambios'</i>; De este modo, siempre podrá continuar su trabajo desde donde lo dejó la última vez.</p>
+                <br />
+            </div>
+        </div>
+
+        <div class="wrapper style2">
+            <section class="container">
+                <div class="row double">
+                    <div class="12u">
+                        @using (Html.BeginForm("Resumen", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.HiddenFor(model => model.Id)
+
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true, "", new { })
+                                @Html.HiddenFor(model => model.Id)
+
+
+                                <div class="form-group">
+                                    <h2>Modalidad de Trabajo</h2>
+                                    <div class="col-md-10">
+                                        <select id="areaId" name="areaId">
+                                            @foreach (ACKCMS.Models.WorkArea area in ViewBag.Areas)
+                                            {
+                                                if (area.Id.Equals(Model.AreaID))
+                                                {
+                                                    <option value="@area.Id" selected="selected">@area.Nombre</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@area.Id">@area.Nombre</option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">&nbsp;</div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">ADJUNTAR EL RESUMEN</label>
+                                    <div class="12u">
+                                        <input type="file" name="uploadDocs" multiple="multiple" />
+                                        <br />
+                                        <input type="submit" value="Subir Ahora" />
+                                    </div>
+                                    <div class="12u">
+                                        <h4>Acerca de la opción de adjuntar el resumen</h4>
+                                        <p>Recuerde que siempre es preferible elegir formatos de archivo editables como .doc o .docx (Microsoft Word) antes que PDF. De este modo, los supervisores podrán hacer correcciones estéticas que pudieran ser necesarias para normalizar los estilos de cada documento (tipografías, saltos de línea, etc.). Si elije otro formato de archivo, como PDF, en caso de requerirse alguna modificación estética deberá realizarla usted y subir nuevamente el archivo adjunto.</p>
+                                    </div>
+
+                                    @if (Model.WorkDocument.Any())
+                                    {
+                                        <hr />
+                                        <h2>ARCHIVOS YA ADJUNTOS</h2>
+                                        <div class="row">
+                                            <div class="12u"></div>
+                                            <div class="12u">
+                                                <ul>
+                                                    @foreach (WorkDocument doc in Model.WorkDocument.ToList())
+                                                    {
+                                                        <li><strong>- @doc.Nombre</strong> <a href="@Url.Action("DeleteWorkDocument", "Home", new { id = doc.id, ackid = Model.Id })" style="margin-left: 20px">Eliminar este documento</a> <a href="@Url.Action("Download", "Base", new { id = doc.id })" style="margin-left: 20px">Descargar este documento</a></li>
+                                                    }
+                                                    <li><hr /></li>
+                                                    <li><a href="@Url.Action("ClearWorkDocuments", "Home", new { workid = Model.Id })" style="margin-left: 20px"><strong>Eliminar todos los archivos adjuntos</strong></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                    }
+                                </div>
+
+                                <div class="form-group">
+                                    <h2>Título</h2>
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.Title, new { htmlAttributes = new { } })
+                                        @Html.ValidationMessageFor(model => model.Title, "", new { })
+                                    </div>
+                                </div>
+                                <div class="row">&nbsp;</div>
+                                <div class="form-group">
+                                    <h2>Autores</h2>
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.Autores, new { htmlAttributes = new { } })
+                                        @Html.ValidationMessageFor(model => model.Body, "", new { })
+                                    </div>
+                                </div>
+                                <div class="row">&nbsp;</div>
+                                <div class="form-group">
+                                    <h2>Instituciones</h2>
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.Instituciones, new { htmlAttributes = new { } })
+                                        @Html.ValidationMessageFor(model => model.Body, "", new { })
+                                    </div>
+                                </div>
+                                <div class="row">&nbsp;</div>
+                                <div class="form-group">
+                                    <h2>Resumen</h2>
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { } })
+                                        @Html.ValidationMessageFor(model => model.Body, "", new { })
+                                    </div>
+                                </div>
+
+                                <div class="row">&nbsp;</div>
+                                <div class="row">
+                                    <div style="width: 100%;">
+
+                                        @Html.Hidden("finalizado", "no")
+
+                                        <input type="button" value="<< Volver" onclick="window.location = '@Url.Action("PrecargaTrabajos", "Home", new { Model.Accreditation.DNI })'" />
+                                        <input type="submit" value="Guardar" />
+                                        <input type="submit" value="Presentar este trabajo" style="background-color: #DFE7B0;" onclick="$('#finalizado').val('si')" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>

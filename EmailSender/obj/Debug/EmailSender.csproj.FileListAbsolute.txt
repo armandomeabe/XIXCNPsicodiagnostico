@@ -1,0 +1,9 @@
+E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\bin\Debug\EmailSender.dll
+E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\bin\Debug\EmailSender.pdb
+E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\obj\Debug\EmailSender.dll
+E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\obj\Debug\EmailSender.pdb
+F:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\bin\Debug\EmailSender.dll
+F:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\bin\Debug\EmailSender.pdb
+F:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\obj\Debug\EmailSender.csprojResolveAssemblyReference.cache
+F:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\obj\Debug\EmailSender.dll
+F:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\obj\Debug\EmailSender.pdb

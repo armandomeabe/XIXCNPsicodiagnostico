@@ -1,0 +1,40 @@
+﻿@model AcreditacionesBackend.Models.WorkArea
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Confirma que desea eliminar esta modalidad?</h3>
+<div>
+    <h4>@Model.Nombre</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Coordinadores)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Coordinadores)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+            <a href="@Url.Action("Index", "WorkAreas")" class="btn btn-info">Cancelar</a>
+        </div>
+    }
+</div>

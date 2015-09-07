@@ -1,0 +1,8 @@
+E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\bin\Release\EmailSender.dll
+E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\bin\Release\EmailSender.pdb
+E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\obj\Release\EmailSender.dll
+E:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\obj\Release\EmailSender.pdb
+F:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\bin\Release\EmailSender.dll
+F:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\bin\Release\EmailSender.pdb
+F:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\obj\Release\EmailSender.dll
+F:\Applied Chaos\GIT Repos\XIXCNPsicodiagnostico\EmailSender\obj\Release\EmailSender.pdb

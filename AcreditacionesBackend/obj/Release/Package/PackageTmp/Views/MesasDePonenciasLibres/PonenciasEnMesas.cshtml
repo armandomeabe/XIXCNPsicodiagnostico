@@ -1,0 +1,27 @@
+﻿@model AcreditacionesBackend.Models.MesasDePonenciasLibre
+
+@{
+    ViewBag.Title = "Ponencias En Mesa";
+}
+
+<h2>Ponencias para la mesa: '@Html.Raw(AcreditacionesBackend.Utils.HtmlRemoval.StripTagsCharArray(Model.Titulo))'</h2>
+<div>
+    <h4>MesasDePonenciasLibre</h4>
+    <hr />
+    <ul class="list-group">
+        @foreach (var item in ((List<AcreditacionesBackend.Models.Work>)ViewBag.Ponencias))
+        {
+            if (item.MesasDePonenciasLibres.Any())
+            {
+                <li class="list-group-item"><span class="badge"><a href="@Url.Action("AddOrRemoveWorkToTable", "MesasDePonenciasLibres", new { id = Model.id, idWork = item.Id })" style="color: white;"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span></a></span>@Html.Raw(AcreditacionesBackend.Utils.HtmlRemoval.StripTagsRegex(item.Title))</li>
+            }
+            else
+            {
+                <li class="list-group-item"><span class="badge"><a href="@Url.Action("AddOrRemoveWorkToTable", "MesasDePonenciasLibres", new { id = Model.id, idWork = item.Id })" style="color: white;"><span class="glyphicon glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span></a></span>@Html.Raw(AcreditacionesBackend.Utils.HtmlRemoval.StripTagsRegex(item.Title))</li>
+            }
+        }
+    </ul>
+</div>
+
+<a href="@Url.Action("Edit","MesasDePonenciasLibres", new { id = Model.id })" class="btn btn-success">Editar la Mesa de Ponencias</a>
+<a href="@Url.Action("Index")" class="btn btn-info">Volver</a>

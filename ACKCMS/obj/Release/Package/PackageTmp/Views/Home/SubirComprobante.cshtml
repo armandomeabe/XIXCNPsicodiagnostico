@@ -1,0 +1,33 @@
+﻿@model ACKCMS.Models.Accreditation
+
+@{
+    ViewBag.Title = "Subir Comprobante de Pago";
+}
+
+<h2>Subir Comprobante de Pago</h2>
+<h3>@Model.Apellido, @Model.Nombre</h3>
+<h4>Utilice este formulario para adjuntar el comprobante de pago, en formato de imagen. Se recomienda formato JPG.</h4>
+
+@if (Model.ComprobanteBinaryArr != null)
+{
+    <br />
+    <div class="12u">
+        <h2>En este momento, el siguiente comprobante consta en la base de datos</h2>
+        <img src="@Url.Action("ViewComprobante", "Base", new { id = Model.id })" alt="" style="width: 100%;" />
+    </div>
+}
+
+@using (Html.BeginForm("SubirComprobante", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.id)
+    <h2>Utilice el siguiente control para elegir el comprobante a adjuntar.</h2>
+    <div class="12u">
+        <input type="file" name="uploadDocs" />
+    </div>
+
+    <hr />
+
+    <div class="12u">
+        <input type="submit" value="Enviar Comprobante" style="width: 100%; font-size: x-large" />
+    </div>
+}
