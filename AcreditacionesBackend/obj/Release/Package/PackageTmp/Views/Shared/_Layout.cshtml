@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>Administración Congreso</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style type="text/css">
@@ -24,20 +24,30 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Administración de Acreditaciones", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Administración", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@*@Html.ActionLink("Inicio", "Index", "Home")*@</li>
-                    <li>@Html.ActionLink("Administración", "Index", "Administracion")</li>
+                    <li>@Html.ActionLink("Acreditados", "Index", "Administracion")</li>
                     <li>@Html.ActionLink("Trabajos", "Index", "Works")</li>
                     <li>@Html.ActionLink("Supervisores", "Index", "AspNetUsers")</li>
-                    <li>@Html.ActionLink("Supervisar Trabajos", "Assigned", "Works")</li>
+                    <li>@Html.ActionLink("Supervisar", "Assigned", "Works")</li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mod./Mesas<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="@Url.Action("Index", "WorkAreas")">Modalidades</a></li>
+                            <li><a href="@Url.Action("Index", "MesasDePonenciasLibres")">Mesas de Ponencias</a></li>
+                        </ul>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exportar <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="@Url.Action("ExportarEmailsPosters", "Administracion")">Emails y datos de presentadores de pósters</a></li>
                             <li><a href="@Url.Action("ExportarTitulosYAutores", "Administracion")">Títulos y autores</a></li>
+                            <li><a href="@Url.Action("ExportarLibroResumenes", "Administracion")">Libro de resúmenes</a></li>
+                            <li><a href="@Url.Action("ExportarLibroTrabajos", "Administracion")">Libro de trabajos</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -47,12 +57,10 @@
     </div>
     <div class="container body-content">
         <br />
-        <br />
-        <br />  
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - III Congreso de Bioquímicos del Litoral, XVI Jornadas Argentinas de Microbiología.</p>
+            <p>&copy; @DateTime.Now.Year - Panel de control - Sistema de Acreditaciones y Presentación de Trabajos.</p>
         </footer>
     </div>
 

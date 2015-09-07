@@ -415,6 +415,9 @@ namespace ACKCMS.Controllers
         public ActionResult ImpresionDeComprobanteOK(string dni)
         {
             var record = Db.Accreditation.FirstOrDefault(x => x.DNI.Trim().ToLower().Equals(dni.Trim().ToLower()));
+            var configuracion = Db.ConfiguracionSitio.OrderByDescending(x => x.id).First();
+            ViewBag.NombreCorto = configuracion.TituloCortoCongreso;
+            ViewBag.Dias = configuracion.DiasDelCongreso;
             return View(record);
         }
 

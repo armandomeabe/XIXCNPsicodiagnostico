@@ -4,6 +4,8 @@
     <EntitySetMapping Name="Accreditation">
       <EntityTypeMapping TypeName="FitosanitariasModel.Accreditation">
         <MappingFragment StoreEntitySet="Accreditation">
+          <ScalarProperty Name="ComprobanteBinaryArr" ColumnName="ComprobanteBinaryArr" />
+          <ScalarProperty Name="InstitucionALaQuePertenece" ColumnName="InstitucionALaQuePertenece" />
           <ScalarProperty Name="CantTrabajosPresenta" ColumnName="CantTrabajosPresenta" />
           <ScalarProperty Name="FechaAcreditacion" ColumnName="FechaAcreditacion" />
           <ScalarProperty Name="DNI" ColumnName="DNI" />
@@ -52,6 +54,12 @@
     <EntitySetMapping Name="Work">
       <EntityTypeMapping TypeName="FitosanitariasModel.Work">
         <MappingFragment StoreEntitySet="Work">
+          <ScalarProperty Name="FechaTrabajoPresentado" ColumnName="FechaTrabajoPresentado" />
+          <ScalarProperty Name="FechaResumenPresentado" ColumnName="FechaResumenPresentado" />
+          <ScalarProperty Name="FechaUltimaModificacion" ColumnName="FechaUltimaModificacion" />
+          <ScalarProperty Name="TrabajoCompletoPresentado" ColumnName="TrabajoCompletoPresentado" />
+          <ScalarProperty Name="TrabajoAprobado" ColumnName="TrabajoAprobado" />
+          <ScalarProperty Name="FullWorkBody" ColumnName="FullWorkBody" />
           <ScalarProperty Name="Instituciones" ColumnName="Instituciones" />
           <ScalarProperty Name="Autores" ColumnName="Autores" />
           <ScalarProperty Name="Supervisado" ColumnName="Supervisado" />
@@ -180,6 +188,33 @@
           <ScalarProperty Name="CMS_ARTICULO_ID" ColumnName="CMS_ARTICULO_ID" />
           <ScalarProperty Name="BinaryArr" ColumnName="BinaryArr" />
           <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkDocument">
+      <EntityTypeMapping TypeName="FitosanitariasModel.WorkDocument">
+        <MappingFragment StoreEntitySet="WorkDocument">
+          <ScalarProperty Name="FechaSubido" ColumnName="FechaSubido" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IsResumen" ColumnName="IsResumen" />
+          <ScalarProperty Name="DocumentFile" ColumnName="DocumentFile" />
+          <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfiguracionSitio">
+      <EntityTypeMapping TypeName="FitosanitariasModel.ConfiguracionSitio">
+        <MappingFragment StoreEntitySet="ConfiguracionSitio">
+          <ScalarProperty Name="DiasDelCongreso" ColumnName="DiasDelCongreso" />
+          <ScalarProperty Name="TituloCortoCongreso" ColumnName="TituloCortoCongreso" />
+          <ScalarProperty Name="ComprobanteOradorFooter" ColumnName="ComprobanteOradorFooter" />
+          <ScalarProperty Name="ComprobanteOradorHeader" ColumnName="ComprobanteOradorHeader" />
+          <ScalarProperty Name="ComprobanteAsistenciaFooter" ColumnName="ComprobanteAsistenciaFooter" />
+          <ScalarProperty Name="ComprobanteAsistenciaHeader" ColumnName="ComprobanteAsistenciaHeader" />
+          <ScalarProperty Name="LogoCongreso" ColumnName="LogoCongreso" />
+          <ScalarProperty Name="TituloCongreso" ColumnName="TituloCongreso" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

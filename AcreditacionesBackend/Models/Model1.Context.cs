@@ -36,5 +36,7 @@ namespace AcreditacionesBackend.Models
         public virtual DbSet<WorkArea> WorkAreas { get; set; }
         public virtual DbSet<WorkStatu> WorkStatus { get; set; }
         public virtual DbSet<WorkDocument> WorkDocuments { get; set; }
+        public virtual DbSet<ConfiguracionSitio> ConfiguracionSitios { get; set; }
+        public virtual DbSet<MesasDePonenciasLibre> MesasDePonenciasLibres { get; set; }
     }
 }

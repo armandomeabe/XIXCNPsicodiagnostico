@@ -19,6 +19,7 @@ namespace AcreditacionesBackend.Models
             this.Authors = new HashSet<Author>();
             this.Establishments = new HashSet<Establishment>();
             this.WorkDocuments = new HashSet<WorkDocument>();
+            this.MesasDePonenciasLibres = new HashSet<MesasDePonenciasLibre>();
         }
     
         public int Id { get; set; }
@@ -41,11 +42,13 @@ namespace AcreditacionesBackend.Models
         public Nullable<System.DateTime> FechaUltimaModificacion { get; set; }
         public Nullable<System.DateTime> FechaResumenPresentado { get; set; }
         public Nullable<System.DateTime> FechaTrabajoPresentado { get; set; }
+        public string Coordinadores { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual ICollection<Author> Authors { get; set; }
         public virtual ICollection<Establishment> Establishments { get; set; }
         public virtual Accreditation Accreditation { get; set; }
         public virtual ICollection<WorkDocument> WorkDocuments { get; set; }
+        public virtual ICollection<MesasDePonenciasLibre> MesasDePonenciasLibres { get; set; }
     }
 }

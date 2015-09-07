@@ -1,7 +1,9 @@
-﻿@model ACKCMS.Models.Work
+﻿@using ACKCMS.Models
+@model ACKCMS.Models.Work
 
 @{
     ViewBag.Title = "Editar Trabajo: " + Model.Title;
+    var db = new FitosanitariasEntities();
 }
 
 
@@ -22,67 +24,110 @@
             <section class="container">
                 <div class="row double">
                     <div class="12u">
-                        @using (Html.BeginForm())
+                        @using (Html.BeginForm("Trabajo", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
                         {
                             @Html.AntiForgeryToken()
 
                             @Html.HiddenFor(model => model.Id)
+                            @Html.HiddenFor(model => model.Title)
+                            @Html.HiddenFor(model => model.Autores)
+                            @Html.HiddenFor(model => model.Instituciones)
+                            @Html.HiddenFor(model => model.Body)
 
                             <div class="form-horizontal">
                                 @Html.ValidationSummary(true, "", new { })
                                 @Html.HiddenFor(model => model.Id)
 
-
                                 <div class="form-group">
                                     <h2>Modalidad de Trabajo</h2>
                                     <div class="col-md-10">
-                                        <select id="areaId" name="areaId">
-                                            @foreach (ACKCMS.Models.WorkArea area in ViewBag.Areas)
-                                            {
-                                                <option value="@area.Id">@area.Nombre</option>
-                                            }
-                                        </select>
+                                        <h3>@db.WorkArea.Find(Model.AreaID).Nombre</h3>
                                     </div>
                                 </div>
                                 <div class="row">&nbsp;</div>
-
                                 <div class="form-group">
                                     <h2>Título</h2>
                                     <div class="col-md-10">
-                                        @Html.TextAreaFor(model => model.Title, new { htmlAttributes = new { } })
-                                        @Html.ValidationMessageFor(model => model.Title, "", new { })
+                                        @Html.Raw(Model.Title)
                                     </div>
                                 </div>
                                 <div class="row">&nbsp;</div>
                                 <div class="form-group">
                                     <h2>Autores</h2>
                                     <div class="col-md-10">
-                                        @Html.TextAreaFor(model => model.Autores, new { htmlAttributes = new { } })
-                                        @Html.ValidationMessageFor(model => model.Body, "", new { })
+                                        @Html.Raw(Model.Autores)
                                     </div>
                                 </div>
                                 <div class="row">&nbsp;</div>
                                 <div class="form-group">
                                     <h2>Instituciones</h2>
                                     <div class="col-md-10">
-                                        @Html.TextAreaFor(model => model.Instituciones, new { htmlAttributes = new { } })
-                                        @Html.ValidationMessageFor(model => model.Body, "", new { })
+                                        @Html.Raw(Model.Instituciones)
                                     </div>
                                 </div>
                                 <div class="row">&nbsp;</div>
                                 <div class="form-group">
                                     <h2>Resumen</h2>
                                     <div class="col-md-10">
-                                        @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { } })
-                                        @Html.ValidationMessageFor(model => model.Body, "", new { })
+                                        @Html.Raw(Model.Body)
                                     </div>
                                 </div>
 
+
+                                <hr />
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">ADJUNTAR EL TRABAJO O MATERIAL ADICIONAL</label>
+                                    <div class="12u">
+                                        <input type="file" name="uploadDocs" multiple="multiple" />
+                                        <br />
+                                        <input type="submit" value="Subir Ahora" />
+                                    </div>
+                                    <div class="12u">
+                                        <h4>Acerca de la opción de adjuntar el resumen</h4>
+                                        <p>Recuerde que siempre es preferible elegir formatos de archivo editables como .doc o .docx (Microsoft Word) antes que PDF. De este modo, los supervisores podrán hacer correcciones estéticas que pudieran ser necesarias para normalizar los estilos de cada documento (tipografías, saltos de línea, etc.). Si elije otro formato de archivo, como PDF, en caso de requerirse alguna modificación estética deberá realizarla usted y subir nuevamente el archivo adjunto.</p>
+                                    </div>
+
+                                    @if (Model.WorkDocument.Any())
+                                    {
+                                        <hr />
+                                        <h2>ARCHIVOS YA ADJUNTOS</h2>
+                                        <div class="row">
+                                            <div class="12u"></div>
+                                            <div class="12u">
+                                                <ul>
+                                                    @foreach (WorkDocument doc in Model.WorkDocument.ToList())
+                                                    {
+                                                        <li><strong>- @doc.Nombre</strong> <a href="@Url.Action("DeleteWorkDocument", "Home", new { id = doc.id, ackid = Model.Id })" style="margin-left: 20px">Eliminar este documento</a> <a href="@Url.Action("Download", "Base", new { id = doc.id })" style="margin-left: 20px">Descargar este documento</a></li>
+                                                    }
+                                                    <li><hr /></li>
+                                                    <li><a href="@Url.Action("ClearWorkDocuments", "Home", new { workid = Model.Id, trabajo = true })" style="margin-left: 20px"><strong>Eliminar todos los archivos adjuntos</strong></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                    }
+                                </div>
+
+                                <hr />
+
+
+
+
+
+                                <div class="row">&nbsp;</div>
+                                <div class="form-group">
+                                    <h2>Cuerpo completo del trabajo</h2>
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.FullWorkBody, new { htmlAttributes = new { } })
+                                        @Html.ValidationMessageFor(model => model.FullWorkBody, "", new { })
+                                    </div>
+                                </div>
                                 <div class="row">&nbsp;</div>
                                 <div class="row">
                                     <div style="width: 100%;">
 
-                                        @Html.Hidden("finalizado","no")
+                                        @Html.Hidden("finalizado", "no")
 
                                         <input type="button" value="<< Volver" onclick="window.location = '@Url.Action("PrecargaTrabajos", "Home", new { Model.Accreditation.DNI })'" />
                                         <input type="submit" value="Guardar" />

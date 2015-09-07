@@ -1,0 +1,35 @@
+﻿@model AcreditacionesBackend.Models.Work
+
+@{
+    ViewBag.Title = "Comprobante de Orador";
+    Layout = "~/Views/Shared/_Certificado.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <center><img src="@Url.Action("ViewComprobanteOradorHeader", "Base")" /></center>
+    </div>
+    <div class="col-md-12">
+        <center>
+            <h1>Se certifica que @Model.Accreditation.Apellido, @Model.Accreditation.Nombre</h1>
+            Ha participado como: <strong> ________________ </strong>
+            del @ViewBag.NombreCorto,<br />
+            realizado en la ciudad de Santa Fe,<br />
+            los días @ViewBag.Dias.
+        </center>
+    </div>
+    <div class="col-md-12">
+        <center><img src="@Url.Action("ViewComprobanteOradorFooter", "Base")" /></center>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            print();
+        });
+    </script>
+}

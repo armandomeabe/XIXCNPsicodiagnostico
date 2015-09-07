@@ -43,6 +43,17 @@
       <End Role="Establishment" EntitySet="Establishments" />
       <End Role="Author" EntitySet="Authors" />
     </AssociationSet>
+    <EntitySet Name="WorkDocuments" EntityType="Model.WorkDocument" />
+    <AssociationSet Name="FK_WorkDocument_Work" Association="Model.FK_WorkDocument_Work">
+      <End Role="Work" EntitySet="Works" />
+      <End Role="WorkDocument" EntitySet="WorkDocuments" />
+    </AssociationSet>
+    <EntitySet Name="ConfiguracionSitios" EntityType="Model.ConfiguracionSitio" />
+    <EntitySet Name="MesasDePonenciasLibres" EntityType="Model.MesasDePonenciasLibre" />
+    <AssociationSet Name="Work_MesaDePonencias" Association="Model.Work_MesaDePonencias">
+      <End Role="MesasDePonenciasLibre" EntitySet="MesasDePonenciasLibres" />
+      <End Role="Work" EntitySet="Works" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Accreditation">
     <Key>
@@ -67,6 +78,9 @@
     <Property Name="DNI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="FechaAcreditacion" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Works" Relationship="Model.FK_Work_Accreditation" FromRole="Accreditation" ToRole="Work" />
+    <Property Name="CantTrabajosPresenta" Type="Int32" />
+    <Property Name="InstitucionALaQuePertenece" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ComprobanteBinaryArr" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="AspNetRole">
     <Key>
@@ -163,6 +177,17 @@
     <NavigationProperty Name="Establishments" Relationship="Model.FK_Establishment_Work" FromRole="Work" ToRole="Establishment" />
     <Property Name="Supervisado" Type="Boolean" />
     <NavigationProperty Name="Accreditation" Relationship="Model.FK_Work_Accreditation" FromRole="Work" ToRole="Accreditation" />
+    <Property Name="FullWorkBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Autores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Instituciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TrabajoAprobado" Type="Boolean" />
+    <Property Name="TrabajoCompletoPresentado" Type="Boolean" />
+    <NavigationProperty Name="WorkDocuments" Relationship="Model.FK_WorkDocument_Work" FromRole="Work" ToRole="WorkDocument" />
+    <Property Name="FechaUltimaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaResumenPresentado" Type="DateTime" Precision="3" />
+    <Property Name="FechaTrabajoPresentado" Type="DateTime" Precision="3" />
+    <Property Name="Coordinadores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MesasDePonenciasLibres" Relationship="Model.Work_MesaDePonencias" FromRole="Work" ToRole="MesasDePonenciasLibre" />
   </EntityType>
   <EntityType Name="WorkArea">
     <Key>
@@ -170,6 +195,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Coordinadores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="WorkStatu">
     <Key>
@@ -269,5 +295,58 @@
         <PropertyRef Name="IdEstablishment" />
       </Dependent>
     </ReferentialConstraint>
+  </Association>
+  <EntityType Name="WorkDocument">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WorkID" Type="Int32" Nullable="false" />
+    <Property Name="DocumentFile" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="IsResumen" Type="Boolean" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FechaSubido" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Work" Relationship="Model.FK_WorkDocument_Work" FromRole="WorkDocument" ToRole="Work" />
+  </EntityType>
+  <Association Name="FK_WorkDocument_Work">
+    <End Type="Model.Work" Role="Work" Multiplicity="1" />
+    <End Type="Model.WorkDocument" Role="WorkDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Work">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkDocument">
+        <PropertyRef Name="WorkID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ConfiguracionSitio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TituloCongreso" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LogoCongreso" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteAsistenciaHeader" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteAsistenciaFooter" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteOradorHeader" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteOradorFooter" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="TituloCortoCongreso" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="DiasDelCongreso" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="Ciudad" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MesasDePonenciasLibre">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Coordinadores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DescripcionOpcional" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Works" Relationship="Model.Work_MesaDePonencias" FromRole="MesasDePonenciasLibre" ToRole="Work" />
+  </EntityType>
+  <Association Name="Work_MesaDePonencias">
+    <End Type="Model.MesasDePonenciasLibre" Role="MesasDePonenciasLibre" Multiplicity="*" />
+    <End Type="Model.Work" Role="Work" Multiplicity="*" />
   </Association>
 </Schema>

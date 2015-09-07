@@ -1,15 +1,12 @@
 ﻿@model ACKCMS.Models.Accreditation
-
 @{
     ViewBag.Title = "Trabajos";
 }
 
-
 <div class="wrapper style2">
     <section class="container">
         <div class="row double">
-
-            @foreach (var work in Model.Work.ToList())
+            @foreach (var work in Model.Work.Where(x => x.EstadoID != 6).ToList())
             {
                 <div class="6u">
                     <p><strong>Título: </strong>@Html.Raw(work.Title)</p>
@@ -19,15 +16,23 @@
                     <br />
                     @if (work.EstadoID.Equals(1))
                     {
-                        <a href="@Url.Action("Trabajo", "Home", new { id = work.Id })" class="button">Editar este trabajo</a>
+                        <a href="@Url.Action("Resumen", "Home", new { id = work.Id })" class="button">Editar este trabajo</a>
+                    }
+                    else if (work.EstadoID.Equals(4))
+                    {
+                        <a href="#" class="button" style="background-color: #DFE7B0">Este trabajo fue <strong>rechazado</strong>. Por mayor información comuníquese con la administración del congreso.</a>
+                    }
+                    else if (work.EstadoID.Equals(3) && work.TrabajoAprobado.HasValue && work.TrabajoAprobado.Value)
+                    {
+                        <a href="@Url.Action("Trabajo", "Home", new { id = work.Id })" class="button" style="background-color: #DFE7B0">Este trabajo fue APROBADO. Por favor ingrese aquí para cargar el cuerpo completo del trabajo.</a>
                     }
                     else
                     {
                         <a href="#" class="button" style="background-color: #DFE7B0">Este trabajo ya fue presentado y será evaluado a la brevedad</a>
                     }
-                </div>
+                    <hr />
+                </div>                
             }
-
         </div>
     </section>
 </div>

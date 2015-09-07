@@ -99,6 +99,7 @@
     <EntitySetMapping Name="Works">
       <EntityTypeMapping TypeName="Model.Work">
         <MappingFragment StoreEntitySet="Work">
+          <ScalarProperty Name="Coordinadores" ColumnName="Coordinadores" />
           <ScalarProperty Name="FechaTrabajoPresentado" ColumnName="FechaTrabajoPresentado" />
           <ScalarProperty Name="FechaResumenPresentado" ColumnName="FechaResumenPresentado" />
           <ScalarProperty Name="FechaUltimaModificacion" ColumnName="FechaUltimaModificacion" />
@@ -125,6 +126,7 @@
     <EntitySetMapping Name="WorkAreas">
       <EntityTypeMapping TypeName="Model.WorkArea">
         <MappingFragment StoreEntitySet="WorkArea">
+          <ScalarProperty Name="Coordinadores" ColumnName="Coordinadores" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
@@ -158,5 +160,39 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ConfiguracionSitios">
+      <EntityTypeMapping TypeName="Model.ConfiguracionSitio">
+        <MappingFragment StoreEntitySet="ConfiguracionSitio">
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="DiasDelCongreso" ColumnName="DiasDelCongreso" />
+          <ScalarProperty Name="TituloCortoCongreso" ColumnName="TituloCortoCongreso" />
+          <ScalarProperty Name="ComprobanteOradorFooter" ColumnName="ComprobanteOradorFooter" />
+          <ScalarProperty Name="ComprobanteOradorHeader" ColumnName="ComprobanteOradorHeader" />
+          <ScalarProperty Name="ComprobanteAsistenciaFooter" ColumnName="ComprobanteAsistenciaFooter" />
+          <ScalarProperty Name="ComprobanteAsistenciaHeader" ColumnName="ComprobanteAsistenciaHeader" />
+          <ScalarProperty Name="LogoCongreso" ColumnName="LogoCongreso" />
+          <ScalarProperty Name="TituloCongreso" ColumnName="TituloCongreso" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MesasDePonenciasLibres">
+      <EntityTypeMapping TypeName="Model.MesasDePonenciasLibre">
+        <MappingFragment StoreEntitySet="MesasDePonenciasLibres">
+          <ScalarProperty Name="DescripcionOpcional" ColumnName="DescripcionOpcional" />
+          <ScalarProperty Name="Coordinadores" ColumnName="Coordinadores" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Work_MesaDePonencias" TypeName="Model.Work_MesaDePonencias" StoreEntitySet="Work_MesaDePonencias">
+      <EndProperty Name="Work">
+        <ScalarProperty Name="Id" ColumnName="idWork" />
+      </EndProperty>
+      <EndProperty Name="MesasDePonenciasLibre">
+        <ScalarProperty Name="id" ColumnName="idMesaDePonenciaLibre" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -94,6 +94,21 @@
           <Property Name="IsPresenter" Type="bit" />
           <Property Name="OrderPosition" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="ConfiguracionSitio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TituloCongreso" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LogoCongreso" Type="image" />
+          <Property Name="ComprobanteAsistenciaHeader" Type="image" />
+          <Property Name="ComprobanteAsistenciaFooter" Type="image" />
+          <Property Name="ComprobanteOradorHeader" Type="image" />
+          <Property Name="ComprobanteOradorFooter" Type="image" />
+          <Property Name="TituloCortoCongreso" Type="nvarchar" MaxLength="1500" />
+          <Property Name="DiasDelCongreso" Type="nvarchar" MaxLength="1500" />
+          <Property Name="Ciudad" Type="nvarchar" MaxLength="1500" />
+        </EntityType>
         <EntityType Name="Establishment">
           <Key>
             <PropertyRef Name="id" />
@@ -102,6 +117,15 @@
           <Property Name="Nombre" Type="nvarchar" MaxLength="1000" />
           <Property Name="IdWork" Type="int" Nullable="false" />
           <Property Name="Number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MesasDePonenciasLibres">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Titulo" Type="nvarchar(max)" />
+          <Property Name="Coordinadores" Type="nvarchar(max)" />
+          <Property Name="DescripcionOpcional" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Work">
           <Key>
@@ -127,6 +151,15 @@
           <Property Name="FechaUltimaModificacion" Type="datetime" />
           <Property Name="FechaResumenPresentado" Type="datetime" />
           <Property Name="FechaTrabajoPresentado" Type="datetime" />
+          <Property Name="Coordinadores" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Work_MesaDePonencias">
+          <Key>
+            <PropertyRef Name="idWork" />
+            <PropertyRef Name="idMesaDePonenciaLibre" />
+          </Key>
+          <Property Name="idWork" Type="int" Nullable="false" />
+          <Property Name="idMesaDePonenciaLibre" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="WorkArea">
           <Key>
@@ -134,6 +167,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+          <Property Name="Coordinadores" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="WorkDocument">
           <Key>
@@ -269,6 +303,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Work_MesaDePonencias_MesasDePonenciasLibres">
+          <End Role="MesasDePonenciasLibres" Type="Self.MesasDePonenciasLibres" Multiplicity="1" />
+          <End Role="Work_MesaDePonencias" Type="Self.Work_MesaDePonencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MesasDePonenciasLibres">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Work_MesaDePonencias">
+              <PropertyRef Name="idMesaDePonenciaLibre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Work_MesaDePonencias_Work">
+          <End Role="Work" Type="Self.Work" Multiplicity="1" />
+          <End Role="Work_MesaDePonencias" Type="Self.Work_MesaDePonencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Work">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Work_MesaDePonencias">
+              <PropertyRef Name="idWork" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_WorkDocument_Work">
           <End Role="Work" Type="Self.Work" Multiplicity="1" />
           <End Role="WorkDocument" Type="Self.WorkDocument" Multiplicity="*" />
@@ -289,8 +347,11 @@
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfiguracionSitio" EntityType="Self.ConfiguracionSitio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Establishment" EntityType="Self.Establishment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MesasDePonenciasLibres" EntityType="Self.MesasDePonenciasLibres" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Work" EntityType="Self.Work" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Work_MesaDePonencias" EntityType="Self.Work_MesaDePonencias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkArea" EntityType="Self.WorkArea" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkDocument" EntityType="Self.WorkDocument" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkStatus" EntityType="Self.WorkStatus" Schema="dbo" store:Type="Tables" />
@@ -329,6 +390,14 @@
           <AssociationSet Name="FK_Work_AspNetUsers" Association="Self.FK_Work_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Work" EntitySet="Work" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Work_MesaDePonencias_MesasDePonenciasLibres" Association="Self.FK_Work_MesaDePonencias_MesasDePonenciasLibres">
+            <End Role="MesasDePonenciasLibres" EntitySet="MesasDePonenciasLibres" />
+            <End Role="Work_MesaDePonencias" EntitySet="Work_MesaDePonencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Work_MesaDePonencias_Work" Association="Self.FK_Work_MesaDePonencias_Work">
+            <End Role="Work" EntitySet="Work" />
+            <End Role="Work_MesaDePonencias" EntitySet="Work_MesaDePonencias" />
           </AssociationSet>
           <AssociationSet Name="FK_WorkDocument_Work" Association="Self.FK_WorkDocument_Work">
             <End Role="Work" EntitySet="Work" />
@@ -386,6 +455,12 @@
           <AssociationSet Name="FK_WorkDocument_Work" Association="Model.FK_WorkDocument_Work">
             <End Role="Work" EntitySet="Works" />
             <End Role="WorkDocument" EntitySet="WorkDocuments" />
+          </AssociationSet>
+          <EntitySet Name="ConfiguracionSitios" EntityType="Model.ConfiguracionSitio" />
+          <EntitySet Name="MesasDePonenciasLibres" EntityType="Model.MesasDePonenciasLibre" />
+          <AssociationSet Name="Work_MesaDePonencias" Association="Model.Work_MesaDePonencias">
+            <End Role="MesasDePonenciasLibre" EntitySet="MesasDePonenciasLibres" />
+            <End Role="Work" EntitySet="Works" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Accreditation">
@@ -519,6 +594,8 @@
           <Property Name="FechaUltimaModificacion" Type="DateTime" Precision="3" />
           <Property Name="FechaResumenPresentado" Type="DateTime" Precision="3" />
           <Property Name="FechaTrabajoPresentado" Type="DateTime" Precision="3" />
+          <Property Name="Coordinadores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MesasDePonenciasLibres" Relationship="Model.Work_MesaDePonencias" FromRole="Work" ToRole="MesasDePonenciasLibre" />
         </EntityType>
         <EntityType Name="WorkArea">
           <Key>
@@ -526,6 +603,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Coordinadores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="WorkStatu">
           <Key>
@@ -650,6 +728,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ConfiguracionSitio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TituloCongreso" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LogoCongreso" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ComprobanteAsistenciaHeader" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ComprobanteAsistenciaFooter" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ComprobanteOradorHeader" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ComprobanteOradorFooter" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TituloCortoCongreso" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="DiasDelCongreso" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="Ciudad" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MesasDePonenciasLibre">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Coordinadores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DescripcionOpcional" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Works" Relationship="Model.Work_MesaDePonencias" FromRole="MesasDePonenciasLibre" ToRole="Work" />
+        </EntityType>
+        <Association Name="Work_MesaDePonencias">
+          <End Type="Model.MesasDePonenciasLibre" Role="MesasDePonenciasLibre" Multiplicity="*" />
+          <End Type="Model.Work" Role="Work" Multiplicity="*" />
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -754,6 +861,7 @@
           <EntitySetMapping Name="Works">
             <EntityTypeMapping TypeName="Model.Work">
               <MappingFragment StoreEntitySet="Work">
+                <ScalarProperty Name="Coordinadores" ColumnName="Coordinadores" />
                 <ScalarProperty Name="FechaTrabajoPresentado" ColumnName="FechaTrabajoPresentado" />
                 <ScalarProperty Name="FechaResumenPresentado" ColumnName="FechaResumenPresentado" />
                 <ScalarProperty Name="FechaUltimaModificacion" ColumnName="FechaUltimaModificacion" />
@@ -780,6 +888,7 @@
           <EntitySetMapping Name="WorkAreas">
             <EntityTypeMapping TypeName="Model.WorkArea">
               <MappingFragment StoreEntitySet="WorkArea">
+                <ScalarProperty Name="Coordinadores" ColumnName="Coordinadores" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -813,6 +922,40 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ConfiguracionSitios">
+            <EntityTypeMapping TypeName="Model.ConfiguracionSitio">
+              <MappingFragment StoreEntitySet="ConfiguracionSitio">
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="DiasDelCongreso" ColumnName="DiasDelCongreso" />
+                <ScalarProperty Name="TituloCortoCongreso" ColumnName="TituloCortoCongreso" />
+                <ScalarProperty Name="ComprobanteOradorFooter" ColumnName="ComprobanteOradorFooter" />
+                <ScalarProperty Name="ComprobanteOradorHeader" ColumnName="ComprobanteOradorHeader" />
+                <ScalarProperty Name="ComprobanteAsistenciaFooter" ColumnName="ComprobanteAsistenciaFooter" />
+                <ScalarProperty Name="ComprobanteAsistenciaHeader" ColumnName="ComprobanteAsistenciaHeader" />
+                <ScalarProperty Name="LogoCongreso" ColumnName="LogoCongreso" />
+                <ScalarProperty Name="TituloCongreso" ColumnName="TituloCongreso" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MesasDePonenciasLibres">
+            <EntityTypeMapping TypeName="Model.MesasDePonenciasLibre">
+              <MappingFragment StoreEntitySet="MesasDePonenciasLibres">
+                <ScalarProperty Name="DescripcionOpcional" ColumnName="DescripcionOpcional" />
+                <ScalarProperty Name="Coordinadores" ColumnName="Coordinadores" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Work_MesaDePonencias" TypeName="Model.Work_MesaDePonencias" StoreEntitySet="Work_MesaDePonencias">
+            <EndProperty Name="Work">
+              <ScalarProperty Name="Id" ColumnName="idWork" />
+            </EndProperty>
+            <EndProperty Name="MesasDePonenciasLibre">
+              <ScalarProperty Name="id" ColumnName="idMesaDePonenciaLibre" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

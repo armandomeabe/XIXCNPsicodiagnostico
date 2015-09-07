@@ -2,24 +2,38 @@
 
 @{
     ViewBag.Title = "Impresión de Comprobante";
+    Layout = "~/Views/Shared/_Certificado.cshtml";
 }
 
 <div class="wrapper style2">
     <section class="container">
         <div class="row double">
             <div class="12u">
+                <img style="width: 100% !important;" src="@Url.Action("ViewComprobanteAsistenciaHeader", "Base")" />
+            </div>
+            <div class="12u">
                 <center>
-                    <h3>Constancia de Acreditación</h3>
-                    <h4>
-                        Certificamos que de acuerdo a nuestros registros
-                        y con comprobante de pago N° @Model.AcreditacionComprobanteNro
-                        el/la Sr/Sra. @Model.Apellido @Model.Nombre, documento N° @Model.DNI
-                        se encuentra acreditado a las XV Jornadas Fitosanitarias Argentinas
-                        que se realizarán los días 7, 8 y 9 de Octubre de 2015 en la ciudad de Santa Fe.
-                    </h4>
+                    <h2>
+                        Se deja constancia que: <strong>@string.Format("{0}, {1}", Model.Nombre, Model.Apellido)</strong><br />
+                        está inscripto/a como <strong>asistente</strong>
+                        del @ViewBag.NombreCorto,<br />
+                        realizado en la ciudad de Santa Fe,<br />
+                        los días @ViewBag.Dias.
+                    </h2>
                 </center>
             </div>
-
+            <div class="12u">
+                <img style="width: 100% !important;" src="@Url.Action("ViewComprobanteAsistenciaFooter", "Base")" />
+            </div>
         </div>
     </section>
 </div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            print();
+        });
+    </script>
+}

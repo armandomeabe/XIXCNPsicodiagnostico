@@ -203,5 +203,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ConfiguracionSitio">
+      <EntityTypeMapping TypeName="FitosanitariasModel.ConfiguracionSitio">
+        <MappingFragment StoreEntitySet="ConfiguracionSitio">
+          <ScalarProperty Name="DiasDelCongreso" ColumnName="DiasDelCongreso" />
+          <ScalarProperty Name="TituloCortoCongreso" ColumnName="TituloCortoCongreso" />
+          <ScalarProperty Name="ComprobanteOradorFooter" ColumnName="ComprobanteOradorFooter" />
+          <ScalarProperty Name="ComprobanteOradorHeader" ColumnName="ComprobanteOradorHeader" />
+          <ScalarProperty Name="ComprobanteAsistenciaFooter" ColumnName="ComprobanteAsistenciaFooter" />
+          <ScalarProperty Name="ComprobanteAsistenciaHeader" ColumnName="ComprobanteAsistenciaHeader" />
+          <ScalarProperty Name="LogoCongreso" ColumnName="LogoCongreso" />
+          <ScalarProperty Name="TituloCongreso" ColumnName="TituloCongreso" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

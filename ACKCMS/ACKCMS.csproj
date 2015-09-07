@@ -192,6 +192,9 @@
     <Compile Include="Models\CMS_TIPOARCHIVO.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ConfiguracionSitio.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Establishment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -493,6 +496,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EmailSender\EmailSender.csproj">
+      <Project>{cd6fe6bc-572c-41d8-b803-477a2c90b4f3}</Project>
+      <Name>EmailSender</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -38,5 +38,6 @@ namespace ACKCMS.Models
         public virtual DbSet<CMS_TIPOARCHIVO> CMS_TIPOARCHIVO { get; set; }
         public virtual DbSet<CMS_IMAGEN> CMS_IMAGEN { get; set; }
         public virtual DbSet<WorkDocument> WorkDocument { get; set; }
+        public virtual DbSet<ConfiguracionSitio> ConfiguracionSitio { get; set; }
     }
 }

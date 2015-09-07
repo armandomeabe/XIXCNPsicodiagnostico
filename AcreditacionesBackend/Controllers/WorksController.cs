@@ -17,6 +17,18 @@ namespace AcreditacionesBackend.Controllers
     {
         private Entities db = new Entities();
 
+        public ActionResult ComprobanteOrador(int id)
+        {
+            var work = db.Works.Find(id);
+
+            var configuracion = db.ConfiguracionSitios.OrderByDescending(x => x.id).First();
+
+            ViewBag.NombreCorto = configuracion.TituloCortoCongreso;
+            ViewBag.Dias = configuracion.DiasDelCongreso;
+
+            return View(work);
+        }
+
         public ActionResult requestReview(int id)
         {
             var work = db.Works.Find(id);
@@ -159,14 +171,28 @@ namespace AcreditacionesBackend.Controllers
         //}
 
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Index(bool? notFinished)
+        public async Task<ActionResult> Index(bool? notFinished, int? areaId, int? scrollTo)
         {
+            ViewBag.scrollTo = scrollTo.GetValueOrDefault(0);
             ViewBag.NotFinished = notFinished.GetValueOrDefault(false);
+            ViewBag.areaId = areaId.GetValueOrDefault(-1);
 
-            if (notFinished.GetValueOrDefault(false))
-                return View(await db.Works.Where(x => x.EstadoID == 1 && x.FechaUltimaModificacion.HasValue).OrderBy(x => x.Id).ToListAsync());
-
-            return View(await db.Works.Where(x => x.EstadoID != 1 && x.EstadoID != 6).OrderBy(x => x.Id).ToListAsync());
+            if (areaId.GetValueOrDefault(-1).Equals(-1))
+            {
+                if (notFinished.GetValueOrDefault(false))
+                {
+                    return View(db.Works.Where(x => x.EstadoID == 1).OrderBy(x => x.Id).ToList());
+                }
+                return View(db.Works.Where(x => x.EstadoID != 1).OrderBy(x => x.Id).ToList());
+            }
+            else
+            {
+                if (notFinished.GetValueOrDefault(false))
+                {
+                    return View(db.Works.Where(x => x.EstadoID == 1 && x.AreaID.Equals(areaId.Value)).OrderBy(x => x.Id).ToList());
+                }
+                return View(db.Works.Where(x => x.EstadoID != 1 && x.AreaID.Equals(areaId.Value)).OrderBy(x => x.Id).ToList());
+            }
         }
 
         [Authorize(Roles = "admin")]
@@ -220,16 +246,12 @@ namespace AcreditacionesBackend.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Area = (await db.WorkAreas.FindAsync(work.AreaID)).Nombre;
             return View(work);
         }
 
-        // POST: Works/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "admin")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Title,Body,AreaID,AckID,NotasAdicionales,EstadoID,ComentariosDelEvaluador,Puntaje")] Work work)
+        [Authorize(Roles = "admin"), HttpPost, ValidateAntiForgeryToken, ValidateInput(false)]
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Title,Body,AreaID,AckID,NotasAdicionales,EstadoID,ComentariosDelEvaluador,Puntaje,Autores,Coordinadores")] Work work)
         {
             if (ModelState.IsValid)
             {

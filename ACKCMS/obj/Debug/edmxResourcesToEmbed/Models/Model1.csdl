@@ -54,6 +54,7 @@
       <End Role="Work" EntitySet="Work" />
       <End Role="WorkDocument" EntitySet="WorkDocument" />
     </AssociationSet>
+    <EntitySet Name="ConfiguracionSitio" EntityType="FitosanitariasModel.ConfiguracionSitio" />
   </EntityContainer>
   <EntityType Name="Accreditation">
     <Key>
@@ -352,4 +353,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="ConfiguracionSitio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TituloCongreso" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LogoCongreso" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteAsistenciaHeader" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteAsistenciaFooter" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteOradorHeader" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteOradorFooter" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="TituloCortoCongreso" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="DiasDelCongreso" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

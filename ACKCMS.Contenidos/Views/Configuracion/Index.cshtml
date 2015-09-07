@@ -1,0 +1,55 @@
+﻿@using ACKCMS.Contenidos.Utils
+@model IEnumerable<ACKCMS.Contenidos.Models.ConfiguracionSitio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Configuración del sitio</h2>
+<h3>Cómo funciona la configuración del sitio</h3>
+<p>Utilice este espacio para crear 'archivos' de configuración de sitio qeu quedarán guardados en la base de datos y serán considerados vigentes siempre, hasta el momento en que decida crear un archivo nuevo. En estos archivos, usted podrá crear el título completo vigente para el congreso del año actual, así como cargar los recurso gráficos pertinentes para la generación de certificados.</p>
+<p>Que sean 'siempre vigentes' significa que una vez que usted creó un archivo de configuración para el congreso del año actual, éste quedará como la configuración vigente hasta que decida crear una nueva configuración. Si necesita corregir cualquier aspecto de la configuración actual (ejemplo: Actualizar el título), simplemente cree un nuevo archivo de configuración, y el sistema tomará este nuevo archivo como el vigente.</p>
+<p><strong>En síntesis, la última configuración conocida siempre es la vigente.</strong></p>
+<p>
+    <a href="@Url.Action("Create", "Configuracion")" class="btn btn-success">Crear nuevo archivo de configuración</a>
+</p>
+<table class="table">
+    <tr>
+        <th style="width: 50%;">
+            Título congreso
+        </th>
+        <th>
+            Logo
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.Raw(HtmlRemoval.StripTagsRegex(item.TituloCongreso))
+                @if (ViewBag.Activo == item.id)
+                {
+                    <strong style="color: red;"> (Activo)</strong>
+                }
+            </td>
+            <td>
+                @if (item.LogoCongreso != null)
+                {
+                    <img src="@Url.Action("ViewConfigLogo", "Base", new { id = item.id })" style="width: 200px;" />
+                }
+                else
+                {
+                    <span>Sin logo</span>
+                }
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.id }) |*@
+                <a href="@Url.Action("Details", "Configuracion", new { id = item.id })" class="btn btn-info">Ver</a>
+                <a href="@Url.Action("Delete", "Configuracion", new {id = item.id})" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+    }
+
+</table>

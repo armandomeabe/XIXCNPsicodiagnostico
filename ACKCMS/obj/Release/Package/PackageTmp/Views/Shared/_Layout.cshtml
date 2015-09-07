@@ -1,7 +1,10 @@
 ﻿@using System.Collections.Specialized
 @using ACKCMS.Controllers
 @using ACKCMS.Models
-
+@{
+    var db = new FitosanitariasEntities();
+    var config = db.ConfiguracionSitio.OrderByDescending(x => x.id).First();
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,19 +66,13 @@
             <div id="banner">
                 <div class="container">
                     <div class="row">
-                        <div class="6u">
-                            <h1 style="font-size: 80px; margin-bottom: 15px; line-height: 55px;">Evaluando Vulnerabilidades</h1>
-                            <h1 style="font-size: 60px; margin-bottom: 15px;">en diferentes contextos</h1>
-                            <h1 style="font-size: 40px; margin-bottom: 15px;">Homenaje "Dra. Elizabeth Sorribas"</h1>
-                            <h1 style="font-size: 30px; margin-bottom: 5px;">1, 2 y 3 de Octubre de 2015</h1>
-                            <h1 style="font-size: 30px; margin-bottom: 30px;">Lugar : Echagüe 7151 / UCSF. <strong>Santa Fe.</strong></h1>
+                        <div class="7u">
+                            @Html.Raw(config.TituloCongreso)
                             <a href="@Url.Action("Acreditacion", "Home")" class="button-big">Inscripción</a>
-                            <a href="@Url.Action("Trabajos", "Home")" class="button-big">Presentar resúmenes</a>
-
+                            <a href="@Url.Action("Trabajos", "Home")" class="button-big">Presentar resúmenes / trabajos</a>
                         </div>
-                        <div class="6u">
-                            <!-- Banner Image -->
-                            <center><a href="#" class="bordered-feature-image"><img src="images/logo.png" style="width: 400px" alt="" /></a></center>
+                        <div class="5u">
+                            <center><a href="#" class="bordered-feature-image"><img src="@Url.Action("ViewConfigLogo", "Base")" style="width: 400px" alt="" /></a></center>
                         </div>
                     </div>
                 </div>
@@ -121,7 +118,7 @@
                 <div class="container">
                     <div class="row">
                         <header>
-                            <h2>Por favor compruebe los siguientes errores y vuelva a intentar</h2>
+                            <h2>Mensajes del sitio web</h2>
                         </header>
                     </div>
 

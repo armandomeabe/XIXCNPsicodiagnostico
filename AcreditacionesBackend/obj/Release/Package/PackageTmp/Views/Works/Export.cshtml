@@ -8,22 +8,22 @@
     var status = db.WorkStatus.Find(Model.EstadoID);
 }
 
-<h2>@Model.Title</h2>
-
+<h1>@Html.Raw(AcreditacionesBackend.Utils.HtmlRemoval.StripTagsRegex(Model.Title))</h1>
+<h3>Modalidad: @db.WorkAreas.Find(Model.AreaID).Nombre</h3>
+<h3>Autor/es: @Html.Raw(AcreditacionesBackend.Utils.HtmlRemoval.StripTagsRegex(Model.Autores))</h3>
 <div>
     <hr />
     <dl class="dl-horizontal">
-        <div class="row well">
+        <div class="row">
             <dt>
                 Cuerpo
             </dt>
-
             <dd>
                 @Html.Raw(Model.Body)
             </dd>
         </div>
-
-        <div class="row well">
+        <hr/>
+        <div class="row">
             <dt>
                 Comentarios del evaluador
             </dt>

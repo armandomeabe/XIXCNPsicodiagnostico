@@ -24,6 +24,8 @@
     <Property Name="FechaAcreditacion" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Works" Relationship="Self.FK_Work_Accreditation" FromRole="Accreditation" ToRole="Work" />
     <Property Name="CantTrabajosPresenta" Type="Int32" />
+    <Property Name="InstitucionALaQuePertenece" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ComprobanteBinaryArr" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Author">
     <Key>
@@ -71,6 +73,12 @@
     <NavigationProperty Name="Establishments" Relationship="Self.FK_Establishment_Work" FromRole="Work" ToRole="Establishment" />
     <Property Name="Autores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Instituciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FullWorkBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TrabajoAprobado" Type="Boolean" />
+    <Property Name="TrabajoCompletoPresentado" Type="Boolean" />
+    <Property Name="FechaUltimaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaResumenPresentado" Type="DateTime" Precision="3" />
+    <Property Name="FechaTrabajoPresentado" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="WorkArea">
     <Key>
@@ -183,6 +191,7 @@
       <End Role="CMS_ARTICULO" EntitySet="CMS_ARTICULO" />
       <End Role="CMS_IMAGEN" EntitySet="CMS_IMAGEN" />
     </AssociationSet>
+    <EntitySet Name="ConfiguracionSitios" EntityType="FitosanitariasModel.ConfiguracionSitio" />
   </EntityContainer>
   <EntityType Name="CMS_ARCHIVO">
     <Key>
@@ -314,4 +323,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="ConfiguracionSitio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TituloCongreso" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LogoCongreso" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteAsistenciaHeader" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteAsistenciaFooter" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteOradorHeader" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteOradorFooter" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="TituloCortoCongreso" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="DiasDelCongreso" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

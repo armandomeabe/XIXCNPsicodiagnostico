@@ -37,5 +37,6 @@ namespace ACKCMS.Contenidos.Models
         public virtual DbSet<CMS_MENU> CMS_MENU { get; set; }
         public virtual DbSet<CMS_TIPOARCHIVO> CMS_TIPOARCHIVO { get; set; }
         public virtual DbSet<CMS_IMAGEN> CMS_IMAGEN { get; set; }
+        public virtual DbSet<ConfiguracionSitio> ConfiguracionSitios { get; set; }
     }
 }

@@ -48,6 +48,12 @@
       <End Role="Work" EntitySet="Works" />
       <End Role="WorkDocument" EntitySet="WorkDocuments" />
     </AssociationSet>
+    <EntitySet Name="ConfiguracionSitios" EntityType="Model.ConfiguracionSitio" />
+    <EntitySet Name="MesasDePonenciasLibres" EntityType="Model.MesasDePonenciasLibre" />
+    <AssociationSet Name="Work_MesaDePonencias" Association="Model.Work_MesaDePonencias">
+      <End Role="MesasDePonenciasLibre" EntitySet="MesasDePonenciasLibres" />
+      <End Role="Work" EntitySet="Works" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Accreditation">
     <Key>
@@ -180,6 +186,8 @@
     <Property Name="FechaUltimaModificacion" Type="DateTime" Precision="3" />
     <Property Name="FechaResumenPresentado" Type="DateTime" Precision="3" />
     <Property Name="FechaTrabajoPresentado" Type="DateTime" Precision="3" />
+    <Property Name="Coordinadores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MesasDePonenciasLibres" Relationship="Model.Work_MesaDePonencias" FromRole="Work" ToRole="MesasDePonenciasLibre" />
   </EntityType>
   <EntityType Name="WorkArea">
     <Key>
@@ -187,6 +195,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Coordinadores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="WorkStatu">
     <Key>
@@ -310,5 +319,34 @@
         <PropertyRef Name="WorkID" />
       </Dependent>
     </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ConfiguracionSitio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TituloCongreso" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LogoCongreso" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteAsistenciaHeader" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteAsistenciaFooter" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteOradorHeader" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ComprobanteOradorFooter" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="TituloCortoCongreso" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="DiasDelCongreso" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="Ciudad" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MesasDePonenciasLibre">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Coordinadores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DescripcionOpcional" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Works" Relationship="Model.Work_MesaDePonencias" FromRole="MesasDePonenciasLibre" ToRole="Work" />
+  </EntityType>
+  <Association Name="Work_MesaDePonencias">
+    <End Type="Model.MesasDePonenciasLibre" Role="MesasDePonenciasLibre" Multiplicity="*" />
+    <End Type="Model.Work" Role="Work" Multiplicity="*" />
   </Association>
 </Schema>

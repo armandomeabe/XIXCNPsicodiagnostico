@@ -26,6 +26,9 @@
         <AssociationConnector Association="FitosanitariasModel.MID_ARTICULO_CATEGORIA" />
         <EntityTypeShape EntityType="FitosanitariasModel.CMS_IMAGEN" Width="1.5" PointX="7.5" PointY="14.625" />
         <AssociationConnector Association="FitosanitariasModel.FK_CMS_IMAGEN_CMS_ARTICULO" />
+        <EntityTypeShape EntityType="FitosanitariasModel.WorkDocument" Width="1.5" PointX="5.25" PointY="15.25" />
+        <AssociationConnector Association="FitosanitariasModel.FK_WorkDocument_Work" />
+        <EntityTypeShape EntityType="FitosanitariasModel.ConfiguracionSitio" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

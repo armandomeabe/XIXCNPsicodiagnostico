@@ -12,6 +12,7 @@ using System.Web.Mvc;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AcreditacionesBackend.Models;
+using WordIO;
 
 namespace AcreditacionesBackend.Controllers
 {
@@ -19,6 +20,48 @@ namespace AcreditacionesBackend.Controllers
     public class AdministracionController : Controller
     {
         private readonly Entities db = new Entities();
+
+
+        public ActionResult ExportarLibroResumenes()
+        {
+            var gen = new Generator();
+            gen.CrearLibro(false);
+            var filename = "LibroResumenes.doc";
+            string filepath = "C:/TEMP/" + filename;
+            byte[] filedata = System.IO.File.ReadAllBytes(filepath);
+            string contentType = MimeMapping.GetMimeMapping(filepath);
+
+            System.Net.Mime.ContentDisposition cd = new System.Net.Mime.ContentDisposition
+            {
+                FileName = filename,
+                Inline = true,
+            };
+
+            Response.AppendHeader("Content-Disposition", cd.ToString());
+
+            return File(filedata, contentType);
+        }
+
+        public ActionResult ExportarLibroTrabajos()
+        {
+            var gen = new Generator();
+            gen.CrearLibro(true);
+            var filename = "LibroTrabajos.doc";
+            string filepath = "C:/TEMP/" + filename;
+            byte[] filedata = System.IO.File.ReadAllBytes(filepath);
+            string contentType = MimeMapping.GetMimeMapping(filepath);
+
+            System.Net.Mime.ContentDisposition cd = new System.Net.Mime.ContentDisposition
+            {
+                FileName = filename,
+                Inline = true,
+            };
+
+            Response.AppendHeader("Content-Disposition", cd.ToString());
+
+            return File(filedata, contentType);
+        }
+
 
         [HttpGet]
         [AllowAnonymous]
@@ -112,7 +155,11 @@ namespace AcreditacionesBackend.Controllers
             if (ModelState.IsValid)
             {
                 if (!string.IsNullOrWhiteSpace(accreditation.AcreditacionComprobanteNro))
+                {
                     model.AcreditacionRealizada = true;
+
+                    EmailSender.Sender.Send(model.Email.Trim().ToLower(), "Acreditación confirmada", "Sr./Sra. " + model.Apellido + ", " + model.Nombre + ". Le confirmamos que su acreditación al Congreso Nacional de Psicodiagnóstico ya fue procesada y aprobada. Muchas gracias.");
+                }
 
                 model.AcreditacionComprobanteNro = accreditation.AcreditacionComprobanteNro;
 

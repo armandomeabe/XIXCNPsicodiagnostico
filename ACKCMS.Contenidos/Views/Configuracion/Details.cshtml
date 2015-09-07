@@ -1,0 +1,81 @@
+﻿@model ACKCMS.Contenidos.Models.ConfiguracionSitio
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Detalles del archivo de configuración</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Título Congreso
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.TituloCongreso)
+        </dd>
+        
+        <dt>
+            Título corto
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.TituloCortoCongreso)
+        </dd>
+        
+        <dt>
+            Días a realizarse
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.DiasDelCongreso)
+        </dd>
+
+        <dt>
+            Logo Congreso
+        </dt>
+
+        <dd>
+            <img src="@Url.Action("ViewConfigLogo", "Base", new { id = Model.id })" />
+        </dd>
+
+        <dt>
+            Comprobante de asistencia (Header)
+        </dt>
+
+        <dd>
+            <img src="@Url.Action("ViewComprobanteAsistenciaHeader", "Base", new { id = Model.id })" />
+        </dd>
+
+        <dt>
+            Comprobante de asistencia (Footer)
+        </dt>
+
+        <dd>
+            <img src="@Url.Action("ViewComprobanteAsistenciaFooter", "Base", new { id = Model.id })" />
+        </dd>
+
+        <dt>
+            Comprobante de orador (Header)
+        </dt>
+
+        <dd>
+            <img src="@Url.Action("ViewComprobanteOradorHeader", "Base", new { id = Model.id })" />
+        </dd>
+
+        <dt>
+            Comprobante de orador (Footer)
+        </dt>
+
+        <dd>
+            <img src="@Url.Action("ViewComprobanteOradorFooter", "Base", new { id = Model.id })" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Index")" class="btn btn-success">Volver</a>
+</p>

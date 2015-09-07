@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AcreditacionesBackend.Models.MesasDePonenciasLibre>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Mesas de Ponencias Libres</h2>
+
+<p>
+    @Html.ActionLink("Crear Nueva", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Coordinadores)
+        </th>
+        <th>
+            
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.Raw(item.Titulo)
+        </td>
+        <td>
+            @Html.Raw(item.Coordinadores)
+        </td>
+        <td>
+            @Html.Raw(item.DescripcionOpcional)
+        </td>
+        <td>
+            <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    Acciones
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation" class="dropdown-header">Elija una opción</li>
+                    
+                    <li role="presentation" class="dropdown-header">@Html.ActionLink("Ponencias", "PonenciasEnMesas", new { id = item.id })</li>
+                    <li role="presentation" class="dropdown-header">@Html.ActionLink("Editar", "Edit", new { id = item.id })</li>
+                    <li role="presentation" class="dropdown-header">@Html.ActionLink("Eliminar", "Delete", new { id = item.id })</li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+}
+
+</table>

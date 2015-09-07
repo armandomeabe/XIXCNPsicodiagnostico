@@ -8,10 +8,22 @@
     var status = db.WorkStatus.Find(Model.EstadoID);
 }
 
-<h2>Ver trabajo</h2>
-
 <div>
-    <h4>@Html.Raw(Model.Title)</h4>
+    <h1>@Html.Raw(AcreditacionesBackend.Utils.HtmlRemoval.StripTagsRegex(Model.Title))</h1>
+    <h3>Modalidad: @db.WorkAreas.Find(Model.AreaID).Nombre</h3>
+    <h3>Autor/es: @Html.Raw(AcreditacionesBackend.Utils.HtmlRemoval.StripTagsRegex(Model.Autores))</h3>
+
+    @if (Model.WorkDocuments.Any())
+    {
+        <hr />
+        <h2>Archivos Adjuntos</h2>
+        foreach (var doc in Model.WorkDocuments.ToList())
+        {
+            <h4>@doc.Nombre - Subido: @doc.FechaSubido.ToShortDateString() <a href="@Url.Action("GetAttachedFile", "Works", new { id = doc.id})" class="btn btn-success pull-right">Descargar</a></h4>
+            <br />
+        }
+    }
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -22,17 +34,26 @@
             <strong>@Html.Raw(Model.Title)</strong>
         </dd>
         <br />
-        <div class="row well">
+        <hr/>
+        <div class="row">
             <dt>
-                Cuerpo
+                Cuerpo (Resumen)
             </dt>
 
             <dd>
                 @Html.Raw(Model.Body)
             </dd>
-        </div>
+            
+            <dt>
+                Cuerpo (Trabajo Completo)
+            </dt>
 
-        <div class="row well">
+            <dd>
+                @Html.Raw(Model.FullWorkBody)
+            </dd>
+        </div>
+        <hr />
+        <div class="row ">
             <dt>
                 Comentarios del evaluador
             </dt>
